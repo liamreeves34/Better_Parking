@@ -387,18 +387,32 @@
     els.otherCampus.value = state.otherCampus;
   }
 
+  function otherLotLabel(lot) {
+    return lot.name || 'Lot ' + lot.code;
+  }
+
   function otherCardHtml(lot) {
-    var label = 'Lot ' + lot.code;
+    var label = otherLotLabel(lot);
     var meta = [];
     if (lot.zone) meta.push(lot.zone);
     if (lot.features && lot.features.length) meta = meta.concat(lot.features);
+    var title = lot.code
+      ? '<span class="occ-lot-prefix">Lot</span> ' + esc(lot.code)
+      : esc(lot.name);
+    var details = lot.infoUrl
+      ? '<a class="occ-action" href="' + esc(lot.infoUrl) + '">Details<span class="occ-sr"> about ' + esc(label) + '</span></a>'
+      : '';
     return '<li class="occ-other-card">' +
-      '<h4 class="occ-card-title"><span class="occ-lot-prefix">Lot</span> ' + esc(lot.code) + '</h4>' +
-      '<p class="occ-place">' + esc(lot.location || 'Location shown on the campus parking map') + '</p>' +
+      '<h4 class="occ-card-title' + (lot.code ? '' : ' occ-card-title--name') + '">' + title + '</h4>' +
+      (lot.location
+        ? '<p class="occ-place">' + esc(lot.location) + '</p>'
+        : '<p class="occ-place occ-place--unknown">Location: see the campus parking map</p>') +
       (meta.length ? '<p class="occ-meta">' + esc(meta.join(' · ')) + '</p>' : '') +
       '<div class="occ-actions">' +
-        (lot.location || lot.lat != null ? directionsLink(lot, label) : '') +
-        mapButton(lot.campus, lot.code, label) +
+        // Directions only where a source says where the lot is.
+        directionsLink(lot, label) +
+        mapButton(lot.campus, lot.code || '', label) +
+        details +
       '</div>' +
     '</li>';
   }
@@ -406,7 +420,7 @@
   function renderOtherLots() {
     var liveCodes = state.lots.map(function (lot) { return lot.code; });
     var others = (DATA.otherLots || []).filter(function (lot) {
-      return liveCodes.indexOf(lot.code) === -1;
+      return !lot.code || liveCodes.indexOf(lot.code) === -1;
     });
     $('occ-count-other').textContent = others.length ? '(' + others.length + ')' : '';
 
@@ -415,7 +429,11 @@
       var campus = DATA.campuses[key];
       var lots = others
         .filter(function (lot) { return lot.campus === key; })
-        .sort(function (a, b) { return a.code.localeCompare(b.code, 'en', { numeric: true }); });
+        .sort(function (a, b) {
+          // Lettered lots first in natural order (E2 before E10), then named sites.
+          if (!a.code || !b.code) return a.code ? -1 : b.code ? 1 : otherLotLabel(a).localeCompare(otherLotLabel(b));
+          return a.code.localeCompare(b.code, 'en', { numeric: true });
+        });
       var headingId = 'occ-campus-' + key;
       var body = lots.length
         ? '<ul class="occ-other-grid">' + lots.map(otherCardHtml).join('') + '</ul>'

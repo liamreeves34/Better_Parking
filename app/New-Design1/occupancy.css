@@ -412,6 +412,11 @@
   font-weight: 600;
   line-height: 1.3;
 }
+.occ .occ-place--unknown {
+  color: var(--occ-muted);
+  font-weight: 400;
+  font-style: italic;
+}
 .occ .occ-meta {
   color: var(--occ-muted);
   font-size: .8rem;
@@ -593,6 +598,7 @@
   border-radius: 8px;
 }
 .occ .occ-other-card .occ-card-title { font-size: 1.2rem; }
+.occ .occ-other-card .occ-card-title--name { font-size: 1.05rem; line-height: 1.25; white-space: normal; }
 .occ .occ-other-card .occ-actions { margin-top: auto; padding-top: 4px; }
 .occ .occ-other-empty {
   padding: 10px 12px;
