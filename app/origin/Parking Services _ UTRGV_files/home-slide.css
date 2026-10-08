@@ -1,0 +1,200 @@
+/* Department Slideshow ===================================*/
+ .home_slider{
+	margin-top:-20px;
+}
+ .home_slider ARTICLE {
+	/*margin-top:20px;
+	*/
+	 top:0px;
+	 position:relative;
+	 left:0px;
+	 overflow-x: hidden;
+	 height:auto;
+}
+ .home_slider .slideshow {
+	margin-top: 0px;
+	 padding:0px;
+}
+ .home_slider .slideshow FIGURE {
+	 margin:0px;
+	 position: relative;
+}
+ .home_slider .ss-wrapper .figure_slide{
+	width:100% !important;
+}
+/** RESET AND LAYOUT ===================================*/
+ .home_slider .ss-wrapper {
+	 width:100%;
+	 height:auto;
+	 margin: 0 auto;
+}
+ .home_slider .ss-wrapper img {
+	 width: 100%;
+}
+/** THEME ===================================*/
+ .home_slider .ss-wrapper .ss-viewport {
+	 -moz-box-shadow: none;
+	 -webkit-box-shadow: none;
+	 box-shadow: none;
+	 border: none;
+	 left: 0;
+	 overflow: hidden;
+	 width: 100%;
+	 height: auto;
+}
+/*.ss-viewport {
+	 overflow: hidden;
+	 width: 100%;
+	 height: auto !important;
+}
+*/
+/* LOADER */
+/* PAGER */
+/* DIRECTION CONTROLS (NEXT / PREV) */
+ .home_slider .ss-wrapper .ss-controls-direction a {
+	 display: block;
+	 width: 30px;
+	 height: 30px;
+	 text-indent: 100%;
+	 white-space: nowrap;
+	 overflow: hidden;
+	 border: 0px none;
+	 opacity: 0;
+	 transition: all 200ms ease-in-out 0s;
+}
+ .home_slider .ss-wrapper .ss-prev {
+	 left: 30px;
+}
+ .home_slider .ss-wrapper .ss-next {
+	 right: 30px;
+}
+ .home_slider .ss-wrapper:hover .ss-controls-direction a {
+	 opacity: 1;
+	 top: 80.5%;
+}
+/* AUTO CONTROLS (START / STOP) */
+/* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
+ .home_slider .ss-wrapper .ss-pager.ss-default-pager a {
+	 border: 1px solid #FFF;
+	 width: 9px;
+	 height: 9px;
+	 margin: 0px 3px;
+}
+ .home_slider .ss-wrapper .ss-pager {
+	 padding: 0px 15% 0px 0px;
+	 text-align: right;
+	 width: 100%;
+	 position: relative;
+	 right: 10%;
+	 bottom: 65px;
+	/* z-index: 50;
+	 below top slide */
+	 z-index: 100;
+}
+ .home_slider .ss-wrapper .ss-pager .ss-pager-item, .ss-wrapper .ss-controls-auto .ss-controls-auto-item {
+	 text-indent: 1000%;
+	 white-space: nowrap;
+	 /* overflow visible to fix Text is clipped when resized
+	 overflow: hidden; */
+	 overflow: visible;
+	 border: 0px none;
+	 margin: 0px;
+}
+/* IMAGE CAPTIONS */
+ .home_slider hr.slideshow{
+	 border-style: dotted;
+	 border-color: #FFF;
+	 -moz-border-top-colors: none;
+	 -moz-border-right-colors: none;
+	 -moz-border-bottom-colors: none;
+	 -moz-border-left-colors: none;
+	 border-image: none;
+	 border-width: 1px 0px 0px;
+	 margin: 0px;
+	 position: relative;
+	 width: 10000px;
+	 left: -5000px;
+}
+ .home_slider .ss-wrapper .ss-caption {
+	 box-sizing: border-box;
+	/* background: rgba(102, 102, 102, 0.6) none repeat scroll 0px 0px;
+	 */
+	 background: #000000 none repeat scroll 0px 0px;
+	 opacity: 1;
+	 overflow: visible;
+	 position: absolute;
+	 z-index: 12;
+	/*min-height: 86px;
+	*/
+	 *height: auto;
+	 width: 40%;
+	 left: 12%;
+	 top: 67%;
+	 bottom: auto;
+	 padding: 0px 20px;
+	 font-family: Proxima Nova,sans-serif;
+	 font-size: 14px;
+	 font-weight: bold;
+	 color: #FFF;
+	 text-transform:uppercase;
+}
+ .home_slider .ss-wrapper .ss-caption a{
+	color:#FFF;
+}
+ .home_slider .ss-caption .eng-caption, .ss-caption .spa-caption{
+	margin: 10px 0px;
+}
+/* Media Queries start here. ______________________________*/
+/* 370px styles ----------------*/
+ @media screen and (max-width: 370px) {
+	 .home_slider .ss-wrapper .ss-controls-direction a {
+		 top:10% !important;
+	}
+	 .home_slider .ss-wrapper:hover .ss-controls-direction a {
+		/* top:10% !important;
+		 */
+	}
+}
+/* 487px styles ----------------*/
+ @media screen and (max-width: 487px) {
+	 .home_slider .ss-wrapper .ss-controls-direction a {
+		 top:30% !important;
+	}
+	 .home_slider .ss-wrapper:hover .ss-controls-direction a {
+		/* top:30% !important;
+		 */
+	}
+}
+/* 768px styles ----------------*/
+ @media screen and (max-width: 768px) {
+	 .home_slider .ss-wrapper .ss-controls-direction a {
+		 top:40% !important;
+	}
+	 .home_slider .ss-wrapper:hover .ss-controls-direction a {
+		/* top:40% !important;
+		 */
+	}
+}
+/* 960px styles ----------------*/
+ @media screen and (max-width:960px) {
+	 .home_slider .ss-wrapper .ss-caption {
+		 border: 1px solid transparent;
+		 top: 100%;
+		 width: 100%;
+		 left: 0px;
+		 position:relative;
+	}
+	/* commenting out to show dot buttons on mobile views to fix Text is clipped when resized issue */
+	 .home_slider .ss-wrapper .ss-pager.ss-default-pager {
+		 /* display:none; */
+	}
+	 .home_slider .ss-wrapper .ss-controls-direction a{
+		 opacity: 1;
+		 transition: none;
+		 top:40%;
+	}
+	 .home_slider .ss-wrapper:hover .ss-controls-direction a {
+		/* top:40%;
+		 */
+	}
+}

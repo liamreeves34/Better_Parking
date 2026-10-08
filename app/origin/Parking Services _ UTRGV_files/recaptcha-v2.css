@@ -1,0 +1,12 @@
+#recaptchaV2-1 {
+    border: 0;
+    height: 90px !important;
+    overflow: hidden;
+    width: 314px !important;
+}
+
+#recaptchaV2-3 {
+    border: 2px;
+    height: 620px !important;
+    overflow: hidden;
+}

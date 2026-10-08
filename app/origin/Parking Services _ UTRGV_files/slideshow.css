@@ -1,0 +1,179 @@
+/** RESET AND LAYOUT
+===================================*/
+
+.ss-wrapper {
+  position: relative;
+  margin: 0 auto 60px;
+  padding: 0;
+  *zoom: 1;
+}
+
+.ss-wrapper img {
+  max-width: 100%;
+  display: block;
+}
+
+/** THEME
+===================================*/
+
+.ss-wrapper .ss-viewport {
+  -moz-box-shadow: 0 0 5px #ccc;
+  -webkit-box-shadow: 0 0 5px #ccc;
+  box-shadow: 0 0 5px #ccc;
+  border: solid #fff 5px;
+  left: -5px;
+  background: #fff;
+}
+
+.ss-wrapper .ss-pager,
+.ss-wrapper .ss-controls-auto {
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+}
+
+/* LOADER */
+
+.ss-wrapper .ss-loading {
+  min-height: 50px;
+  background: url(../assets/images/ss_loader.gif) center center no-repeat #fff;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+}
+
+/* PAGER */
+
+.ss-wrapper .ss-pager {
+  text-align: center;
+  font-size: .85em;
+  font-family: inherit;
+  font-weight: inherit;
+  color: #666;
+  padding-top: 20px;
+}
+
+.ss-wrapper .ss-pager .ss-pager-item,
+.ss-wrapper .ss-controls-auto .ss-controls-auto-item {
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+}
+
+.ss-wrapper .ss-pager.ss-default-pager a {
+  background: #fdfdfd;
+  /*text-indent: -9999px;*/
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  outline: 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  color:#222222;
+}
+
+.ss-wrapper .ss-pager.ss-default-pager a:hover,
+.ss-wrapper .ss-pager.ss-default-pager a.active {
+  background: #575757;
+  color:#fdfdfd;
+}
+
+/* DIRECTION CONTROLS (NEXT / PREV) */
+
+.ss-wrapper .ss-prev {
+  left: 10px;
+  background: url(../assets/images/controls.png) no-repeat 0 0px;
+  /*background-position: 0 0;*/
+}
+
+.ss-wrapper .ss-next {
+  right: 10px;
+  background: url(../assets/images/controls.png) no-repeat -28px 0px;
+}
+
+.ss-wrapper .ss-controls-direction a {
+  position: absolute;
+  top: 50%;
+  margin-top: -16px;
+  outline: 0;
+  width: 32px;
+  height: 32px;
+  text-indent: -9999px;
+  z-index: 9999;
+}
+
+.ss-wrapper .ss-controls-direction a.disabled {
+  display: none;
+}
+
+/* AUTO CONTROLS (START / STOP) */
+
+.ss-wrapper .ss-controls-auto {
+  text-align: center;
+}
+
+.ss-wrapper .ss-controls-auto .ss-start {
+  display: block;
+  text-indent: -9999px;
+  width: 10px;
+  height: 11px;
+  outline: 0;
+  background: url(../assets/images/controls.png) -86px -11px no-repeat;
+  margin: 0 3px;
+}
+
+.ss-wrapper .ss-controls-auto .ss-start:hover,
+.ss-wrapper .ss-controls-auto .ss-start.active {
+  background-position: -86px 0;
+}
+
+.ss-wrapper .ss-controls-auto .ss-stop {
+  display: block;
+  text-indent: -9999px;
+  width: 9px;
+  height: 11px;
+  outline: 0;
+  background: url(../assets/images/controls.png) -86px -44px no-repeat;
+  margin: 0 3px;
+}
+
+.ss-wrapper .ss-controls-auto .ss-stop:hover,
+.ss-wrapper .ss-controls-auto .ss-stop.active {
+  background-position: -86px -33px;
+}
+
+/* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
+
+.ss-wrapper .ss-controls.ss-has-controls-auto.ss-has-pager .ss-pager {
+  text-align: left;
+  width: 80%;
+}
+
+.ss-wrapper .ss-controls.ss-has-controls-auto.ss-has-pager .ss-controls-auto {
+  right: 0;
+  width: 35px;
+}
+
+/* IMAGE CAPTIONS */
+
+.ss-wrapper .ss-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #666\9;
+  background: rgba(80, 80, 80, 0.75);
+  width: 100%;
+}
+
+.ss-wrapper .ss-caption span {
+  color: #fff;
+  font-family: Arial;
+  display: block;
+  font-size: .85em;
+  padding: 10px;
+}

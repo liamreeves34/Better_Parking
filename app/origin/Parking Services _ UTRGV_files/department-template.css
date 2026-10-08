@@ -1,0 +1,1128 @@
+/* nav styles override
+-----------------------*/
+.header-btn {
+    padding-top: .3em;
+}
+form.search {
+  margin-bottom: 1em;
+}
+
+.block {
+    display: block;
+}
+.inline {
+    display: inline;
+}
+.inline-block {
+    display: inline-block;
+}
+.hidden {
+    display: none;
+}
+
+.print-title {
+    display: none;
+}
+
+/* side-nav styles override
+----------------------------*/
+li.sidebar-list-item, .breadcrumb ul.sidebar-list {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.breadcrumb ul {
+    padding-top: 0px;
+}
+
+li.sidebar-list-item a{
+    border-bottom: 1px dotted #d5d5d5;
+    background: url('//www.utrgv.edu/_files/assets/images/subnav-arrow1.png') no-repeat scroll right center transparent;
+}
+.sidebar-list .has-nested > a {
+		background: url('//www.utrgv.edu/_files/assets/images/subnav-arrow-down.png') no-repeat scroll right 80% transparent !important;
+		background-position-x: 95.6% !important;
+	}
+/*li.sidebar-list-item a:only-child{
+    background: none;
+}*/
+
+li.breadcrumb.sidebar-list-item, li.breadcrumb.sidebar-list-item li {
+    background-color: #fbfbfb;
+    border: none;
+}
+
+li.sidebar-list-item a:hover, li.sidebar-list-item li a:hover {
+    background-color: #eee;
+}
+
+li.sidebar-list-item a {
+    display: block;
+    padding: 15px;
+}
+
+li.sidebar-list-item li a {
+    display: block;
+    padding-left: 40px;
+    position: relative;
+}
+
+li.sidebar-list-item li a:before {
+    content: "";
+    display: block;
+    position: absolute;
+	height: 8px;
+	width: 15px;
+	border-left: 1px dotted #dedede;
+	border-bottom: 1px dotted #dedede;
+	left: 18px;
+	top: 15px;
+
+}
+
+li.sidebar-list-item a:hover {
+    text-decoration: none;
+}
+
+ul.sidebar-list {
+    /* margin: 0 0 18px 0;  */
+    margin: 0 0 18px 4px;
+}
+
+ul.sidebar-list ul {
+    border-top: none;
+    margin-bottom: 0;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+/* UTRGV Department Template
+____________________________*/
+
+.department-header {
+  border-bottom:none!important;
+  margin-bottom: 10px;
+}
+
+.department-crumbs {
+  font-size: .8em;
+  position: relative;
+  margin-bottom: .8em;
+  padding-bottom: .7em;
+  border-bottom: 1px solid #CCC;
+  min-height: 1rem;
+}
+.breadcrumb-label {
+  text-indent: -999em;
+  position: absolute;
+}
+
+
+/* display breadcrumbs on mobile view */
+ p#breadcrumb-label {
+	/* display: none;
+	 */
+	 text-indent: -999em;
+	 position: absolute;
+}
+/* display breadcrumbs on mobile view to the left of translation link */
+ nav.breadcrumbs {
+	 width: 85%;
+}
+/* mobile breadcrumbs - separating list items with a slash */
+ .breadcrumbs ul li:before {
+	 content: " / ";
+}
+/* mobile breadcrumbs - remove slash before first list item */
+ .breadcrumbs ul li:first-child:before {
+	/*content: "";
+	*/
+	 display: none;
+}
+/* mobile breadcrumbs - remove list item bullet points on breadcrumbs */
+ .breadcrumbs ul li {
+	 display: inline-block;
+}
+/* mobile breadcrumbs - padding on unordered list. Some have div, some have ul > li */
+ .breadcrumbs ul {
+	 padding: 0;
+	 margin: 0;
+}
+/* mobile breadcrumbs - bold font on translation link */
+ @media screen and (max-width: 780px){
+	 .department-crumbs .my-language {
+		 font-weight: bold;
+	}
+}
+
+.breadcrumbs .list {
+  margin: 0 0 0 1.5em;
+  padding: 0;
+}
+.breadcrumbs .list-item {
+  display: inline-block;  
+}
+.breadcrumbs .list-item:before {
+  content: " / ";
+}
+.breadcrumbs .list-item:first-child:before {
+  display: none;  
+}
+.department-crumbs .my-language {
+  position: absolute;
+  top: 0;
+  right: 1.5em;
+}
+
+.department-content {
+  position: relative;
+  overflow: auto;
+  margin: 1em auto;
+}
+.home_slider {
+  margin-top: 10px;
+}
+.department-branding {
+  padding: 0px 1em;
+}
+.department-branding a {
+   color: #010101;  
+}
+
+.department-branding p a
+ {
+   color: #DB350F;  
+}
+
+.department-title {
+  font-size: 180%;
+  margin-top: .2em;
+  margin-bottom: 0;
+  padding-bottom: .2em;
+  position: relative;
+  line-height: 1.2;
+}
+.department-division {
+  font-size: 65%;
+  font-style: italic;
+  line-height: 140%;
+  display: block;
+  margin: .3em 0 0;
+  position: relative;
+  bottom: 0;
+  right: 0;
+}
+
+.department-division span {
+  font-size: 125%;
+  font-style: normal;
+  padding-left: .2em;
+  font-weight: 400;
+}
+
+.department-statement {
+  border-bottom: 1px solid #e8e8e8;
+  background: #F5F5F5 url('') repeat scroll 0 0;
+}
+
+.department-statement-title {
+  font-size: 160%;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  color: #354A5D;
+  margin: 0;
+  padding: .8em .3em .5em;
+}
+.department-statement-title span {
+  color: #8CAF4D;
+}
+.department-statement-description {
+  text-align: center;
+  /* line-height: 1.3em; */
+  line-height: 1.5; /* Increasing to fix Line height is below minimum value issue */
+  margin: 0;
+  padding: 0 1em 1em;
+  /* color: #6C6C6C & #878787; low color contrast */
+  color: #262626;
+}
+
+.department-content .check-list {
+    padding-left: 0; /*previously:.3em*/
+    margin-top: 0;
+}
+
+
+.contact-us {
+    padding-bottom: 20px;
+}
+
+/* other styles
+----------------*/
+h3.band {
+  color: #000;
+  border-bottom: 1px dotted #CCC;
+  padding: 0 .9em 1.5em;
+  height: 0;
+  background: none;
+  height: fit-content;
+}
+h3.band:before {
+  width: 0;
+  background: none;
+}
+
+
+
+/* Heading styles for left menu to fix headings are not structured issue
+----------------*/
+h2.band {
+  color: #000;
+  border-bottom: 1px dotted #CCC;
+  padding: 0 .9em 1.5em;
+  height: 0;
+  background: none;
+  height: fit-content;
+}
+h2.band:before {
+  width: 0;
+  background: none;
+}
+
+
+
+
+/* calendar styles 
+----------------*/
+.event-list {
+    margin-bottom: 1.5em;
+}
+.events-wrapper:hover {
+    background-color: #eee;
+}
+.event-date {
+    color: #504f4f;
+}
+.events-wrapper:hover a {
+    text-decoration: underline;
+}
+
+/* Faculty/staff/profiles page styles
+--------------------------------------*/
+.main-profile-container {
+    padding: 1px;
+    margin-left: -8%;
+    margin-top: -20px;
+}
+.main-profile-container .column-6-of-12 {
+    margin-left: 8%;
+}
+.main-profile-container .column-6-of-12 {
+    width: 41.5%; /*NOTE: need to do for other grid proportions*/
+}
+.contact-information {
+    margin-bottom: 2em;
+    overflow: auto;
+}
+.contact-information dt,
+.contact-information dd {
+	overflow: auto;
+}
+.contact-information .image {
+	float: left;
+	clear: left;
+	margin-right: 1em;
+}
+/* option for grid of 3 columns */
+.contact-information.clear-floats {
+    overflow: auto;
+	min-height: 24em;
+}
+.contact-information.clear-floats .image {
+	float: none;
+}
+
+
+/* misc styles
+---------------*/
+.centerer {
+  text-align:center;
+}
+.gap-fix {
+  padding-bottom: 450px;
+}
+.padding {
+  padding: 0 1em;
+}
+.list-default {
+    margin: 0;
+    padding: 0;
+}
+
+/* cms edit styles
+---------------*/
+
+/* Commenting out to fix link errors in cascade 8*/
+
+/*
+img[src="/css/icons/edit.png"] {
+    background: url('//www.utrgv.edu/_files/assets/images/icons/icon-edit-2.png');
+    content:"";
+    padding: 4px;
+}
+
+.global-nav + img[src="/css/icons/edit.png"] {
+    margin-top: 13px;
+}
+
+img[src="/css/icons/block_structureddata.gif"], img[src="/css/icons/block_index.gif"], img[src="/css/icons/block_xml.gif"] {
+    display: none !important;
+}
+*/
+
+option[value="black"] {
+border-left: 12px solid black;
+}
+
+option[value="blue"] {
+border-left: 12px solid blue;
+}
+
+option[value="green"] {
+border-left: 12px solid green;
+}
+
+option[value="orange"] {
+border-left: 12px solid orange;
+}
+
+option[value="purple"] {
+border-left: 12px solid purple;
+}
+
+option[value="red"] {
+border-left: 12px solid red;
+}
+
+option[value="steelblue"] {
+border-left: 12px solid steelblue;
+}
+
+option[value="teal"] {
+border-left: 12px solid teal;
+}
+
+option[value="yellow"] {
+border-left: 12px solid yellow;
+}
+
+option[value="Custom Color"] {
+border-left: 12px solid #eee;
+}
+
+
+/* New Tabs <ul> styles.
+--------------------------*/
+/** {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}*/
+.clear { clear: both; }
+.tabs {
+  width: 100%;
+list-style: outside none none;
+margin: 30px 0px;
+text-align: left;
+padding: 0px 0px 100px;
+float: left;
+min-height: 280px;
+height: 500px;
+display: block;
+position:relative;
+ }
+ 
+.tabs > li {
+  float: left;
+  display: block;
+  width: 20%;
+  height: 64px;
+  position: static;
+}
+.tabs input[type="radio"] {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+.tabs label {
+  display: block;
+  padding: 14px 8px;
+  border-radius: 2px 2px 0 0;
+  font-size: 12px;
+  font-weight: normal;
+  text-transform: uppercase;
+  background: #F1F1F1;
+  cursor: pointer;
+  position: relative;
+  top: 3px;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  /* border-right:1px solid #D9D9D9; */
+  line-height: 1.2em;
+  text-align: center;
+  /*width: 100%;*/
+  min-height:30px;
+}
+.tabs label:hover {
+  background: #E9E9E9;
+}
+.tabs .tab-content {
+  /*z-index: 2;
+  overflow: hidden;
+  top: 70px;
+  position: absolute;*/
+  display: none;
+  font-size: 14px;
+  line-height: 1.4em;
+  padding: 8px;
+  left: 0;
+  background: #FFF;
+  position:absolute;
+  width:100%;
+}
+.tabs [name^="tabs"]:checked + label {
+  top: 0;
+  /*padding-top: 15px;*/
+  background: #FFF;
+  border-top:2px solid #E14811;
+}
+.tabs [name^="tabs"]:checked ~ [class~=tab-content] {
+  display: block;
+}
+
+.tabs p {
+    padding-bottom:14px;
+}
+.tabs .tabpanel {
+	overflow: auto;
+	height: inherit;
+}
+
+
+
+/* Directory Search Feature
+--------------------------*/
+#showDirectory {
+    border: 1px solid #dedede;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    /* overflow: hidden; */
+    padding: 0;
+    margin: 0 auto;
+}
+
+.textbox-directory {
+    padding: 10px;
+    background-color: #e7e7e7;
+    border-bottom: 1px solid #dedede;
+    position: relative;
+}
+
+.lbl-search {
+    text-indent: -9999px;
+    display: block;
+    height: 0;
+    width: 0;
+}
+
+#showDirectory #my_input {
+    width: 100%;
+    padding: 9px 0 9px 9px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #dedede;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.sudo-submit {
+    height: 35px;
+    width: 30px;
+    position: absolute;
+    top: 11px;
+    right: -2px;
+    padding-left: 18px;
+    display: block;
+    /*   background: url('//www.utrgv.edu/_files/assets/images/search.png') no-repeat 10px center transparent; */
+    /* border-left: 1px solid #ccc; */
+}
+
+.submit {
+    height: 35px;
+    width: 30px;
+    position: absolute;
+    top: 11px;
+    right: -2px;
+    padding-left: 18px;
+    display: block;
+}
+
+#showDirectory .list {
+    padding: 0 2.8753% 0 3.6741%;
+    margin: 0;
+}
+
+#showDirectory .column-6-of-12 {
+    width: 43.450479%;
+}
+
+.directory_response, #showDirectory .list {
+    padding: 0 13px;
+    list-style: none;
+}
+
+#showDirectory .list_title {
+    font-size: 150%;
+    margin: 25px 0 0 0;
+    display: block;
+    color: #e24912;
+    font-weight: 500;
+    border-bottom: 1px dotted #d6d6d6;
+    padding-bottom: 13px;
+}
+
+.directory_response .list, .dep_list {
+    margin: -1px 0 2px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.directory_response .list-item, #showDirectory .dep_list li {
+    border-top: 1px dotted #d6d6d6;
+    padding: 13px 0;
+    margin: 0 !important;
+}
+
+.dep_list span {
+    clear: both;
+    display: block;
+    line-height: 19px;
+}
+
+.dep_name {
+    color: #4d4d4d;
+}
+
+.dep_name, .dep_name a {
+    font-weight: bold;
+}
+
+#showDirectory .list:last-child {
+    padding: 0 3.6741% 0 2.8753%;
+    margin: 0;
+}
+
+
+
+/*------------------------*/
+
+.column-4-of-12 form {
+    padding: 13px 0;
+}
+
+.column-4-of-12 form input, .column-4-of-12 form textarea, .column-4-of-12 form select {
+    margin-bottom: 12px;
+    width: 100%;
+    padding: 9px;
+    box-sizing: border-box;
+    height: 36px;
+}
+
+.content form button.button, 
+.content form input.button[type="button"], 
+.content form input.button[type="reset"], 
+.content form input.button[type="submit"] {
+    /*     background-color: rgba(226, 73, 18, 0.85); not accessible */
+    background-color: #C84719;
+    font-weight: normal;
+    margin-top: 5px;
+    box-shadow: none;
+}
+
+.content {
+    padding: 0;
+}
+
+/* Story List styles.
+-----------------------*/
+.story-group {
+    border-bottom: 1px solid #CCC;
+	margin: 2.5em 0;
+}
+.story-group:last-child {
+	border-bottom: 0;
+}
+.story-group > .story-list {
+	border-bottom: 1px dotted #EEE;
+}
+.story-list {
+    border-bottom: 1px solid #CCC;
+    margin: 1.5em 0;
+	padding: 0 0 1em;
+}
+.story-list:last-child {
+    border-bottom: 0;
+}
+.story-list .image {
+    margin: 0;
+}
+.story-list .bold, .story-list .bold {
+    margin-top: 0;
+}
+.story-list .info {
+    margin: 0;
+}
+.story-list .name {
+	font-size: 1.25em;
+	line-height: 130%;
+	padding-bottom: .3em;
+}
+.story-list .title {
+	font-weight: bold;
+	padding-bottom: .1em;
+}
+
+/* Thumbnail Listing w/Modal Groups styles */
+.group-name {
+    margin-top: 1em;
+    padding-bottom: .3em;
+    border-bottom: 1px solid #CCC;
+}
+
+
+/* Apply Now myButton styles */
+
+
+
+.myButton {
+    -moz-box-shadow: inset 0px 1px 0px 0px #cf866c;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #cf866c;
+    box-shadow: inset 0px 1px 0px 0px #cf866c;
+    background-color: #E03100; /* Accessible color */
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #942911;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    /*font-family: Arial;
+    font-size: 13px;*/
+    padding: 6px 24px;
+    text-decoration: none;
+    /*text-shadow: 0px 1px 0px #854629;*/
+}
+
+
+/* Media Queries start here.
+______________________________*/
+/* 400px styles
+----------------*/
+@media screen and (min-width: 400px) {
+	.sidebar-list .has-nested > a {
+		background-position-x: 96.5% !important;
+	}
+}
+/* 480px styles
+----------------*/
+@media screen and (min-width: 480px) {
+  .department-branding .wrapper {
+    display: inline;
+    float: left;
+    width: auto;
+  }
+}
+
+/* 680px max-width styles
+--------------------------*/
+@media only screen and (max-width: 680px){
+    .sidebar-list .sidebar-list .sidebar-list {
+        margin-left: 1em;
+    }
+}
+
+/* 680px styles
+----------------*/
+@media screen and (min-width: 680px) {
+
+/* styles styles override
+    --------------------------*/
+	.header-bumper {
+	  margin-top: 1.8em;
+	}
+	.band {
+		z-index: 1;
+	}
+
+  /* other styles
+  ----------------*/
+  .feat-wrap {
+    margin: 1.3em 0;
+  }
+  
+ /*  side-nav fly-out  
+-----------------------*/
+    .left-nav {
+        position: relative;
+        z-index: 88888;
+    }
+    
+    .left-nav ul li:hover, .left-nav ul li ul li:hover{
+        position:relative;
+    }
+    
+    .left-nav ul li ul, .left-nav ul li ul li ul {
+        position:absolute;
+        display:none;
+    }
+
+    .left-nav li.sidebar-list-item a {
+    	border-bottom: 1px dotted #d5d5d5;
+    	background: url('//www.utrgv.edu/_files/assets/images/subnav-arrow1.png') no-repeat scroll right center rgba(255,255,255,.98);
+	}
+	.sidebar-list .has-nested > a {
+		background-position-x: 93% !important;
+	}
+    .left-nav li.sidebar-single-list-item a, .left-nav li.sidebar-single-list-item li a {
+        border-bottom: 1px dotted #d5d5d5;
+        background: rgba(255,255,255,.98);
+    }
+    .left-nav li.sidebar-list-item a:hover,
+    .left-nav li.sidebar-list-item li a:hover,
+    .left-nav li.sidebar-single-list-item a:hover,
+    .left-nav li.sidebar-single-list-item li a:hover {
+    	background-color: rgba(238, 238, 238, .95);
+    	text-decoration: underline;
+	}
+
+	.left-nav > ul > li:hover > ul, .left-nav ul li ul li:hover ul {
+    	left: 100%;
+    	top: 0px;
+    	display: block;
+    	width: 80%;
+    	-webkit-box-shadow: 9px 4px 28px -5px rgba(0,0,0,0.39);
+    	-moz-box-shadow: 9px 4px 28px -5px rgba(0,0,0,0.39);
+    	box-shadow: 6px 0px 14px -5px rgba(0,0,0,0.39);
+    	border-left: 1px solid #f3f3f3;
+	}
+    
+    .left-nav li.sidebar-list-item li a, .left-nav li.sidebar-single-list-item li a {
+    /* padding-left: 15px; */
+     /* padding-left: 17px; */
+     padding-left: 22px;
+    }
+
+    .left-nav li.sidebar-list-item li a:before, .left-nav li.sidebar-single-list-item li a:before {
+    content: none;
+    }
+}
+
+/* moving .left-nav below #maincontent on mobile/smaller viewports sizes
+-------------------------------------------------------------------------*/
+@media only screen and (max-width: 700px){
+    .sidebar-list li .sidebar-list {
+    	display: none;
+    }
+    .sidebar-list li:hover > .sidebar-list,
+    .sidebar-list li .sidebar-list:hover {
+      visibility: visible;
+      opacity: 1;
+      display: block;
+    }
+	.mycontent-wrap {
+		display: flex;
+		flex-direction: column;
+		padding-left: 7px;
+		padding-right: 7px;
+	}
+	aside.column.column-4-of-12 {
+		display: flex;
+		flex-direction: column;
+		order: 2;
+	}
+	section.column.column-8-of-12 {
+		display: flex;
+		flex-direction: column;
+		order: 1;
+	}
+}
+
+
+/* 768px styles
+----------------*/
+@media screen and (min-width: 768px) {
+  .department-division{
+  text-align: right;
+  }
+  
+  .department-title {
+    font-size: 285%;
+    }
+
+  .department-statement-title {
+    padding-bottom: 19px;
+    font-size: 2.4em;
+    }
+  .department-crumbs {
+    border-bottom: 1px dotted rgb(51, 51, 51);
+    /* padding-bottom: 10px; */
+    width:100%;
+    }
+
+    .gap-fix {
+      padding-bottom: 280px;
+    }
+   /* .tabs li {
+      height: 54px;
+    }*/
+    
+}
+
+/* 780px styles
+----------------*/
+@media screen and (min-width: 780px) {
+
+    /* header overrides
+	--------------------*/
+	h1,h2,h3,h4,h5,h6 {
+		margin: 0 0 0.67em;
+	}
+  
+  .header-btn {
+    top: -105px;
+  }
+  .search {
+    top: -68px !important;
+  }
+
+  .js .global-nav {
+      margin-bottom: 1.5em;
+      z-index: 88889;
+  }
+  .js .global-nav > ul:before {
+    width: auto;
+    margin-left: auto;
+  }
+  .js .global-nav .list {
+    width: auto;
+  }
+  .js .global-nav {
+    width: auto;
+  }
+  .js .global-nav > ul ul {
+    margin-left: 0;
+  }
+  .js .global-nav .list-item:before {
+      height: 32px;
+  }
+  .js .global-nav .list-item a,
+  .js .global-nav .list-item.active a {
+      padding: 1em 0;
+  }
+  .js .department-content ul.list ul ul {
+    top: 0;
+    left: 100%;
+    margin-left: 0;
+    width: auto;
+    max-width: 100px;
+  }
+  .js .department-content ul.list li.list-item:last-child ul ul {
+    left: auto;
+  	right: 100%;
+    min-width: 180px;  
+  }
+
+    .js .global-nav > ul li:hover > ul a, .js .global-nav > ul li.active:hover > ul a {
+        box-sizing: border-box;
+    }
+    
+    .js .global-nav > ul li:hover > ul {
+        min-width: 100px;
+        width: 100%;
+        z-index: 88888;
+    }
+    /* responsive main-nav
+	-----------------------*/
+	.js .global-nav {
+		display: table;
+		width: 100%;
+		position: relative;
+		z-index: 99997;
+        table-layout: fixed;
+	}
+	.js .global-nav .list {
+		display: table-row;
+	}
+	.js .global-nav .list-item {
+		display: table-cell;
+        vertical-align: middle;
+        padding: 0 5px;
+	}
+    .js .global-nav > ul:before {
+        content: none !important;
+    }
+    
+    .sidebar-list .has-nested > a {
+		background-position-x: 95% !important;
+	}
+
+  /* other styles
+  ----------------*/
+  h3.band {
+    color: #FFF;
+    border-bottom: 0;
+    padding: 17px 0 0 65px; /*was: 17px 0 0 65px*/
+    height: 50px;
+    background: #504f4f;
+  }
+  h3.band:before {
+    width: 50px;
+    background: url('//www.utrgv.edu/_files/assets/images/icons/slt-sprites.png');
+  }
+  /*temp override fix for multiple lines in h3.band*/
+  h3.band {
+  	box-sizing: content-box;
+  	height: auto;
+  	min-height: auto;
+  	display: block;
+  	padding: 17px 10px 16px 65px;
+  	position: relative;
+  }
+  h3.band:before {
+    height: 100%;
+  }
+  h3.band:after {
+    height: 27%;
+    bottom: 0;
+    width: 50px;
+    content: "";
+    background: #686767;
+    display: block;
+    left: 0;
+    position: absolute;
+  }
+  
+  
+  
+  
+  
+  
+  
+/* Heading styles for left menu to fix headings are not structured issue
+----------------*/
+  h2.band {
+    color: #FFF;
+    border-bottom: 0;
+    padding: 17px 0 0 65px; /*was: 17px 0 0 65px*/
+    height: 50px;
+    background: #504f4f;
+  }
+  h2.band:before {
+    width: 50px;
+    background: url('//www.utrgv.edu/_files/assets/images/icons/slt-sprites.png');
+  }
+  /*temp override fix for multiple lines in h3.band*/
+  h2.band {
+  	box-sizing: content-box;
+  	height: auto;
+  	min-height: auto;
+  	display: block;
+  	padding: 17px 10px 16px 65px;
+  	position: relative;
+  }
+  h2.band:before {
+    height: 100%;
+  }
+  h2.band:after {
+    height: 27%;
+    bottom: 0;
+    width: 50px;
+    content: "";
+    background: #686767;
+    display: block;
+    left: 0;
+    position: absolute;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+}
+
+/* 960px styles
+----------------*/
+@media screen and (min-width: 960px) {
+  .content {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .department-crumbs .wrapper {
+    margin: 0 auto;
+    position: relative;
+    width: 960px;
+  }
+  .breadcrumbs .list {
+    margin-left: 0;
+  }
+  .department-crumbs .my-language {
+    right: 0;
+  }
+  .home_slider {
+    margin-bottom: -18px;
+    max-height: 100%;
+    border-bottom: medium;
+    }
+  .department-content, 
+  .department-branding {
+    margin: auto;
+    max-width: 960px;
+  }
+  .department-branding {
+    padding: 0px 1em 1.5em;
+  }
+
+  .department-statement-title {
+    padding-top: 42px;
+  }
+  .department-statement-description {
+    font-size: 1.42em;
+    padding-bottom: 42px
+  }
+
+  .feat-wrap {
+    margin-top: 2em;
+  }
+
+}
+
+/* 1200px styles
+-----------------*/
+@media screen and (min-width: 1200px) {
+  /*.home_slider {
+    border-bottom: 5px solid #E24912;
+  }*/
+}
+
+/*test2*/

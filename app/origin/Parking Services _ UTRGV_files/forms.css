@@ -1,0 +1,708 @@
+@charset "utf-8";
+
+/* Forms
+--------- */
+.shadeBg form.contact {  
+  width: 90%;
+}
+.shadeBg fieldset {
+    border: none !important;
+}
+.shadeBg legend {
+    border-bottom: 1px solid #c0c0c0 !important;
+    margin-bottom: 17px !important;
+}
+.hide-text {
+    text-indent: -9999px !important;
+    height: 0 !important;
+    margin: 0;
+    padding: 0;
+    border: none;
+    line-height: 0;
+    width: 0;
+    display: block;
+}
+/*.content form  {
+  font-family: Verdana, Arial, sans-serif;
+  }*/
+.content form  {
+  font-size: 12px;
+  }
+
+/* Corrects margin displayed oddly in IE6/7 */
+.content form  {
+  margin: 0;
+  }
+
+/* Define consistent border, margin, and padding */
+.content form fieldset {
+    border: none;
+    margin: 0 0 20px 0;
+    padding: 0;
+    width: 100%;
+}
+  
+.content form fieldset.options {
+  border: 0;
+  }
+
+/*
+1. Corrects color not being inherited in IE6/7/8/9
+2. Corrects text not wrapping in FF3
+3. Corrects alignment displayed oddly in IE6/7
+*/
+.content form legend {
+  font-size: 19.5px;
+  color: #333333;
+  border: 0; /* 1 */
+  border-bottom: 1px solid #eee;
+  display: block;
+  margin-bottom: 20px;
+  *margin-left: -7px; /* 3 */
+  padding: 0;
+  line-height: 36px;
+  width: 100%;
+  white-space: normal; /* 2 */
+  }
+
+/* label styles */
+.content form label, .content form p {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  }
+.content form p.label {
+  margin-bottom: 0;
+  }
+.content form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333333;
+  }
+.content form label.radio, .content form label.checkbox {
+  display: block;
+  }
+
+.content form label input, .content form label textarea, .content form label select {
+  display: inline-block;
+}
+/*
+1. Corrects font size not being inherited in all browsers
+2. Addresses margins set differently in IE6/7, FF3+, S5, Chrome
+3. Improves appearance and consistency in all browsers
+*/
+.content form button,
+.content form input,
+.content form select,
+.content form textarea {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: normal; /* 1 */
+  margin: 0; /* 2 */
+  line-height: 18px;
+  vertical-align: middle; /* 3 */
+  *vertical-align: middle; /* 3 */
+  }
+.content form input,
+.content form textarea,
+.content form select {
+  font-size: 13px;
+  color: #555;
+  border: 1px solid #8F8F8F;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 9px;
+  padding: 4px;
+  line-height: 18px;
+  height: 20px;
+  width: 210px;
+  background: #FFF;
+  }
+  
+.content form textarea {
+  width: 95%;
+  }
+  
+  
+.content form input, .content form textarea {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+  }
+.content form input:focus, .content form textarea:focus {
+  margin-left:4px;
+  border-color: rgba(82, 168, 236, 0.8);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  outline: 1px solid #000000;
+  outline: thin dotted \9;
+  /* IE6-8 */
+  }
+  
+.content form select {
+  width: 220px;
+  background-color: #ffffff;
+  }
+.content form select[multiple], .content form select[size] {
+  height: auto;
+  }
+/* Addresses FF3/4 setting line-height on 'input' using !important in the UA stylesheet */
+.content form button,
+.content form input {
+  line-height: normal; /* 1 */
+  *overflow: visible;
+  }
+/*
+1. Improves usability and consistency of cursor style between image-type 'input' and others
+2. Corrects inability to style clickable 'input' types in iOS
+3. Removes inner spacing in IE7 without affecting normal text inputs
+   Known issue: inner spacing remains in IE6
+*/
+.content form button,
+.content form input[type="button"],
+.content form input[type="reset"],
+.content form input[type="submit"] {
+  font-size: 100%;
+  text-decoration: none !important;
+  text-shadow: 0 1px white;
+  color: #444;
+  cursor: pointer; /* 1 */
+  -webkit-appearance: button; /* 2 */
+  *overflow: visible;  /* 3 */
+  display: inline-block;
+  margin: 14px 14px 41px 0px;
+  padding: 3px 11px;
+  border-top: 1px solid #D4D4D4;
+  border-right: 1px solid #ACACAC;
+  border-bottom: 1px solid #ACACAC;
+  border-left: 1px solid #D4D4D4;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  width: auto;
+  height: auto;
+  background: url("/_files/images/forms/btn-bg.jpg") left top repeat-x;
+  }
+.content form input[class="icon"], .content form button[class="icon"] {
+  padding-left: 1.8em;
+  background: #CCC url("//www.utrgv.edu/_files/assets/images/icons/user.png") .3em center no-repeat;
+  }
+.content form input[type="submit"]:active, .content form input[type="button"]:active, .content form button[type="button"]:active {
+  color: #444;
+  text-decoration: none !important;
+  text-shadow: 0 1px white;
+  border-top: 1px solid #ACACAC;
+  border-right: 1px solid #D4D4D4;
+  border-bottom: 1px solid #D4D4D4;
+  border-left: 1px solid #ACACAC;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background: #CCC;
+  }
+.content form input[class="icon"]:active, .content form button[class="icon"]:active {
+  border-top: 1px solid #888;
+  border-right: 1px solid #AAA;
+  border-bottom: 1px solid #AAA;
+  border-left: 1px solid #888;
+  background: #AAA url("//www.utrgv.edu/_files/assets/images/icons/user.png") .3em center no-repeat;
+  }
+
+/* Re-set default cursor for disabled elements */
+.content form button[disabled],
+.content form input[disabled] {
+  cursor: default;
+  }
+
+/* <input type="hidden" /> */
+.content form input[type="hidden"] {
+  display: none;
+  }
+
+/*
+1. Addresses box sizing set to content-box in IE8/9
+2. Removes excess padding in IE8/9
+3. Removes excess padding in IE7
+   Known issue: excess padding remains in IE6
+*/
+.content form input[type="checkbox"],
+.content form input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+  *height: 13px; /* 3 */
+  *width: 13px; /* 3 */
+  }
+.content form .radio, .content form .checkbox {
+  padding-left: 18px;
+}
+.content form .radio input[type="radio"], .content form .checkbox input[type="checkbox"] {
+  float: left;
+  margin-left: -18px;
+}
+.content form .radio:first-child, .content form .checkbox:first-child {
+  padding-top: 5px;
+}
+.content form .radio.inline, .content form .checkbox.inline {
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+.content form .radio.inline + .content form .radio.inline, .content form .checkbox.inline + .content form .checkbox.inline {
+  margin-left: 10px;
+}
+.content form .radio.inline:first-child, .content form .checkbox.inline:first-child {
+  padding-top: 0;
+}
+
+/* Radio button focus */
+.content form  input[type="radio"]:focus {
+    border: 1px solid blue;
+    outline: 1px solid black;
+}
+
+.content form input[type="image"], .content form input[type="checkbox"], .content form input[type="radio"] {
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 2px 2px 3px 1px;
+  *margin-top: 0;
+  /* IE7 */
+  line-height: normal;
+  border: 0;
+  cursor: pointer;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  float:left;
+  }
+.content form input[type="image"] {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/*
+1. Addresses appearance set to searchfield in S5, Chrome
+2. Addresses box-sizing set to border-box in S5, Chrome (include -moz to future-proof)
+*/
+.content form input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; /* 2 */
+  box-sizing: content-box;
+  }
+
+/* Removes inner padding and search cancel button in S5, Chrome on OS X */
+.content form input[type="search"]::-webkit-search-decoration,
+.content form input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  }
+
+/* <input type="file" /> */
+.content form input[type="file"] {
+  padding: initial;
+  line-height: initial;
+  border: initial;
+  background-color: #ffffff;
+  background-color: initial;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  }
+.content form select, .content form input[type="file"] {
+  height: auto;
+  /* In IE7, the height of the select element cannot be changed by height, only font-size */
+
+  *margin-top: 4px;
+  /* For IE7, add top margin to align select with labels */
+
+  line-height: 28px;
+  }
+.content form input[type="file"]:focus, .content form input[type="checkbox"]:focus, .content form select:focus,.content form button:focus, 
+.content form input[type="button"]:focus, 
+.content form input[type="reset"]:focus, 
+.content form input[type="submit"]:focus {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+  }
+
+/*
+Removes inner padding and border in FF3+
+www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
+*/
+.content form button::-moz-focus-inner,
+.content form input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+  }
+
+/*
+1. Removes default vertical scrollbar in IE6/7/8/9
+2. Improves readability and alignment in all browsers
+*/
+.content form textarea {
+  overflow: auto; /* 1 */
+  vertical-align: top; /* 2 */
+  height: auto;
+  }
+
+/* ul, ol, li styles */
+.content form ul, .content form ol {
+  list-style: none;
+  padding: 0;
+  }
+.content form li {
+  margin-bottom: .5em;
+  }
+
+/* misc styles */
+.content form .required-style {
+  color: red;
+  margin-left: .3em;
+  }
+
+.content form :-moz-placeholder {
+  color: #999999;
+}
+.content form ::-webkit-input-placeholder {
+  color: #999999;
+}
+
+.content form .next-row{
+	clear:left;
+}
+
+.content form .float-left{
+	float:left;
+}
+
+.content form .share-row{
+	float:left;
+	margin-left: 30px;
+}
+
+/* alerts status
+-----------------*/
+.content form .alert {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 18px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  }
+
+.content form .alert-success {
+  color: #468847;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+ }
+
+.content form .alert-danger, .content form .alert-error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  }
+.content form .alert-danger,
+.content form .alert-error {
+  color: #b94a48;
+  }
+.content form .alert-info {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  }
+.content form .alert-info {
+  color: #3a87ad;
+  }
+
+/* .tooltip
+------------*/
+.content form .tooltip {
+  position: absolute;
+  z-index: 1020;
+  display: block;
+  padding: 5px;
+  font-size: 11px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  visibility: visible;
+  }
+.content form .tooltip.in {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  }
+.content form .tooltip.top {
+  margin-top: -3px;
+  }
+.content form .tooltip.top .tooltip-arrow {
+  bottom: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-top: 5px solid #000000;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  }
+.content form .tooltip-inner {
+  max-width: 200px;
+  padding: .8em;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  background-color: #000000;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  }
+.content form .tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  }
+
+/* various widths
+------------------*/
+.content form .input-mini {
+  width: 60px;
+}
+.content form .input-small {
+  width: 90px;
+}
+.content form .input-medium {
+  width: 150px;
+}
+.content form .input-large {
+  width: 210px;
+}
+.content form .input-xlarge {
+  width: 270px;
+}
+.content form .input-xxlarge {
+  width: 530px;
+}
+
+
+/* Easy-Ajax Validation 
+----------------------*/
+#FormContainer {
+    min-height: 500px;
+    padding: 10px 5px;
+    position: relative;
+    width: 500px;
+}
+* html #FormContainer {
+    height: 500px;
+    overflow: auto;
+}
+.content form {
+    display: inline-block;
+    width: 90%;
+    padding: 20px;
+}
+.content form .captchaIMG {
+  /*  background: url("//www.utrgv.edu/_files/images/forms/EA_Form_RUhuman1.png") no-repeat scroll 0 0 transparent; */
+    display: block;
+    float: left;
+    height: 20px;
+    margin-left: 15px;
+    margin-top: 2px;
+    width: 70px;
+}
+.AJAX_TIMEOUT {
+    color: red;
+    font-weight: bold;
+}
+.AJAX_RESPONSE {
+    color: #666666;
+    font-family: myriad pro,verdana,helvetica,arial,sans-serif;
+    font-size: 11pt;
+}
+#FORM_LOAD {
+  /*  background: url("//www.utrgv.edu/_files/images/forms/EA_Form_Load.gif") no-repeat scroll center center #545454; */
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    opacity: 0.55;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+.PASS {
+  /*  background: url("//www.utrgv.edu/_files/images/forms/EA_Form_Pass.png") no-repeat scroll 0 0 transparent; */
+    display: none;
+    float: left;
+    height: 16px;
+    margin: 0;
+    visibility: hidden;
+}
+.FAIL {
+  border-radius: 3px;
+  /*background: #E24912; color contrast not sufficient  /* #777 older value */
+  background: #C64110;
+  color: #fff;
+  position: relative;
+  font-size: 14px !important;
+  padding: 7px 10px;
+  top: -8px;
+  margin-left:10px;
+  z-index: 9999;
+}
+.FAIL:before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 8px 6px 0;
+    border-color: transparent #E24912 transparent transparent; /* #777 */
+    position: absolute;
+    top: 10px;
+    left: -7px;
+}
+.default legend .FAIL {
+    top: 0;
+}
+
+* html #FORM_LOAD {
+    height: 488px;
+}
+
+fieldset.default {
+    border: 0 !important;
+    margin: 0;
+    padding-left: .2em;
+    padding-bottom: 0;
+    width: auto;
+}
+fieldset.default legend {
+    font: 500 14px/18px "proxima-nova", san-serif;
+    border-bottom: 0;
+    margin: 0;
+}
+
+/*UTRGV Modifications (Made separate, incase we want to apply original forms.css)
+----------------------------------------------------------------------------------*/
+.content form input, .content form textarea, .content form select {
+  margin-bottom: 20px;
+  padding: 7px;
+  position: relative;
+}
+.content form select {
+ /* width: 230px; */
+  width: fit-content;
+  height: 35px;
+}
+.content form input.REQUIRED, .content form textarea.REQUIRED, .content form select.REQUIRED {
+  border-left: 5px solid #E24912;
+}
+.content form label {
+  margin-bottom: 0px;
+}
+
+.content form button, 
+.content form input[type="button"], 
+.content form input[type="reset"], 
+.content form input[type="submit"] {
+    background: #E24912 none repeat scroll 0% 0%;
+    color: #000;
+    border-radius: 0px;
+    border: 0px none;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 4px;
+    font-size: 12px;
+    box-shadow: 3px 3px 6px #999;
+    text-shadow: 0px 0px 0px #000;
+    text-decoration: none;
+    padding: 6px;
+    width: 150px;
+    vertical-align: baseline;
+    text-align: center;
+    min-width: 75px;
+    display: inline-block;
+    margin-left: 35px;
+}
+
+/* Google Search input styles
+------------------------------*/
+.content .gsc-input {
+  width: 100%;
+}
+
+.gs-title {
+    line-height: 150%;
+}
+
+
+/* Google Search Console - align button with field */
+.gsc-search-button-v2 {
+    margin-top: 43px !important;
+    
+}
+
+/* New DateTime Combo input styles
+---------------------------------*/
+.datetime_combination legend + div {
+    float: left;
+    margin-right: 11px;
+}
+
+.datetime_combination div input {
+    width: 54px;
+    margin-bottom: 0;
+}
+
+.datetime_combination div input.REQUIRED {
+    width: 58px;
+}
+
+.datetime_combination legend + div input {
+    width: 129px;
+}
+
+.datetime_combination legend + div input.REQUIRED {
+    width: 116px;
+}
+
+.datetime_combination label {
+    text-indent: -99999px;
+    height: 0;
+}
+
+fieldset.datetime_combination {
+    position: relative;
+}
+
+.datetime_combination .FAIL {
+    position: absolute;
+    top: 20px;
+    left: 227px;
+}
+
+.content form > fieldset {
+    margin: 0px;
+}
+
+#reCaptcha, #recaptchaV2 {
+    margin-bottom: 22px;
+}
+
+.content form legend.hide_legend {
+    text-indent: -9999px;
+    height: 0;
+    border: none;
+    margin: 0;
+}

@@ -1,0 +1,1470 @@
+/* accessible-helper.css */
+
+
+/*H1 on homepage using dept template site name for homepage only*/
+.department-title h1 {
+    font-size: 1em;
+}
+
+/*Active side menu indicator of current page */
+.sidebar-link.active,
+.sidebar-link[aria-current="page"] {
+    font-weight: bold;
+    border-left: 4px solid #e04e39;
+    padding-left: 8px;
+}
+
+/*Fix for web form headings missing */
+.hide-legend {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+/*Fix for UMC top menu that is blank list items inside empty ul */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important; /* prevent line breaks */
+  border: 0 !important;
+}
+
+/*Fix for first top menu link appearing as a blank space*/
+.menubar-navigation .visually-hidden { display: none; }
+
+/*footer logo link */
+.footer-logo-link {
+    
+}
+
+.footer-logo-link:focus {
+    
+}
+
+.footer-logo-link:hover {
+    
+}
+
+
+/*footer list item link */
+.footer-list-item-link  {
+    
+}
+
+/* Breadcrumbs */
+
+/* Breadcrumbs - with manual accessibility */
+.breadcrumbs ol {
+    padding: 0;
+    margin: 0;
+}
+
+.breadcrumbs li {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    line-height: 2em;
+}
+
+
+/*.breadcrumbs li:before {*/
+/*     content: " / ";*/
+/*}*/
+
+.breadcrumbs li:not(:first-child)::before {
+    content: " / ";
+}
+
+
+/* Breadcrumbs - original divs and spans */
+
+ .breadcrumbs span {
+	 display: inline-block;
+	 line-height: 2em;
+}
+ .breadcrumbs span:before {
+	 content: " / ";
+}
+ .breadcrumbs span:first-child:before {
+	 display: none;
+}
+ .breadcrumbs span {
+	 padding: 0;
+	 margin: 0;
+}
+
+
+
+/* Improved contrast for accessibility on UMC 1.0 social media directory page  */
+.btn-primary {
+    color: #ffffff;
+    background-color: #114d80;
+    border-color: #2e6da4;
+}
+
+.btn-danger {
+    color: #ffffff;
+    background-color: #8f1a17;
+    border-color: #d43f3a;
+}
+
+
+
+/* Improved contrast for accessibility for template 1.0 mission statement links  */
+.content-container a {
+  color: #B03000; 
+ 
+}
+
+
+
+/*Fix Issue Interactive element does not meet minimum size nor spacing on list items to get the list items with anchors*/
+/*.mycontent-wrap ul {*/
+    
+/*}*/
+
+.mycontent-wrap ul li {
+       padding-bottom: 8px;
+}
+
+/*.mycontent-wrap ul li a {*/
+ 
+/*}*/
+
+/*.mycontent-wrap ul li a:hover {*/
+   
+/*}*/
+
+
+/*Fix image header with white image text and gray background - change text to white to counteract black text on to fix color contrast - fixing https://www.utrgv.edu/_files/css/styles.css*/
+.header-tagline {
+    color: #ffffff;
+}
+
+/* Applies to department. Homepage and bootstrap use a different file. */
+
+/*Interactive element does not meet minimum size nor spacing*/
+ .contact-email a {
+     margin-right: 10px;
+    /*min-height: 26px;*/
+    /*display: inline-block;*/
+    /*min-width: 26px;*/
+     /*
+	 text-decoration: initial;
+	 font-weight: bold;
+	 */
+}
+
+/*Interactive element does not meet minimum size nor spacing - list on page addding class page-list to ul */
+ul.page-list li {
+    line-height: 2em;
+}
+
+
+/*   AA interactive elements should be at least 24 by 24 pixels, or if smaller, be positioned with enough spacing to not intersect with other interactive elements.*/
+
+/* List items on right column - Elements should be at least 24 by 24 pixels */
+#main-right-column li, #main-right-column li li, #main-right-column li li li {
+    padding-bottom: 6px;
+    line-height: 1.5;
+}
+ 
+/* Slideshow caption link */
+ .home_slider .ss-wrapper .ss-caption a {
+    height: 31px;
+    display: block;
+}
+
+/* GLOBAL FOCUS - white border, blue outline*/
+ :focus {
+	 border: 2px solid #ffffff !important;
+	 outline: #003fbb solid 3px !important;
+}
+
+/* Dept Top Menu focus - white border, no outline */
+.global-nav .list-item a:focus {
+     border: 2px solid #ffffff !important;
+     outline: none !important;
+}
+
+/* Top UTRGV Logo - white border, no outline */
+.header-logo:focus {
+     border: 2px solid #ffffff !important;
+     outline: none !important;
+}
+
+/* header logo */
+/* .header-logo:focus {*/
+/*	 outline: 1px solid #ffffff;*/
+/*}*/
+
+/* Main Content Anchors */
+ #maincontent a, #main-right-column a {
+	 text-decoration: underline;
+	 /*to fix Issue Interactive element does not meet minimum size nor spacing*/
+	 line-height: 25px;
+}
+
+/* Underlining links on pages and making the underline black on hover or focus to address Links are not clearly identifiable
+*/
+#top div p a {
+     text-decoration: underline;
+     text-decoration-color:#DB350F;  /* same color as text links */
+     -webkit-text-decoration-color: #DB350F; /* safari still uses vendor prefix */
+
+}
+#top div p a:focus, #top div p a:hover {
+     text-decoration: underline;
+     text-decoration-color:#000000; 
+     -webkit-text-decoration-color: #000000; /* safari still uses vendor prefix */
+}
+
+time {
+    overflow: visible;
+}
+#maincontent a,
+#main-right-column a {
+     text-decoration: underline;
+     text-decoration-color:#DB350F;  /* same color as text links */
+     -webkit-text-decoration-color: #DB350F; /* safari still uses vendor prefix */
+
+}
+#maincontent a:focus,
+#maincontent a:hover
+#main-right-column a:focus,
+#main-right-column a:hover {
+     text-decoration: underline;
+     text-decoration-color:#000000; 
+     -webkit-text-decoration-color: #000000; /* safari still uses vendor prefix */
+}
+
+
+
+/* Main Content Paragraph Focus */
+ #main-right-column p:focus {
+	 margin-right: 3px;
+}
+/* END OF GLOBAL STYLES */
+
+
+/* Calendar Event Focus */
+ .event:focus {
+	 border: 0 !important;
+	 outline: #003fbb solid 3px !important;
+}
+
+
+
+
+/* Site  Description Links in Tagline Statement */
+.department-statement-description a {
+    color: #CD310E;
+    
+}
+
+
+
+
+
+/* Slideshow START */
+/* Slideshow START */
+ .ss-viewport:focus {
+	 border: 1px solid #ffffff;
+	 outline: #003fbb solid 3px !important;
+}
+ .figure_slide > a:focus {
+	 border: 1px solid #ffffff;
+	 outline: #003fbb solid 3px !important;
+	 outline-offset: -2px;
+}
+ .figure_slide:focus-within {
+	 border: 1px solid #ffffff;
+	 outline: #003fbb solid 3px !important;
+	 outline-offset: -2px;
+}
+ .ss-viewport:focus-within {
+	 border: 1px solid #ffffff;
+	 outline: #003fbb solid 3px !important;
+	 outline-offset: -2px;
+}
+ .home_slider .ss-wrapper .ss-pager {
+	/* Moving slideshow controls to below Slideshow */
+	 bottom: 0px;
+	/* remove if not using play and pause controls*/
+	 right: -5%;
+	 bottom: -19px;
+}
+ .ss-wrapper {
+	 padding-bottom: 30px;
+}
+/* SS Slideshow controls increasing image-text contrast */
+ .home_slider .ss-wrapper .ss-pager.ss-default-pager a {
+	/*border: 2px solid #ffffff !important;
+	 */
+	color: #FFFFFF;
+}
+
+/* Interactive elements 24px and extra padding */
+
+ .ss-wrapper .ss-pager.ss-default-pager a {
+	/* background: #fdfdfd;
+	 */
+	/* background-color: #cf4311e6;
+	 */
+	/* grey backgrond with white border */
+	 background: #575757;
+	 border: 2px solid #ffffff !important;
+	 
+	 width: 14px !important;
+	 height: 14px !important;
+	 margin: 0px 7px !important;
+}
+ .ss-wrapper .ss-pager.ss-default-pager a.active {
+	/* background: #575757;
+	 */
+	/* orange dot with orange backgroond */
+	 background-color: #cf4311;
+	 border: 2px solid #cf4311 !important;
+}
+ .ss-wrapper .ss-pager.ss-default-pager a:hover {
+	 /* background: #575757; color contrast issue */
+	 background: #FFFFFF;
+	/*border: 2px solid black !important;
+	 */
+	/* Gray dot with black border */
+	 border: 2px solid #000000 !important;
+}
+ .ss-wrapper .ss-pager.ss-default-pager a:focus {
+	 background: #575757;
+	 border: 2px solid #0226ff !important;
+	/* Gray dot with blue border */
+}
+ .figure_slide {
+	 width: 99%;
+}
+/* Slideshow hover and focus */
+/*.figure_slide:focus,*/
+/*.figure_slide:hover{
+	 */
+	/* border: 2px solid #8a8a8a;
+	 */
+	/* outline: 2px solid #8a8a8a;
+	 */
+	/* 
+}
+ */
+/* Slideshow hover and focus of active slide */
+/*.active-slide:focus,*/
+/*.active-slide:focus-within,*/
+/*.active-slide:hover*/
+/*{
+	 */
+	/* border: 2px solid #8a8a8a;
+	 */
+	/* outline: 2px solid #8a8a8a;
+	 */
+	/* 
+}
+ */
+/* SS Slideshow dots focus */
+/* already defined on line 128... .ss-wrapper .ss-pager.ss-default-pager a:focus {
+	 background: #575757;
+	 color: #fdfdfd;
+}
+ */
+/* SS Slideshow controls increasing image-text contrast */
+ .ss-wrapper .ss-controls-direction a {
+	 font-size: 2em;
+	 font-weight: bold;
+	 color: black;
+}
+/* Additional SS Slideshow styles */
+ .ss-wrapper .ss-controls.ss-has-controls-auto.ss-has-pager .ss-pager {
+	 text-align: right !important;
+	 width: 80%;
+	 z-index: 50;
+}
+
+
+/*Slide show controls - new -  mobile view hide pager on mobile */
+ /*Slideshow controls for mobile widths */
+@media only screen and (max-width: 450px) {
+   .home_slider .ss-wrapper .ss-pager.ss-default-pager {
+		 display: none !important;
+	}
+}
+
+/* LINE 49: increased width. */
+ .ss-wrapper .ss-controls.ss-has-controls-auto.ss-has-pager .ss-controls-auto {
+	 right: 85px;
+	 width: 45px;
+	 z-index: 500000;
+	/* Moving slideshow controls to below Slideshow */
+	 bottom: 10px;
+}
+ .ss-wrapper .ss-pager, .ss-wrapper .ss-controls-auto {
+	 position: absolute;
+	 bottom: 65px;
+	/* width: 100%;
+	 */
+	/* right: 100px;
+	 */
+	/* z-index: 60000000;
+	 */
+}
+ .home_slider .ss-wrapper .ss-controls-direction a {
+	 display: block;
+	 width: 32px;
+	 height: 32px;
+	 text-indent: 100%;
+	 white-space: nowrap;
+	 overflow: hidden;
+	 border: 0px none;
+	 transition: all 200ms ease-in-out 0s;
+	 opacity: 1 !important;
+	 transition: 1ms;
+	/* top: 80.5%;
+	 */
+	/* Moving slideshow controls to below Slideshow */
+	 top: 95%;
+}
+ .ss-wrapper .ss-controls-direction a {
+	 position: absolute;
+	 top: 50%;
+	 margin-top: -16px;
+	 outline: 0;
+	 width: 32px;
+	 height: 32px;
+	 text-indent: -9999px;
+	 z-index: 9999;
+}
+ .ss-wrapper .ss-prev:hover, .ss-wrapper .ss-prev:focus {
+	 background-position: 0 0;
+}
+/* Hover swap image on next */
+ .ss-wrapper .ss-next:hover, .ss-wrapper .ss-next:focus {
+	 background-position: -43px 0;
+}
+ .ss-wrapper .ss-next {
+	 right: 10px;
+	/* background: url(//www.utrgv.edu/_files/images/accessibility/controls.png) no-repeat -43px -32px;
+	 utrgv main site */
+	/*background: url(//www.utrgv.edu/_files/images/accessibility/controls.png) no-repeat -43px -32px;
+	 */
+	 background: url(//www.utrgv.edu/_files/images/accessibility/controls-w-pause.png) no-repeat -43px -32px;
+}
+ .ss-wrapper .ss-prev {
+	 left: 10px;
+	/* background: url(//www.utrgv.edu/_files/images/accessibility/controls.png) no-repeat 0 -32px;
+	 utrgv main site */
+	/* background: url(//www.utrgv.edu/_files/images/accessibility/controls.png) no-repeat 0 -32px;
+	 */
+	 background: url(//www.utrgv.edu/_files/images/accessibility/controls-w-pause.png) no-repeat 0 -32px;
+}
+ .home_slider .ss-wrapper:hover .ss-controls-direction a {
+	 opacity: 1;
+	 top: 95%;
+}
+ .home_slider .ss-wrapper:focus .ss-controls-direction a {
+	 opacity: 1;
+}
+/* LINE 121 - 133: updated background image and positions. */
+ .ss-wrapper .ss-controls-auto .ss-stop {
+	 display: block;
+	 text-indent: -9999px;
+	 width: 16px;
+	 height: 16px;
+	 background: url(//www.utrgv.edu/_files/images/accessibility/controls-w-pause_updated.png) -82px -46px no-repeat;
+	 margin: 0 3px;
+}
+ .ss-wrapper .ss-controls-auto .ss-stop.active, .ss-wrapper .ss-controls-auto .ss-stop:focus, .ss-wrapper .ss-controls-auto .ss-stop:hover {
+	 background-position: -82px -31px;
+}
+/* LINES 136 - 150: updated background image and positions. Added .active, :focus and :hover background positions. */
+ .ss-wrapper .ss-controls-auto .ss-start {
+	 display: block;
+	 text-indent: -9999px;
+	 width: 16px;
+	 height: 16px;
+	 background: url(//www.utrgv.edu/_files/images/accessibility/controls-w-pause_updated.png) -80px -15px no-repeat;
+	 margin: 0 3px;
+}
+ .ss-wrapper .ss-controls-auto .ss-start.active, .ss-wrapper .ss-controls-auto .ss-start:focus, .ss-wrapper .ss-controls-auto .ss-start:hover {
+	 background-position: -80px 0;
+}
+/* SS Slideshow controls increasing image-text contrast - reducing to 2 from 3px to align on one line */
+/* These are defined above... .home_slider .ss-wrapper .ss-pager.ss-default-pager a {
+	 border: 2px solid #ffffff !important;
+}
+ .ss-wrapper .ss-pager.ss-default-pager a.active {
+	 background: #575757;
+}
+ .ss-wrapper .ss-pager.ss-default-pager a:hover {
+	 background: #575757;
+	 border: 2px solid black !important;
+}
+ .ss-wrapper .ss-pager.ss-default-pager a:focus {
+	 background: #575757;
+	 border: 2px solid #0226ff !important;
+}
+ */
+/* Slideshow controls styles: < > (arrows), â€¢â€¢â€¢ (dots), play/start */
+ .home_slider article {
+	 overflow-x: inherit;
+}
+ .home_slider .ss-wrapper {
+	 padding-bottom: 0;
+}
+ .home_slider .ss-controls {
+	 display: block;
+	 margin-top: 1rem;
+	 position: relative;
+	 bottom: 0;
+	 width: 100%;
+	/* height: 33px;
+	 */
+	/* Increasing height for desktop width. 60 works better than 26 for sites that include an about us text section on home page. */
+	 height: 60px;
+	/* Decreasing height to 26 for desktop */
+	/* height: 26px;
+	 */
+}
+ .home_slider .ss-controls .ss-next, .home_slider .ss-controls .ss-prev, .home_slider .ss-controls .ss-start, .home_slider .ss-controls .ss-stop {
+	 position: absolute;
+	 margin: 0;
+}
+ .home_slider .ss-controls .ss-next, .home_slider .ss-controls .ss-prev, .home_slider .ss-controls .ss-next:hover, .home_slider .ss-controls .ss-prev:hover, .home_slider .ss-controls a.ss-next:hover, .home_slider .ss-controls a.ss-prev:hover, .home_slider .ss-wrapper:hover .ss-controls-direction a, .home_slider .ss-controls .ss-start, .home_slider .ss-controls .ss-stop {
+	 top: 0 !important;
+}
+ .home_slider .ss-controls .ss-next {
+	 left: 51px;
+}
+ .home_slider .ss-controls .ss-prev {
+	 left: 10px;
+}
+ .home_slider .ss-controls .ss-controls-auto {
+	 position: absolute;
+	 top: 0;
+	 right: 17px !important;
+}
+ .home_slider .ss-controls .ss-start {
+	 width: 32px;
+	 height: 32px;
+	 background: url('//www.utrgv.edu/_files/images/accessibility/play-button-inverse.png') 0 no-repeat;
+}
+ .home_slider .ss-controls .ss-start:hover, .home_slider .ss-controls .ss-start:focus {
+	 background: url('//www.utrgv.edu/_files/images/accessibility/play-button.png') 0 no-repeat;
+}
+ .home_slider .ss-controls .ss-stop {
+	 width: 32px;
+	 height: 32px;
+	 background: url('//www.utrgv.edu/_files/images/accessibility/stop-button-inverse.png') 0 no-repeat;
+}
+ .home_slider .ss-controls .ss-stop:hover, .home_slider .ss-controls .ss-stop:focus {
+	 background: url('//www.utrgv.edu/_files/images/accessibility/stop-button.png') 0 no-repeat;
+}
+
+/* Interactive elements padding and hit size update */
+
+/* reducing to 45% from 50% to center on page */
+ .home_slider .ss-controls .ss-pager.ss-default-pager {
+	 text-align: unset !important;
+	 /*width: 100px !important;*/
+	     /*width: 180px !important;*/
+	     width: 200px !important;
+	 position: absolute;
+	 top: .5rem;
+	 /*left: 45%;*/
+	 left: 40%;
+	 margin: 0;
+	 padding: 0;
+}
+/* Adding one last style to align the controls with play pause */
+ .ss-controls-direction {
+	 position: absolute;
+	 top: 0;
+}
+/* Slideshow controls for mobile widths */
+ @media only screen and (max-width: 678px) {
+	 .home_slider .ss-controls {
+		 height: 40px;
+	}
+}
+/* Slideshow END */
+/* Slideshow END */
+
+
+/* Fancybox image gallery */
+ .fancybox:focus img{
+	 border: 5px solid blue !important;
+}
+ .fancybox img {
+	 padding: 0px !important;
+	 margin-bottom: 20px;
+	 margin-right: 6px;
+	 border: 5px solid #ffffff !important;
+}
+ .fancybox img:hover {
+	 border: 5px solid blue !important;
+}
+ .fancybox img:focus {
+	 border: 5px solid blue !important;
+}
+
+/* Google maps, street view, and panoramas */
+ .map:hover, .map:focus, .panorama:hover, .panorama:focus{
+	 outline: 5px solid blue;
+}
+/* accordion and other button state */
+ button:hover, button:focus {
+	 text-decoration:underline;
+}
+
+/* Footer social media icon focus */
+ .footer-social-media .footer-twitter:hover, .footer-social-media .footer-twitter:focus, .footer-social-media .footer-twitter:focus-within {
+	 background: url(//www.utrgv.edu/_files/assets/images/social-media-icons-footer-orange-grayhover-whiteinside.png) 0 no-repeat;
+	 text-indent: -999em;
+	 list-style: none;
+	 display: inline-block;
+	 margin: 0 24px 0 0;
+	 padding: 0;
+	 height: 28px;
+	 width: 28px;
+	 background-position: -17em 0;
+}
+ .footer-social-media .footer-facebook:hover, .footer-social-media .footer-facebook:focus, .footer-social-media .footer-facebook:focus-within {
+	 background: url(//www.utrgv.edu/_files/assets/images/social-media-icons-footer-orange-grayhover-whiteinside.png) 0 no-repeat;
+	 text-indent: -999em;
+	 list-style: none;
+	 display: inline-block;
+	 margin: 0 24px 0 0;
+	 padding: 0;
+	 height: 28px;
+	 width: 28px;
+	 background-position: -21em 0;
+}
+ .footer-social-media .footer-linkedin:hover, .footer-social-media .footer-linkedin:focus, .footer-social-media .footer-linkedin:focus-within {
+	 background: url(//www.utrgv.edu/_files/assets/images/social-media-icons-footer-orange-grayhover-whiteinside.png) 0 no-repeat;
+	 text-indent: -999em;
+	 list-style: none;
+	 display: inline-block;
+	 margin: 0 24px 0 0;
+	 padding: 0;
+	 height: 28px;
+	 width: 28px;
+	 background-position: -25em 0;
+}
+ .footer-social-media .footer-youtube:hover, .footer-social-media .footer-youtube:focus, .footer-social-media .footer-youtube:focus-within {
+	 background: url(//www.utrgv.edu/_files/assets/images/social-media-icons-footer-orange-grayhover-whiteinside.png) 0 no-repeat;
+	 text-indent: -999em;
+	 list-style: none;
+	 display: inline-block;
+	 margin: 0 24px 0 0;
+	 padding: 0;
+	 height: 28px;
+	 width: 28px;
+	 background-position: -29em 0;
+}
+/* Footer logo and social media icons when text enlarged to 200% */
+ @media screen and (min-width: 992px) {
+	 .footer-logo, .footer-social-media {
+		 /*margin-left: 22% !important;*/
+		 margin-left: 15% !important;
+	}
+}
+/* Tabs Accessible from W3C */
+ .tabs {
+	 width: 99%;
+	 font-family: "lucida grande", sans-serif;
+	 margin-left: 2px;
+	 margin-right: 0px;
+}
+ .tab[role="tablist"] {
+	 margin: 0 0 -0.1em;
+	 overflow: visible;
+}
+ .tab[role="tab"] {
+	 position: relative;
+	 margin: 0;
+	 padding: 0.3em 0.5em 0.4em;
+	 border: 1px solid hsl(219, 1%, 72%);
+	 border-radius: 0.2em 0.2em 0 0;
+	 box-shadow: 0 0 0.2em hsl(219, 1%, 72%);
+	 overflow: visible;
+	 font-family: inherit;
+	 font-size: inherit;
+	 background: hsl(220, 20%, 94%);
+}
+ .tab[role="tab"]:hover::before, .tab[role="tab"]:focus::before, .tab[role="tab"][aria-selected="true"]::before {
+	 position: absolute;
+	 bottom: 100%;
+	 right: -1px;
+	 left: -1px;
+	 border-radius: 0.2em 0.2em 0 0;
+	 border-top: 3px solid hsl(20, 96%, 48%);
+	 content: '';
+}
+ .tab[role="tab"]:focus {
+	 text-decoration: underline;
+}
+ .tab[role="tab"][aria-selected="true"] {
+	 border-radius: 0;
+	 background: hsl(220, 43%, 99%);
+	 outline: 0;
+}
+ .tab[role="tab"][aria-selected="true"]:not(:focus):not(:hover)::before {
+	 border-top: 5px solid hsl(218, 96%, 48%);
+}
+ .tab[role="tab"][aria-selected="true"]::after {
+	 position: absolute;
+	 z-index: 3;
+	 bottom: -1px;
+	 right: 0;
+	 left: 0;
+	 height: 0.3em;
+	 background: hsl(220, 43%, 99%);
+	 box-shadow: none;
+	 content: '';
+}
+ .tab[role="tab"]:hover, .tab[role="tab"]:focus, .tab[role="tab"]:active {
+	 outline: 0;
+	 border-radius: 0;
+	 color: inherit;
+}
+ .tab[role="tab"]:hover::before, .tab[role="tab"]:focus::before {
+	 border-color: hsl(20, 96%, 48%);
+}
+ .tabpanel[role="tabpanel"] {
+	 position: relative;
+	 z-index: 2;
+	 padding: 0.5em 0.5em 0.7em;
+	 border: 1px solid hsl(219, 1%, 72%);
+	 border-radius: 0 0.2em 0.2em 0.2em;
+	 box-shadow: 0 0 0.2em hsl(219, 1%, 72%);
+	 background: hsl(220, 43%, 99%);
+}
+ .tabpanel[role="tabpanel"]:focus {
+	 border-color: hsl(20, 96%, 48%);
+	 box-shadow: 0 0 0.2em hsl(20, 96%, 48%);
+	 outline: 0;
+}
+ .tabpanel[role="tabpanel"]:focus::after {
+	 position: absolute;
+	 bottom: 0;
+	 right: -1px;
+	 left: -1px;
+	 /*border-bottom: 3px solid hsl(20, 96%, 48%);*/
+	 border-radius: 0 0 0.2em 0.2em;
+	 content: '';
+}
+ .tabpanel[role="tabpanel"] p {
+	 margin: 0;
+}
+ .tabpanel[role="tabpanel"] * + p {
+	 margin-top: 1em;
+}
+
+
+
+/*fix tabs background color for multiple rows */
+
+ul.etabs li a {
+    
+    height: auto;
+}
+
+
+
+
+
+/* Accordion */
+ .minimalist-accordion {
+	 margin-right: 5px;
+}
+/* just for example as nested accordion */
+ [data-accordion-prefix-classes="minimalist-css"] {
+	 margin-left: 3em;
+}
+ .minimalist-accordion__header, .minimalist-noanim-accordion__header, .minimalist-css-accordion__header {
+	 display: block;
+	 background: none;
+	 border: 0;
+	/** fix typo inputs **/
+	 font-family: inherit;
+	 cursor: pointer;
+	/* font-size: 1.3em;
+	 */
+	/* font-size: 13pt;
+	 */
+	 line-height: 1.3;
+	 margin: 0;
+	/* padding: .25em 0;
+	 */
+	 text-align: left;
+	 width: 100%;
+	 font-weight: bold;
+	 border-bottom: 1px solid #E2E2E2;
+	 margin: 2px;
+	 padding-left: 31px;
+	/* background: transparent url(//www.utrgv.edu/_files/images/icons/external.png) no-repeat scroll left 8px;
+	 */
+	/* background: transparent url(//www.utrgv.edu/_files/images/icons/triangle-right.svg) no-repeat scroll left -4px;
+	 */
+	/* background: transparent url(//www.utrgv.edu/_files/images/icons/arrow-right2.jpg) no-repeat scroll left 0px;
+	 */
+	 background: url("//www.utrgv.edu/_files/assets/images/plus.png") no-repeat scroll left 0px transparent;
+	 background-size: 15px 15px;
+}
+ .minimalist-css-accordion__header {
+	 font-size: 1.5em;
+}
+ .minimalist-accordion__header:hover, .minimalist-accordion__header:focus{
+	 background: url("//www.utrgv.edu/_files/assets/images/plus-hover.png") no-repeat scroll left 0px transparent;
+	 color: #18507B;
+}
+ .minimalist-accordion__header:focus, .minimalist-noanim-accordion__header:focus, .minimalist-css-accordion__header:focus {
+	/* outline: 1px dotted;
+	 */
+	 outline: 2px solid black;
+}
+ .minimalist-accordion__header::before, .minimalist-noanim-accordion__header::before, .minimalist-css-accordion__header::before {
+	/* content: '';
+	 display: inline-block;
+	 width: 1.2em;
+	 height: 1.2em;
+	 background-image: url(https://www.utrgv.edu/_files/images/icons/triangle-right.svg);
+	 background-repeat: no-repeat;
+	 background-position: 0 100%;
+	 margin-right: .4em;
+	 transform: rotate(0deg);
+	 */
+}
+ .minimalist-css-accordion__header::before {
+	 background-size: 90%;
+	 width: .7em;
+	 height: .7em;
+	 -webkit-transition: transform .25s ease;
+	 transition: transform .25s ease;
+}
+ [aria-expanded="true"].minimalist-accordion__header::before, [aria-expanded="true"].minimalist-noanim-accordion__header::before, [aria-expanded="true"].minimalist-css-accordion__header::before {
+	 transform: rotate(90deg);
+	/* transform-origin: 50% 50%;
+	 */
+	/* transform-origin: 66% 68%;
+	 */
+	 transform-origin: 73% 71%;
+}
+/* Active accordion title indicator */
+/* .minimalist-accordion__header[aria-selected="true"]::after, .minimalist-noanim-accordion__header[aria-selected="true"]::after, .minimalist-css-accordion__header[aria-selected="true"]::after {
+	 content: "";
+	 position: relative;
+	 border-bottom: .4em solid transparent;
+	 border-top: .4em solid transparent;
+	 margin-left: .5em;
+	 top: .1em;
+	 border-left: .7em solid;
+	 display: inline-block;
+	 speak: none;
+}
+ */
+/*.minimalist-accordion__title, .minimalist-noanim-accordion__title, .minimalist-css-accordion__title {
+	 border: 0;
+	 clip: rect(0 0 0 0);
+	 height: 1px;
+	 margin: -1px;
+	 overflow: hidden;
+	 padding: 0;
+	 position: absolute;
+	 width: 1px;
+}
+*/
+ .minimalist-accordion__panel {
+	 display: block;
+	 overflow: hidden;
+	 opacity: 1;
+	 -webkit-transition: visibility 0s ease, max-height 1s ease, opacity 1s ease;
+	 transition: visibility 0s ease, max-height 1s ease, opacity 1s ease;
+	/*max-height: 100em;
+	*/
+	/* magic number for max-height = enough height */
+	 visibility: visible;
+	 -webkit-transition-delay: 0s;
+	 transition-delay: 0s;
+	 margin: 0;
+	 padding: 0;
+    /*
+    padding-left: 33px;
+    */
+}
+/* This is the hidden state */
+ [aria-hidden=true].minimalist-accordion__panel {
+	 display: block;
+	 max-height: 0;
+	 opacity: 0;
+	 visibility: hidden;
+	 -webkit-transition-delay: 1s, 0s, 0s;
+	 transition-delay: 1s, 0s, 0s;
+	 margin: 0;
+	 padding: 0;
+}
+ .minimalist-css-accordion__panel {
+	 display: block;
+	 overflow: hidden;
+	 opacity: 1;
+	 -webkit-transition: visibility 0s ease, max-height 1s ease, transform 1s ease, opacity 1s ease;
+	 transition: visibility 0s ease, max-height 1s ease, transform 1s ease, opacity 1s ease;
+	 transform: scaleY(1);
+	 max-height: 40em;
+	/* magic number for max-height = enough height */
+	 visibility: visible;
+	 -webkit-transition-delay: 0s;
+	 transition-delay: 0s;
+	 margin: 0;
+	 padding: 0;
+}
+/* This is the hidden state */
+ [aria-hidden=true].minimalist-css-accordion__panel {
+	 display: block;
+	 opacity: 0;
+	 transform: scaleY(0);
+	 max-height: 0;
+	 visibility: hidden;
+	 -webkit-transition-delay: 1s, 0s, 0s, 0s;
+	 transition-delay: 1s, 0s, 0s, 0s;
+	 margin: 0;
+	 padding: 0;
+}
+ .minimalist-noanim-accordion__panel {
+	 display: block;
+}
+ [aria-hidden=true].minimalist-noanim-accordion__panel {
+	 display: none;
+}
+/* Change or rotate arrow down if accordion is open */
+ [aria-expanded="true"].minimalist-accordion__header {
+	/* background: transparent url(//www.utrgv.edu/_files/images/icons/external.png) no-repeat scroll left 8px;
+	 */
+	/* background: transparent url(//www.utrgv.edu/_files/images/icons/triangle-down.svg) no-repeat scroll left -4px;
+	 */
+	/* background: transparent url(//www.utrgv.edu/_files/images/icons/arrow-down.jpg) no-repeat scroll left 0px;
+	 */
+	 background: url("//www.utrgv.edu/_files/assets/images/minus.png") no-repeat scroll left 0px transparent;
+	 background-size: 15px 15px;
+}
+ [aria-expanded="true"].minimalist-accordion__header:hover, [aria-expanded="true"].minimalist-accordion__header:focus {
+	 background: url("//www.utrgv.edu/_files/assets/images/minus-hover.png") no-repeat scroll left 0px transparent;
+	 color: #18507B;
+}
+/* External */
+ .external {
+	 background: transparent url(//www.utrgv.edu/_files/images/icons/external-icon.png) no-repeat scroll right center;
+}
+ .external:hover{
+	 /*background-color: #eeeeee;*/
+}
+/* not needed as causes two icons .external a {
+	 background: transparent url(//www.utrgv.edu/_files/images/icons/external-icon.png) no-repeat scroll right center;
+	 padding: 0 25px 0 0;
+}
+ */
+/* Nav tweaks */
+ .remove-down-arrow:after{
+	 border: none !important;
+}
+/* Quick links - manually accessible list */
+ .quicklinks ul {
+	 padding-left: 0px;
+}
+ .quicklinks li {
+	 /*list-style: none;*/
+	 list-style: none !important;
+}
+/* Quick links - normal divs */
+ .quicklinks {
+	/* margin-top: 20px;
+	 */
+	 margin-left: 4px;
+}
+ .quicklinks span {
+	 padding-left: 30px;
+	 margin: 20px;
+	 margin: .75em 0;
+	 display: block;
+	 background-image: url(//www.utrgv.edu/_files/assets/images/icons/slt-sprites.png);
+	 background-position: -1139px -677px;
+	 border-top: 1px dotted #d5d5d5;
+	 padding-top: 19px;
+	 padding-bottom: 19px;
+}
+ .quicklinks .link {
+	 padding-left: 30px;
+	 margin: 20px;
+	 margin: 0.75em 0;
+	 display: block;
+	 border-top: 1px dotted #d5d5d5;
+	/* padding-top: 19px;
+	 padding-bottom: 19px;
+	 */
+	 padding-top: 10px;
+	 padding-bottom: 8px;
+	/* Fixing mobile repeat issues background-image: url(//www.utrgv.edu/_files/assets/images/icons/slt-sprites.png);
+	 background-position: -1139px -677px;
+	 */
+	 background-image: url(//www.utrgv.edu/_files/assets/images/icons/checkmark-black.png);
+	 background-position: left;
+	 background-repeat: no-repeat;
+}
+ .quicklinks .link:hover {
+	/* not accessible background-color: #eeeeee;
+	 */
+	 background-color: #ffffff;
+}
+ .quicklinks .link:focus {
+	/* not accessible background-color: #eeeeee;
+	 */
+	 background-color: #ffffff;
+}
+/* External */
+ .quicklinks .external:after {
+	 content: "";
+	 display: inline-block;
+	 margin-bottom: -2px;
+	 padding-right: 5px;
+	 width: 15px;
+	 height: 14px;
+	 position: relative;
+	 background: url(//www.utrgv.edu/_files/images/icons/external-icon.png) no-repeat center right;
+}
+ .quicklinks a {
+}
+/* Quick links focus */
+ .quicklinks a.focus, .quicklinks a.hover {
+	 background-color: #eeeeee;
+}
+ .quicklink:focus, .quicklink:hover {
+	 background-color: #eeeeee;
+}
+ .quicklinks span.hover {
+	 background-color: #eeeeee;
+}
+/* Quick links focus */
+ .striped li a.focus, .striped li a:focus{
+	 background-color: #eeeeee;
+}
+/* Quick Links mobile view */
+ @media screen and (max-width: 700px) {
+	 .quicklinks span {
+		 background-image: none;
+	}
+}
+/* Contact Us */
+ .contact-us a {
+	 text-decoration: underline;
+	 text-indent: -9999px;
+}
+/*Interactive element does not meet minimum size nor spacing*/
+ .contact-email a {
+     margin-right: 10px;
+     /*
+	 text-decoration: initial;
+	 font-weight: bold;
+	 */
+}
+ .contact-email a:hover, .contact-email a:focus {
+	 text-decoration: underline;
+	 font-weight: bold;
+	 
+}
+ .contact-us h4 {
+	 margin-bottom: 0px;
+	 padding-bottom: 0px;
+}
+ .social {
+	 display: inline-block;
+	 float: left;
+	 width: 30px;
+}
+ .facebook:focus {
+	 background-position: -146px -747px;
+}
+ .twitter:focus{
+	 background-position: -148px -696px;
+}
+ .youtube:focus{
+	 background-position: -146px -649px;
+}
+ .instagram:focus{
+	 background-position: -146px -1195px;
+}
+ .linkedin:focus{
+	 background-position: -146px -1246px;
+}
+ .pinterest:focus{
+	 background-position: -146px -1297px;
+}
+ .snapchat:focus{
+	 background-position: -146px -1146px;
+}
+
+
+/* Page content order */
+ @media screen and (max-width: 699px) {
+	 .mycontent-wrap {
+		 flex-direction: column-reverse;
+	}
+	 aside.column.column-4-of-12 {
+		 width: 100%;
+	}
+	 .contact-us {
+		/* width: 100%;
+		 */
+	}
+	 .quicklinks {
+		/* width: 100%;
+		 */
+	}
+}
+/* Shared on resular and bootstrap */
+/* Web forms */
+ .FAIL {
+	 overflow: hidden;
+	 white-space: nowrap;
+}
+/* REGULAR TEMPLATE COMPONENTS */
+/* Search Button */
+ form.search input[type="submit"] {
+	 text-indent: 999em;
+}
+ form.search input[type="submit"]:hover, form.search input[type="submit"]:focus {
+	 background: url(https://www.utrgv.edu/_files/images/accessibility/search-hover.png) no-repeat 7px center ;
+}
+/* This forces the second UL to extend at its full with according to the longest character page label. - This moves the second UL to align within the the 960px constraint of the parent div in order to not be cut off when the state is triggered to appear on :HOVER, :FOCUS. - This moves the nested third UL to open up on the left side of the second UL. */
+ @media screen and (min-width: 768px) {
+	 .js .global-nav > ul li:hover > ul {
+		 min-width: min-content;
+		 max-width: 100%;
+		 width: 100%;
+		 word-wrap: break-word;
+	}
+	 .js .global-nav > ul li:last-child:hover > ul {
+		 right: 0;
+	}
+	 .js .global-nav > ul li:nth-last-child(2) > ul > li ul {
+		 left: -100%;
+	}
+}
+/* Search Label for search field */
+ @media only screen and (min-width: 780px) {
+	 label[for="search"] {
+		 position: static;
+		 color: #ffffff;
+		 padding-right: 12px;
+	}
+}
+ @media only screen and (max-width: 779px) {
+	 label[for="search"] {
+		 position: static;
+		 color: #ffffff;
+		 padding-right: 12px;
+	}
+	 form.search input[type="submit"] {
+		 height: 20px;
+		 padding-top: 20px;
+		 margin-top: 19px;
+	}
+}
+/* Search Placeholder Text */
+ input#search::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	 color: #000000;
+	 opacity: 1;
+	/* Firefox */
+}
+ form.search input::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	 color: #000000;
+	 opacity: 1;
+	/* Firefox */
+}
+ ::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	 color: #000000;
+	 opacity: 1;
+	/* Firefox */
+}
+ :-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	 color: #000000;
+}
+ ::-ms-input-placeholder {
+	/* Microsoft Edge */
+	 color: #000000;
+}
+/* Text area placeholder color */
+ textarea::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	 color: #000000;
+	 opacity: 1;
+	/* Firefox */
+}
+ textarea::-webkit-input-placeholder {
+	 color: #000000;
+}
+ textarea:-moz-placeholder {
+	/* Firefox 18- */
+	 color: #000000;
+}
+ textarea::-moz-placeholder {
+	/* Firefox 19+ */
+	 color: #000000;
+}
+ textarea:-ms-input-placeholder {
+	 color: #000000;
+}
+ textarea::placeholder {
+	 color: #000000;
+}
+/* Three Featured Items - Features*/
+/* Feature new focus */
+ .feature:focus {
+	 outline: #003fbb solid 3px !important;
+}
+ .feature:focus-within {
+	 outline: #003fbb solid 3px !important;
+}
+/* Feature - setting up focus styles */
+ .feature {
+	 width: 29.6%;
+}
+ .feature:first-child {
+	 margin-left: 2px;
+}
+ .feature:last-child {
+	 margin-right: 2px;
+}
+/* Feature Animation - Start - Comment out for flat features... */
+/* Three Feature focus state to animate accordion */
+ .feature.focus {
+	 bottom: 0;
+	 margin-bottom: 0;
+}
+/*animation trigger*/
+ .feature:focus-within .ftr-text-container, a:focus .sixer .ftr-text-container {
+	 bottom: 0;
+	 margin-bottom: 0;
+}
+ .feature.focus .ftr-text-container, a.focus .sixer .ftr-text-container {
+	 bottom: 0;
+	 margin-bottom: 0;
+}
+ .ftr-text-container:focus, .ftr-text-container.focus {
+	 bottom: 0;
+	 margin-bottom: 0;
+}
+/* Feature Animation - End */
+ .feature:focus-within .ftr-text-container:before {
+	 width: 100%;
+}
+ .feature.tripple:focus-within .ftr-description {
+	 color: rgba(255,255,255,1);
+}
+ .feature.tripple:focus-within .action-link:before {
+	 opacity: 1;
+}
+/*.hover keyboard focus style mimics :hover style for mouse hover to activate down down menus using keyboard... .js .global-nav > ul li.hover > ul */
+/* Three Featured Items misc focus states */
+/* Defined in slt-dept-general.css */
+/* .orange:focus {
+	 background-color: #b33c05 !important;
+}
+ .black:focus {
+	 background-color: #1d1d1f !important;
+}
+ .grey:focus {
+	 background-color: #686767 !important;
+}
+ .blue:focus {
+	 background-color: #14499d !important;
+}
+ .green:focus {
+	 background-color: #8ab64b !important;
+}
+ .purple:focus {
+	 background-color: #732d7e !important;
+}
+ .steelblue:focus {
+	 background-color: #1170a5 !important;
+}
+ .darkgreen:focus {
+	 background-color: #109b3e !important;
+}
+ .teal:focus {
+	 background-color: #0d586c !important;
+}
+ .yellow:focus {
+	 background-color: #967008 !important;
+}
+ .gold:focus {
+	 background-color: #9d8a40 !important;
+}
+ .pink:focus {
+	 background-color: #ed0f69 !important;
+}
+ .red:focus {
+	 background-color: #c6262c !important;
+}
+ */
+/* Feature Dark Green contrast */
+ .darkgreen .ftr-text-container, .darkgreen.no-hover-panel {
+	 background: #157E35;
+	/* background: rgba(21,126,53,.95);
+	 same color as hover, making darker to match other features */
+	 background: rgba(13, 103, 41, .95);
+}
+/* darkgreen - repeated from above .darkgreen .ftr-text-container, .darkgreen.no-hover-panel {
+	 background: #157E35;
+	 background: rgba(21,126,53,.95);
+}
+ */
+ .darkgreen .ftr-text-container:before {
+	 background-color: #157E35;
+}
+ a:hover .darkgreen + .ftr-title {
+	 border-color: #0D682B;
+	 color: #157E35;
+}
+/* Three features text description overlap with read us text */
+ @media only screen and (min-width: 886px) and (max-width: 945px) {
+	 .ftr-description {
+		 max-height: 86px;
+		 overflow: hidden;
+	}
+}
+ @media only screen and (min-width: 845px) and (max-width: 885px) {
+	 .ftr-description {
+		 max-height: 86px;
+		 overflow: hidden;
+	}
+}
+ @media only screen and (min-width: 820px) and (max-width: 845px) {
+	 .ftr-description {
+		 max-height: 86px;
+		 overflow: hidden;
+	}
+}
+ @media only screen and (min-width: 800px) and (max-width: 819px) {
+	 .ftr-description {
+		 max-height: 86px;
+		 overflow: hidden;
+	}
+}
+ @media only screen and (min-width: 741px) and (max-width: 799px) {
+	 .ftr-description {
+		/* max-height: 73px;
+		 */
+		 overflow: hidden;
+	}
+}
+ @media only screen and (min-width: 680px) and (max-width: 740px) {
+	 .ftr-description {
+		/* max-height: 50px;
+		 */
+		 overflow: hidden;
+	}
+}
+/* Three features mobile view */
+ @media only screen and (max-width: 480px) {
+	 .feature {
+		 width: 100% !important;
+	}
+}
+/* Accordion */
+ .simpleFAQ_list li {
+     /* Commenting out for U Central page */
+    /*	 list-style: none !important; */
+}
+.simpleFAQ_list ol li {
+	list-style: inherit !important;
+}
+/* Right sidebar social media links and Give message */
+/* .social-media-list-item:focus, .social-media-list-item:hover {
+	 background: transparent url(https://www.utrgv.edu/_files/assets/images/social-media-fixed-icons2-hover.png) no-repeat;
+}
+ */
+ .give-btn:focus, .give-btn:focus-within, .give-btn:hover {
+	 background: transparent url(https://www.utrgv.edu/_files/assets/images/give-hover.jpg) no-repeat;
+}
+/* focus state of jump-to-top arrow graphic */
+ .jumptop {
+	 text-indent: -9999px;
+}
+ .jumptop:focus, .jumptop:hover {
+	 background: url(https://www.utrgv.edu/_files/assets/images/arrow-up-hover.jpg) no-repeat scroll center center;
+}
+/* //////////////////// Other Components */
+ .positioned-elsewhere {
+	 position: absolute;
+	 left: -10000px;
+	 top: auto;
+	 width: 1px;
+	 height: 1px;
+	 overflow: hidden;
+}
+/* Staff Listing - serving icons from test and removing figure and fig caption */
+ .icon-open {
+	 background: url(//www.utrgv.edu/_files/images/icons/icon-open.png) no-repeat transparent;
+}
+ .profile {
+	 width: 100%;
+	 border: 1px solid #ccc;
+	 margin: 1em 0;
+}
+ .profile:hover, .profile:focus {
+	 border-color: #0f5094;
+	 border-style: solid;
+}
+ .profile-caption {
+	 border: 1px solid #ccc;
+	 padding-bottom: 2.5em;
+	 border-top: 5px solid #e54800;
+	 position: relative;
+	 z-index: 556;
+	 margin-top: -10px;
+	 background-color: #fff;
+	 padding: 15px 15px 21px 15px;
+	 font-family: arial;
+	 font-size: 14px;
+	 line-height: 1.358;
+	 text-decoration: none;
+}
+ .profile img {
+	 width: 100%;
+	 position: relative;
+	 z-index: 555;
+}
+ .profile-caption h4 {
+	 margin: -4px 0 0 0;
+	 font-size: 18px;
+}
+ .profile-caption a.email {
+	 color: #DB350F;
+	 font-size: 95%;
+	 word-wrap: break-word;
+}
+ .close {
+	 font-size: 26px;
+	 opacity: 1;
+}
+ 

@@ -1,0 +1,449 @@
+/* .accessible-nav.css */
+/* Top Menu and Mobile Menu */
+/* Reset all submenus to be fully hidden until LI.hover or :hover */
+ .global-nav ul ul {
+     position: absolute;
+     left: -9999px;
+     top: auto;
+     display: block;
+    /* keep block but offscreen */
+     visibility: hidden;
+}
+/* When hovered or keyboard-opened, bring them on-screen */
+ .global-nav li:hover > ul, .global-nav li.hover > ul {
+     left: 0;
+     visibility: visible;
+}
+/*Fix keyboard navigation on top menu */
+/* Make top-menu dropdowns open on keyboard focus (JS adds .hover class) */
+ .global-nav li.hover > ul {
+     display: block !important;
+     position: absolute;
+}
+/* Make focus on link open submenu even without JS */
+ .global-nav li > a:focus + ul {
+     display: block;
+     position: absolute;
+}
+/* Add Active page color change to menu item */
+ .list-item a.active {
+    /*background: #000000 !important;
+     */
+}
+/* Add Keyboard focus color change to menu item */
+ .list-item a:focus, .list-item a:hover {
+     background: #000000 !important;
+}
+/* Top Menu - Add DOWN ARROW to menu items with drop down menu items */
+/* 3. Menu items that are able to expand could use visible drop down indicators such as a plus sign or an arrow. */
+ .down-arrow>a:after {
+     content: '';
+     border: 4px solid transparent;
+     border-top: 4px solid white;
+     margin-left: 6px;
+     margin-bottom: 3px;
+     display: inline-block;
+     vertical-align: bottom;
+}
+/* Top Menu - Add RIGHT to drop down menu items that have fly out menu items to the right */
+ .right-arrow>a:after {
+     content: '';
+     border: 4px solid transparent;
+     border-top: 4px solid white;
+     margin-left: 6px;
+     margin-bottom: 3px;
+     display: inline-block;
+     vertical-align: bottom;
+     transform: rotate(270deg);
+     -webkit-transform: rotate(270deg);
+}
+/* Top Menu - Fixing Z-Index on Submenu Flyout items */
+ .js .department-content ul.list ul ul {
+     z-index: 1;
+}
+/* Side Menu - fly out on focus */
+ .left-nav ul li.hover, .left-nav ul li ul li.hover{
+     position:relative;
+}
+ .left-nav > ul > li.hover > ul, .left-nav ul li ul li.hover ul {
+     left: 100%;
+     top: 0px;
+     display: block;
+     width: 80%;
+     -webkit-box-shadow: 9px 4px 28px -5px rgba(0,0,0,0.39);
+     -moz-box-shadow: 9px 4px 28px -5px rgba(0,0,0,0.39);
+     box-shadow: 6px 0px 14px -5px rgba(0,0,0,0.39);
+     border-left: 1px solid #f3f3f3;
+}
+/* Side Menu - defining a focus state with class hover to mimic :hover pseudoclass */
+ @media screen and (min-width: 680px) {
+    /* Side Items with flyout are colored. Remove this color */
+     li.breadcrumb.sidebar-list-item, li.breadcrumb.sidebar-list-item li {
+         background-color: #FFFFFF !important;
+    }
+    /* First level - same as a.sidebar-link.hover */
+     .left-nav li.sidebar-list-item a.hover{
+         background-color: #eeeeeef2;
+         background-color: rgba(218, 216, 216, 0.95) ;
+         text-decoration: underline;
+    }
+     .left-nav li.sidebar-list-item a:focus {
+        /* Do not fly out */
+    }
+     .left-nav li.sidebar-list-item a.focus {
+        /* Do not fly out */
+    }
+     .left-nav li.sidebar-list-item .hover {
+         background-color: #EEEEEE;
+         background-color: rgba(238, 238, 238, .95) !important;
+    }
+     .left-nav li.sidebar-list-item :focus {
+        /* Do not fly out */
+    }
+     .left-nav li.sidebar-list-item .focus {
+        /* Do not fly out */
+    }
+    /* Next level .hover is keyboard focus and :hover is mouse onhover */
+     .left-nav li.sidebar-list-item.has-nested a.hover, .left-nav li.sidebar-list-item.has-nested a:hover {
+         background-color: #EEEEEE;
+         background-color: rgba(238, 238, 238, .95) !important;
+         text-decoration: underline;
+    }
+     .left-nav li.sidebar-list-item.has-nested a:focus {
+        /* Do not fly out */
+    }
+}
+/* Mobile menu is top menu at screen widths of 779 pixels and below */
+/* Mobile Menu - Add focus state to hamburger menu link icon */
+ .nav-toggle:focus {
+     background-color: #555;
+}
+/* Mobile Menu - Increasing width of drop down width of menu items */
+ @media screen and (min-width: 780px) {
+     .js .global-nav > ul li:hover > ul li {
+        /* min-width: 153px;
+         top menu right side issue */
+         min-width: 129px;
+    }
+}
+/* Mobile Menu - Decreasing width of last column of menu drop down items - last column */
+ @media screen and (min-width: 780px) {
+     .js .global-nav > ul li:last-child > ul li {
+        /* width: 100%;
+         */
+         min-width: min-content;
+    }
+}
+/* Mobile Menu - Defining style of last column using path instead of the classic notation @media screen and (min-width: 780px) {
+     .nav_dd_header ul li:last-child {
+         width: 100%;
+    }
+}
+ */
+/* Mobile menu active links were darker*/
+ .global-nav a:visited {
+     color: #ffffff;
+}
+/* Mobile menu Donate Link focus state */
+ .header-link.header-btn.give-btn:focus {
+     color: #FFF;
+     background-color: #CF4411;
+}
+/* MEDIA QUERIES START */
+/* 681px Mobile not Desktop styles*/
+/*@media only screen and (max-width: 680px) {
+    /* Changing this to 780 as mobile styles start at 780 and below */
+     @media only screen and (max-width: 780px) {
+         .js .global-nav ul li.hover ul, .js .global-nav ul li:focus ul {
+             display: block;
+             max-height: 100%;
+        }
+         .js .global-nav ul li.hover ul ul, .js .global-nav ul li:focus ul ul {
+             display: none;
+        }
+         .js .global-nav ul li.hover ul li.hover ul, .js .global-nav ul li:hover ul li:focus ul {
+             display: block;
+             max-height: 100%;
+        }
+    }
+    /* 780px Desktop not Mobile styles */
+     @media screen and (min-width: 780px) {
+         .js .global-nav>ul li.hover>ul {
+             display: block;
+             position: absolute;
+             padding: 0;
+             max-width: 100%;
+        }
+         .js .global-nav>ul li.hover>ul li {
+             width: 100%;
+        }
+         .js .global-nav>ul li.hover>ul a, .js .global-nav>ul li.active.hover>ul a {
+             margin: 0 0 0 0;
+             padding: 5px 10px;
+             display: block;
+             width: 90%;
+             text-align: left;
+            /* background: rgba(207, 67, 17, .9);
+             */
+             background: #CF4311;
+        }
+         .js .global-nav>ul li.hover>ul a.hover, .js .global-nav>ul li.active.hover>ul a.hover {
+            /* background: rgba(189, 61, 15, .9);
+             */
+             background: #bd3d0f;
+        }
+         .js .global-nav .list-item a.hover {
+             border-bottom: none;
+             text-decoration: none;
+             cursor: pointer;
+             text-shadow: 1px 1px 3px rgba(102, 102, 102, .4);
+            /* background: rgba(207, 67, 17, .9);
+             */
+             background: #CF4311;
+             font-weight: normal;
+        }
+    }
+    /* --- FULL KEYBOARD MENU FIX (universal, no .js requirement) --- */
+     .global-nav li.hover > ul {
+         display: block !important;
+         position: absolute !important;
+    }
+     .global-nav li > a:focus + ul {
+         display: block !important;
+         position: absolute !important;
+    }
+    /* Keyboard focus: make submenus behave exactly like hover */
+     @media screen and (min-width: 780px) {
+        /* show menu */
+         .global-nav li.hover > ul {
+             display: block !important;
+             position: absolute !important;
+             padding: 0;
+             min-width: 160px;
+             width: auto;
+             z-index: 99999;
+        }
+        /* submenu item styling */
+         .global-nav li.hover > ul li {
+             width: 100%;
+        }
+        /* submenu links */
+         .global-nav li.hover > ul a {
+             display: block;
+             padding: 5px 10px;
+             text-align: left;
+             background: #cf4311;
+             color: #fff;
+        }
+        /* submenu links hover/focus */
+         .global-nav li.hover > ul a:hover, .global-nav li.hover > ul a:focus {
+             background: #bd3d0f;
+        }
+    }
+    /* ========================================= SIDE NAV – re‑enable flyout on focus ========================================= */
+     @media screen and (min-width: 780px) {
+        /* Allow JS-added .hover to behave like :hover */
+         .left-nav li.has-nested.hover > ul {
+             display: block !important;
+             position: absolute;
+             left: 100%;
+             top: 0;
+             width: 80%;
+             background: #fff;
+             z-index: 9999;
+             box-shadow: 6px 0 14px -5px rgba(0,0,0,0.39);
+             border-left: 1px solid #f3f3f3;
+        }
+        /* Native keyboard support (no JS required) */
+         .left-nav li.has-nested:focus-within > ul {
+             display: block;
+        }
+    }
+    /* ========================================= SIDE NAV – focus matches hover layout ========================================= */
+     @media screen and (min-width: 780px) {
+        /* When a side-nav item has keyboard focus inside it */
+         .left-nav > ul > li.has-nested:focus-within, .left-nav ul li ul li.has-nested:focus-within {
+             position: relative;
+        }
+         .left-nav > ul > li.has-nested:focus-within > ul, .left-nav ul li ul li.has-nested:focus-within > ul {
+             display: block;
+             position: absolute;
+             left: 100%;
+             top: 0;
+             width: 80%;
+             background: rgba(255, 255, 255, 0.98);
+             z-index: 9999;
+             box-shadow: 6px 0 14px -5px rgba(0,0,0,0.39);
+             border-left: 1px solid #f3f3f3;
+        }
+    }
+    /* ========================================= TOP NAV – open only while focused within ========================================= */
+     @media screen and (min-width: 780px) {
+        /* Open submenu only while focus is inside the top-level menu item */
+         .global-nav > ul > li:focus-within > ul {
+             display: block;
+             position: absolute;
+             z-index: 99999;
+        }
+        /* Default: hide all submenus */
+         .global-nav > ul > li > ul {
+             display: none;
+        }
+        /* Only show while focus is inside that top-level LI */
+         .global-nav > ul > li:focus-within > ul, .global-nav > ul > li:hover > ul {
+             display: block;
+        }
+    }
+    /* ========================================= MOBILE NAV – stack subpages cleanly ========================================= */
+     @media only screen and (max-width: 780px) {
+         .global-nav ul ul {
+             position: static !important;
+             left: auto !important;
+             top: auto !important;
+             box-shadow: none;
+             width: 100%;
+        }
+         .global-nav ul ul li a {
+             padding-left: 1.5em;
+        }
+    }
+    /* ================================================== MOBILE NAV – normalize hover/focus + indent ================================================== */
+     @media only screen and (max-width: 780px) {
+        /* Kill desktop flyout positioning completely */
+         .global-nav ul ul, .left-nav ul ul {
+             position: static !important;
+             left: auto !important;
+             top: auto !important;
+             width: 100%;
+             box-shadow: none !important;
+        }
+        /* Remove hover/focus background bars meant for desktop */
+         .global-nav a:hover, .global-nav a:focus, .global-nav a.hover {
+             background: none;
+        }
+        /* Ensure submenus stack normally */
+         .global-nav ul li.hover > ul, .global-nav ul li:focus-within > ul, .left-nav li.hover > ul, .left-nav li:focus-within > ul {
+             display: block;
+        }
+        /* INDENTATION BY DEPTH */
+        /* Level 2 */
+         .global-nav ul ul li > a, .left-nav ul ul li > a {
+             padding-left: 1.75rem;
+        }
+        /* Level 3 */
+         .global-nav ul ul ul li > a, .left-nav ul ul ul li > a {
+             padding-left: 2.75rem;
+        }
+    }
+    /* ================================================== MOBILE TOP NAV – hard reset to stacked menu ================================================== */
+     @media only screen and (max-width: 780px) {
+        /* 1️⃣ Completely neutralize desktop submenu logic */
+         .global-nav ul ul {
+             position: static !important;
+             left: auto !important;
+             top: auto !important;
+             visibility: visible !important;
+             display: none !important;
+             width: 100% !important;
+             box-shadow: none !important;
+        }
+        /* 2️⃣ Only show submenu when parent is expanded (hover OR focus) */
+         .global-nav ul li.hover > ul, .global-nav ul li:focus-within > ul {
+             display: block !important;
+        }
+        /* 3️⃣ Kill desktop hover/focus background bars */
+         .global-nav .list-item a:hover, .global-nav .list-item a:focus, .global-nav .list-item a.hover {
+             background: none !important;
+        }
+        /* 4️⃣ Indentation by depth */
+         .global-nav ul ul li > a {
+             padding-left: 1.75rem !important;
+        }
+         .global-nav ul ul ul li > a {
+             padding-left: 2.75rem !important;
+        }
+    }
+    /* ========================================= MOBILE NAV – stabilize focus appearance ========================================= */
+     @media only screen and (max-width: 780px) {
+        /* Remove desktop hover background behavior */
+         .global-nav .list-item a:hover {
+             background: none !important;
+        }
+        /* Define a clear, persistent mobile focus style */
+         .global-nav .list-item a:focus {
+             background: #000 !important;
+             outline: 2px solid #fff;
+             outline-offset: -2px;
+        }
+    }
+    /* ================================================== MOBILE TOP NAV – force test-instance behavior ================================================== */
+     @media only screen and (max-width: 780px) {
+        /* Make submenus part of normal flow */
+         .global-nav ul ul {
+             position: static !important;
+             left: auto !important;
+             top: auto !important;
+             visibility: visible !important;
+             display: none;
+             width: 100%;
+        }
+        /* Open submenu ONLY via aria-expanded */
+         .global-nav li > a[aria-expanded="true"] + ul {
+             display: block !important;
+        }
+        /* Disable hover-based positioning entirely */
+         .global-nav li.hover > ul {
+             position: static !important;
+        }
+    }
+    /* ========================================= MOBILE NAV – disable desktop submenu hiding ========================================= */
+     @media only screen and (max-width: 780px) {
+         .global-nav ul ul {
+             position: static !important;
+             left: auto !important;
+             top: auto !important;
+             visibility: visible !important;
+             display: none !important;
+             width: 100%;
+        }
+    }
+    /* ========================================= MOBILE NAV – focus opens submenu correctly ========================================= */
+     @media only screen and (max-width: 780px) {
+        /* Open submenu when keyboard focus expands it */
+         .global-nav > ul > li > a[aria-expanded="true"] + ul {
+             display: block !important;
+        }
+    }
+    /* ========================================================= MOBILE TOP NAV – force stacked submenus (FINAL OVERRIDE) ========================================================= */
+     @media only screen and (max-width: 780px) {
+        /* Override ALL desktop submenu positioning */
+         nav.global-nav.nav-top ul ul {
+             position: static !important;
+             left: auto !important;
+             top: auto !important;
+             visibility: visible !important;
+             display: none !important;
+             width: 100% !important;
+        }
+        /* Open submenu ONLY when expanded */
+         nav.global-nav.nav-top li > a[aria-expanded="true"] + ul {
+             display: block !important;
+        }
+        /* Neutralize hover & focus absolute positioning */
+         nav.global-nav.nav-top li.hover > ul, nav.global-nav.nav-top li > a:focus + ul {
+             position: static !important;
+             left: auto !important;
+        }
+    }
+    /* ========================================================= MOBILE TOP NAV – stable focus appearance ========================================================= */
+     @media only screen and (max-width: 780px) {
+         nav.global-nav.nav-top .list-item a:focus {
+             background: #000 !important;
+             outline: 2px solid #fff;
+             outline-offset: -2px;
+        }
+         nav.global-nav.nav-top .list-item a:hover {
+             background: none !important;
+        }
+    }
+     

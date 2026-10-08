@@ -1,0 +1,310 @@
+@charset "utf-8";
+/* CSS Document CISCO WEB */
+
+
+
+
+
+.cisco-chat-container-main {
+    right: 0;
+    bottom: 15px;
+    position: absolute;
+    height: 0;
+    width: 65%;
+}
+
+@media screen and (min-width: 768px){
+    .cisco-chat-container-main {
+        bottom: 280px;
+    }
+}
+
+.cisco-chat-container {
+    z-index: 99998;
+    border: 0 solid #9e9e9e;
+    background: #fff;
+    position: fixed;
+    right: 9px;
+    bottom: 10px;
+    height: 0;
+    width: 0;
+    border-radius: 2px;
+    overflow: auto;
+    -webkit-box-shadow: 0px 6px 52px -11px rgba(0,0,0,0.66);
+    -moz-box-shadow: 0px 6px 52px -11px rgba(0,0,0,0.66);
+    box-shadow: 0px 6px 52px -11px rgba(0,0,0,0.4);
+    transition: all 0.2s ease-out 0.4s;
+}
+
+.cisco-chat-container.chat-open {
+    height: 300px;
+    width: 300px;
+    border-width: 1px;
+}
+
+header.cisco-chat-header {
+    background: #ebebeb;
+    border-bottom: 1px solid #cacaca;
+}
+
+.cisco-chat-header h2 {
+    position: relative;
+    color: #333;
+    font-size: 1.2em;
+    font-weight: 300;
+    padding: 15px;
+    cursor: pointer;
+    margin: 0;
+}
+
+/*.cisco-chat-header h2:before {
+    height: 2px;
+    width: 12px;
+    content: "";
+    background: #fff;
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    margin-top: -1px;
+    opacity: .85;
+}*/
+
+span.close-btn {
+    position: absolute;
+    right: 15px;
+    margin-top: 2px;
+}
+
+.closed-message {
+    padding: 15px;
+}
+
+#cisco_bubble_chat { z-index: 99997 !important; }
+
+.cisco-chat-btn {
+    transition: all 0.2s ease-out 0.2s;
+    display: block;
+    background: #CF4411;
+    color: #ffffff;
+    position: fixed;
+    text-indent: -999999px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    z-index: 999;
+    bottom: 11px;
+    right: 9px;
+    background-image: url(//www.utrgv.edu/_files/assets/images/icons/slt-sprites.png);
+    background-position: -636px -533px;
+    -webkit-box-shadow: 0px 2px 26px -2px rgba(0,0,0,0.39);
+    -moz-box-shadow: 0px 2px 26px -2px rgba(0,0,0,0.39);
+    box-shadow: 0px 2px 26px -2px rgba(0,0,0,0.39);
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+.cisco-chat-btn:hover {
+    border: 2px solid #ffffff !important;
+}
+
+.cisco-chat-btn.chat-open {
+    width: 35px;
+    height: 35px;
+    background-color: #65646a;
+    background-position-x: -590px;
+}
+
+/* Close button "X" */
+.cisco-chat-btn.chat-open:before, 
+.cisco-chat-btn.chat-open:after {
+    display: inline-block;
+}
+.cisco-chat-btn:before, 
+.cisco-chat-btn:after {
+    content: '';
+    height: 20px;
+    border-left: 2px solid #fff;
+    position: absolute;
+    left: 50%;
+    margin-left: -0.03em;
+    margin-top: 0;
+    display: none;
+}
+.cisco-chat-btn:before {
+    transform: rotate(-45deg);
+}
+.cisco-chat-btn:after {
+    transform: rotate(45deg);
+}
+
+/* Chat Message styles*/
+/* Hiding wrapper to increase accessibility .  Do Not Change Please for the Office of Civil Rights complying with accessibility  concerns */
+.chat-notification-wrapper{
+    position: fixed;
+    z-index: 2147483000;
+    bottom: 70px;
+    right: 45px;
+    width: 260px;
+    height: 140px;
+    display: none;
+}
+
+.intercom-11g8fgr {
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    backface-visibility: hidden;
+    transform-origin: center top;
+    transition: transform 300ms cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+}
+
+.intercom-1ehtfu3 {
+    padding-top: 10px;
+    max-height: 140px;
+    clear: both;
+    animation: 250ms ease 0s 1 normal none running animation-dh8ssc;
+}
+.intercom-me1bwq .e1hvvs530 {
+    animation: 0.25s cubic-bezier(0.165, 0.84, 0.44, 1) 0s 1 normal none running animation-bbrn0v;
+    }
+.intercom-1fsfdm9 {
+    height: 100%;
+    width: 260px;
+    position: relative;
+}
+.intercom-1rhrx1d {
+    margin-left: 45px;
+    box-sizing: border-box;
+    background-color: rgb(245, 228, 208);
+    box-shadow: rgba(35, 47, 53, 0.09) 0px 2px 8px 0px;
+    font-size: 13px;
+    line-height: 1.5;
+    height: 100%;
+    position: relative;
+    padding: 17px;
+    border-radius: 5px 5px 0px 5px;
+}
+.intercom-1rhrx1d::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    right: -5px;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0px 5px 13px 5px;
+    border-color: transparent transparent #f5e4d0;
+}
+
+.intercom-1egylzp {
+    font-size: 13px;
+    display: inline-block;
+    vertical-align: middle;
+    color: rgb(78, 84, 98);
+    line-height: 1.2;
+    padding-top: 2px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    /*width: calc(100% - 40px);*/
+    overflow: hidden;
+}
+.intercom-1fsfdm9 .e1apf4bm0 {
+    width: 100%;
+}
+.intercom-128u8a2 {
+    color: rgb(0, 0, 0);
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.intercom-1egylzp span {
+    white-space: nowrap;
+}
+.intercom-7wsxl4 {
+    font-weight: bold;
+    color: rgb(34, 34, 34);
+}
+
+.intercom-1g7qc8z {
+    font-size: 14px;
+    line-height: 18px;
+    max-height: 60px;
+    color: rgb(0, 0, 0);
+    /* display: -webkit-box; */
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -ms-box-orient: vertical;
+    margin: 12px 0px 0px;
+    overflow: hidden;
+    animation: 500ms ease 0s 1 normal none running animation-mhvv8m;
+}
+
+.backdrop-close {
+    text-align: right;
+    position: relative;
+    padding: 4px 30px 4px 12px;
+    background-color: transparent;
+    float: right;
+    border-radius: 13px;
+    border: 1px solid #828181;
+}
+
+#chat-notification-close:hover {
+    background-color: #ffffff;
+    border-radius: 13px;
+    box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.12);
+    border-color: white;
+}
+
+.closeicon {
+    font-size: 200%;
+    line-height: 10px;
+    position: absolute;
+    bottom: .30em;
+    right: 8px;
+}
+
+/* Added for accessibility */
+
+ 
+#bubble-chat-app:focus {
+    border-color: #6a6b6c;
+	 border: 2px solid #ffffff !important;
+	 outline: #003fbb solid 3px !important;
+}
+
+.Title__bubble-chat-title___1ZWhR:hover, .Title__bubble-chat-title___1ZWhR:focus {
+    border: 2px solid #000000;
+}
+
+.Title__bubble-chat-title-minimize-button___PpUU_:hover, .Title__bubble-chat-title-minimize-button___PpUU_:focus {
+    border: 2px solid #000000;
+}
+
+#close_chat:hover, #close_chat:focus {
+    border: 2px solid #000000;
+}
+
+#cancel_btn_popup:hover, #cancel_btn_popup:focus {
+    border: 2px solid #000000;
+}
+/* Start Chat button */
+#submit_chat:hover,  #submit_chat:focus{
+    border: 2px solid #000000;
+
+}
+/* Start Chat button hover and focus styles */
+.common__bubble-chat-submit-button___3Qx3p:hover, 
+.common__bubble-chat-submit-button___3Qx3p:focus {
+background-color: #BA3912  
+
+}
+
+.Title__bubble-chat-title-close-restore-button___NIGu9 {
+
+}
+
+.sc-gzVnrw {
+
+}

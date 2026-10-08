@@ -1,0 +1,568 @@
+/* .accessible-nav-disclosure.css */
+/* W3C Disclosure Menu Top Menu and Mobile Menu */
+/* Start of https://testwww.utrgv.edu/_files/css/nav.css*/
+ .js .global-nav .list-item a {
+}
+ .js .global-nav .list-item ul li a {
+     text-align: left;
+     padding: 5px 9px;
+}
+ .js .global-nav .list-item ul li a:hover {
+     text-align: left;
+     padding: 5px 9px;
+}
+/* End of https://testwww.utrgv.edu/_files/css/nav.css*/
+/*START - Mobile Menu Styles from accessible nav.css */
+/* Mobile menu is top menu at screen widths of 779 pixels and below */
+/* Mobile Menu - Add focus state to hamburger menu link icon */
+ .nav-toggle:focus {
+     background-color: #555;
+     outline: 5px solid rgb(0 90 156 / 75%);
+}
+/* Mobile Menu - Increasing width of drop down width of menu items */
+ @media screen and (min-width: 780px) {
+     .disclosure-nav {
+        /*background-color: #eee;
+         */
+        /*display: flex;
+         */
+         list-style-type: none;
+         padding: 0;
+         margin: 0;
+    }
+     .js .global-nav > ul li:hover > ul li {
+        /* min-width: 153px;
+         top menu right side issue */
+         min-width: 129px;
+    }
+}
+/* Mobile Menu - Decreasing width of last column of menu drop down items - last column */
+ @media screen and (min-width: 780px) {
+     .js .global-nav > ul li:last-child > ul li {
+        /* width: 100%;
+         */
+         min-width: min-content;
+    }
+}
+/* Mobile Menu - Defining style of last column using path instead of the classic notation @media screen and (min-width: 780px) {
+     .nav_dd_header ul li:last-child {
+         width: 100%;
+    }
+}
+ */
+/* Mobile menu active links were darker*/
+ .global-nav a:visited {
+     color: #ffffff;
+}
+/* Mobile menu Donate Link focus state */
+ .header-link.header-btn.give-btn:focus {
+     color: #FFF;
+     background-color: #CF4411;
+}
+/*Desktop styles*/
+/* Manual accessible disclosure menu - top menu from W3C with button activated dropdowns */
+ .disclosure-nav {
+    /*background-color: #eee;
+     */
+    /*display: flex;
+     */
+     list-style-type: none;
+     padding: 0;
+     margin: 0;
+}
+ .disclosure-nav ul {
+    /*background-color: #eee;
+     */
+    /*border: 1px solid #005a9c;
+     */
+     border-top-width: 5px;
+     border-radius: 0 0 4px 4px;
+     display: block;
+     list-style-type: none;
+     top: 100%;
+    /*min-width: 200px;
+     */
+     min-width: 128px;
+    /*margin: 0;
+     */
+    /*padding: 0;
+     */
+    /*position: absolute;
+     */
+}
+ .disclosure-nav button {
+     color: #ffffff;
+     background-color: #cf4311;
+     display: block;
+     width: 100%;
+     box-sizing: border-box;
+}
+ .disclosure-nav button:hover {
+     background: #000000 !important;
+}
+ .disclosure-nav button:focus {
+     background: #000000 !important;
+}
+ .disclosure-nav li {
+     margin: 0;
+}
+ .disclosure-nav > li {
+     display: flex;
+     position: relative;
+}
+ .disclosure-nav ul a {
+     border: 0;
+     color: #000;
+     display: block;
+     margin: 0;
+     padding: 0.5em 1em;
+     text-decoration: underline;
+}
+ .disclosure-nav ul a:hover, .disclosure-nav ul a:focus {
+     background-color: #ddd;
+     margin-bottom: 0;
+     text-decoration: none;
+}
+ .disclosure-nav ul a:focus {
+     outline: 5px solid rgb(0 90 156 / 75%);
+     position: relative;
+}
+ .disclosure-nav button, .disclosure-nav .main-link {
+     align-items: center;
+     background-color: transparent;
+     border: 1px solid transparent;
+    /*border-right-color: #ccc;
+     */
+     display: flex;
+     padding: 1em;
+}
+ .disclosure-nav .main-link {
+     border-right-color: transparent;
+}
+ .disclosure-nav button::after {
+    /*content: "";
+     */
+    /*border-bottom: 1px solid #000;
+     */
+    /*border-right: 1px solid #000;
+     */
+    /*height: 0.5em;
+     */
+    /*margin-left: 0.75em;
+     */
+    /*width: 0.5em;
+     */
+    /*transform: rotate(45deg);
+     */
+    /*Down arrow code from live site*/
+     content: '';
+     border: 4px solid transparent;
+     border-top: 4px solid white;
+     margin-left: 6px;
+     margin-bottom: 3px;
+     display: inline-block;
+     vertical-align: bottom;
+}
+ .disclosure-nav .main-link + button::after {
+     margin-left: 0;
+}
+ .disclosure-nav button:focus, .disclosure-nav .main-link:focus {
+    /*border-color: #005a9c;
+     */
+     outline: 5px solid rgb(0 90 156 / 75%);
+     position: relative;
+}
+/* Top-level plain links (e.g. Home) have no .main-link class in the velocity output, so we explicitly give them the same focus ring to be consistent across all browsers */
+ .disclosure-nav > li > a:focus {
+     outline: 5px solid rgb(0 90 156 / 75%);
+     position: relative;
+}
+ .disclosure-nav button:hover, .disclosure-nav button[aria-expanded="true"] {
+    /*background-color: #005a9c;
+     */
+     color: #fff;
+}
+ .disclosure-nav button:hover::after, .disclosure-nav button[aria-expanded="true"]::after {
+    /*border-color: #fff;
+     */
+}
+/* Current page indicator */
+/* Top-level link (no submenu) sitting on the orange bar - white underline */
+ .disclosure-nav > li > a[aria-current="page"] {
+     text-decoration: underline !important;
+     text-underline-offset: 4px !important;
+     text-decoration-thickness: 2px !important;
+}
+/* Top-level dropdown button when current page is somewhere inside its submenu. Uses :has() to reach up from the current-page link to its controlling button. The white bottom border signals "you are in this section" when the menu is collapsed. */
+ .disclosure-nav > li:has([aria-current="page"]) > button {
+     border-bottom: 3px solid #ffffff !important;
+}
+/* Flyout toggle button when current page is inside its flyout submenu */
+ .disclosure-nav ul li:has([aria-current="page"]) > button.flyout-toggle {
+     border-left: 4px solid #ffffff !important;
+     padding-left: calc(.6em - 4px) !important;
+}
+/* Dropdown and flyout links (white panel, dark text) - orange left border */
+ .disclosure-nav ul a[aria-current="page"] {
+     border-left: 4px solid #cf4411 !important;
+     padding-left: calc(1em - 4px) !important;
+     font-weight: bold;
+}
+/* MEDIA QUERIES START */
+/* Mobile not Desktop styles*/
+ @media only screen and (max-width: 780px) {
+     .js .global-nav ul li.hover ul, .js .global-nav ul li:focus ul {
+        /*display: block;
+         */
+         display: contents;
+         max-height: 100%;
+    }
+     .js .global-nav ul li.hover ul ul, .js .global-nav ul li:focus ul ul {
+         display: none;
+    }
+     .js .global-nav ul li.hover ul li.hover ul, .js .global-nav ul li:hover ul li:focus ul {
+        /*display: block;
+         */
+         display: contents;
+         max-height: 100%;
+    }
+    /* Mobile: remove left padding from top-level buttons and main links */
+     .disclosure-nav button, .disclosure-nav .main-link {
+         padding-left: 0;
+    }
+    /* Mobile: top-level link hover/focus (Home, Campus Tours, etc.) */
+    /* Specificity (0,4,3): beats nav.global-nav.nav-top .list-item a:hover (0,4,2) from nav.css */
+     nav.global-nav.nav-accessible .disclosure-nav > li.list-item > a:hover, nav.global-nav.nav-accessible .disclosure-nav > li.list-item > a:focus {
+         background-color: #000000 !important;
+         color: #ffffff !important;
+         outline: 5px solid rgb(0 90 156 / 75%);
+         position: relative;
+    }
+    /* Mobile: 2nd level links need white text on dark nav background */
+     .disclosure-nav ul a {
+         color: #ffffff !important;
+         background-color: transparent;
+    }
+    /* Mobile: current page indicator - keep orange border, adjust padding to match */
+     .disclosure-nav ul a[aria-current="page"] {
+         border-left-color: #cf4411;
+    }
+    /* Mobile: 2nd level link hover/focus */
+     .disclosure-nav ul a:hover, .disclosure-nav ul a:focus {
+         background-color: #000000 !important;
+         color: #ffffff !important;
+    }
+    /* Mobile: flyout button should match nav item style - NOT orange */
+     .flyout-toggle {
+         background-color: transparent !important;
+         color: #ffffff !important;
+         border-bottom: 1px dotted #515155 !important;
+    }
+    /* Mobile: flyout button hover/focus */
+     .flyout-toggle:hover, .flyout-toggle:focus {
+         background-color: #000000 !important;
+         color: #ffffff !important;
+    }
+    /* Mobile: 3rd level (flyout submenu) link styles */
+     .nav-accessible li button.flyout-toggle[aria-expanded="true"] + ul a {
+         color: #ffffff !important;
+        /* background-color: #2a2a2a;
+         */
+         background-color: #414145;
+    }
+     .nav-accessible li button.flyout-toggle[aria-expanded="true"] + ul a:hover, .nav-accessible li button.flyout-toggle[aria-expanded="true"] + ul a:focus {
+         background-color: #000000 !important;
+         color: #ffffff !important;
+    }
+}
+/* Mobile Menu - */
+ @media screen and (min-width: 780px) {
+     .disclosure-nav button {
+         font-size: 14px;
+        /*border-bottom: 2px dotted #515155;
+         */
+         display: block;
+         padding: .8em 0;
+        /*Down arrows added via styles above, not using images*/
+        /*background: url(../_files/assets/images/right-arrow.png) center right no-repeat;
+         */
+        /*background: url("https://www.utrgv.edu/_files/assets/images/right-arrow.png") center right no-repeat;
+         */
+        /*Fix hover button width*/
+         width: -webkit-fill-available;
+    }
+     .disclosure-nav ul {
+        /*background-color: red !important;
+         */
+        /*border: 1px solid #005a9c;
+         */
+         border-radius: 0 0 4px 4px;
+         display: block;
+         list-style-type: none;
+         min-width: 128px;
+        /*margin: 0;
+         */
+         padding: 0;
+        /*position: absolute;
+         */
+    }
+}
+/* end manual accessible top menu from w3c */
+/*custom styles from accessible-nav-disclosure-helper.css*/
+/* .accessible-nav-disclosure-helper.css */
+/* CSS to fix top menu in cascade with button on hover out of menu */
+/* To fix the issue where the anchors’ height expands to the height of the dropdown list when moving the mouse off the navbar, you can add the following CSS to ensure the height remains consistent */
+/* Ensure the height of the anchors remains consistent */
+ .global-nav .list-item > a {
+     height: auto;
+     line-height: normal;
+}
+/* Prevent the dropdown from affecting the height of the parent anchor */
+ .global-nav .list-item:hover > a {
+     height: auto;
+     line-height: normal;
+}
+/* Additional styles to ensure dropdown visibility and positioning */
+ .global-nav .list-item ul {
+     position: absolute;
+     display: none;
+     z-index: 1000;
+}
+ .global-nav .list-item:hover ul {
+     display: block;
+}
+/*Used for the top menu flyouts*/
+ .submenu[hidden] {
+     display: none;
+}
+ .submenu-toggle {
+     background: none;
+     border: 0;
+     cursor: pointer;
+}
+/* ===================================================== DISABLE HOVER‑BASED MENU OPENING (CRITICAL) ===================================================== */
+ .nav-accessible li:hover > ul {
+     display: none !important;
+     visibility: hidden !important;
+     opacity: 0 !important;
+}
+ .nav-accessible ul[hidden] {
+     display: none !important;
+}
+/* Belt-and-suspenders: scope directly to disclosure-nav so no external cascade rule can override the UA [hidden] display:none on submenus */
+ .disclosure-nav ul[hidden] {
+     display: none !important;
+}
+/* Override: show dropdown when button is expanded (button-activated disclosure menu) */
+/* Uses li in selector to raise specificity to (0,2,3), beating :focus-within at (0,2,2) */
+ .nav-accessible li button[aria-expanded="true"] + ul {
+     display: block !important;
+     visibility: visible !important;
+     opacity: 1 !important;
+     left: auto !important;
+     position: absolute !important;
+     z-index: 9999 !important;
+}
+/* ===================================================== FLYOUT (level 3) STYLES ===================================================== */
+/* Give dropdown list items relative positioning so flyout ul can anchor to them */
+ .disclosure-nav ul li {
+     position: relative;
+}
+/* Flyout toggle button - full width orange button matching top-level dropdown buttons */
+ .flyout-toggle {
+     background-color: #cf4411 !important;
+     border: none !important;
+     color: #ffffff !important;
+     cursor: pointer;
+     font-size: 14px;
+     padding: .5em .6em !important;
+     width: -webkit-fill-available;
+     width: stretch;
+     display: block;
+     text-align: left;
+     box-sizing: border-box;
+}
+ .flyout-toggle:hover, .flyout-toggle:focus {
+     background: #000000 !important;
+     color: #ffffff !important;
+     outline: 5px solid rgb(0 90 156 / 75%) !important;
+     position: relative;
+}
+/* Show flyout submenu to the right of the dropdown item */
+/* Last 2 top-level nav items: flyout opens to the left to avoid going off-screen */
+ .disclosure-nav > li:nth-last-child(-n+2) button.flyout-toggle[aria-expanded="true"] + ul {
+     left: auto !important;
+     right: 100% !important;
+}
+ .nav-accessible li button.flyout-toggle[aria-expanded="true"] + ul {
+     display: block !important;
+     visibility: visible !important;
+     opacity: 1 !important;
+     position: absolute !important;
+     top: 0 !important;
+     left: 100% !important;
+     z-index: 10000 !important;
+     background-color: #ffffff;
+     min-width: 180px;
+     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25);
+     border-radius: 0 4px 4px 4px;
+}
+/* Desktop: flyout toggle arrows point right by default, left for last 2 top-level items */
+/* Overrides the down arrow from .disclosure-nav button::after (specificity 0,1,2). Use .disclosure-nav button.flyout-toggle::after (0,2,2) to reliably win. Uses same rotated-border-top technique as the live site (accessible-nav.css .right-arrow). */
+ @media screen and (min-width: 780px) {
+    /* Right-pointing arrow: rotate the border-top triangle 270deg to face right */
+     .disclosure-nav button.flyout-toggle::after {
+         content: '';
+         border: 4px solid transparent;
+         border-top: 4px solid white;
+         margin-left: 6px;
+         margin-bottom: 3px;
+         display: inline-block;
+         vertical-align: bottom;
+         transform: rotate(270deg);
+         -webkit-transform: rotate(270deg);
+    }
+    /* Left-pointing arrow: last 2 top-level items fly out to the left */
+     .disclosure-nav > li:nth-last-child(-n+2) button.flyout-toggle::after {
+         transform: rotate(90deg);
+         -webkit-transform: rotate(90deg);
+    }
+}
+/* ===================================================== MOBILE OVERRIDES - button-activated inline dropdowns ===================================================== */
+ @media only screen and (max-width: 780px) {
+    /* Top-level dropdown: expand inline below the button */
+     .nav-accessible li button[aria-expanded="true"] + ul {
+         position: static !important;
+         width: 100% !important;
+         z-index: auto !important;
+         left: auto !important;
+    }
+    /* Flyout submenu: expand inline below the flyout button, indented */
+     .nav-accessible li button.flyout-toggle[aria-expanded="true"] + ul {
+         position: static !important;
+         left: auto !important;
+         right: auto !important;
+         top: auto !important;
+         width: 100% !important;
+         box-shadow: none;
+         border-radius: 0;
+         padding-left: 0;
+        /* background-color: #f5f5f5;
+         */
+    }
+    /* Last-2 override not needed on mobile - reset it */
+     .disclosure-nav > li:nth-last-child(-n+2) button.flyout-toggle[aria-expanded="true"] + ul {
+         left: auto !important;
+         right: auto !important;
+    }
+    /* Flyout toggle button full width on mobile, dark background overrides orange general rule */
+     .flyout-toggle {
+         width: 100% !important;
+         background-color: #414145 !important;
+         padding: .5em 2em !important;
+    }
+    /* Mobile: ALL levels — black background on hover/focus supersedes all other styles */
+    /* Specificity (0,4,3): beats nav.global-nav.nav-top .list-item a:hover (0,4,2) from nav.css */
+     nav.global-nav.nav-accessible .disclosure-nav li.list-item a:hover, nav.global-nav.nav-accessible .disclosure-nav li.list-item a:focus, nav.global-nav.nav-accessible .disclosure-nav button:hover, nav.global-nav.nav-accessible .disclosure-nav button:focus {
+         background-color: #000000 !important;
+         color: #ffffff !important;
+    }
+}
+
+/* =====================================================
+   SIDE NAV DISCLOSURE - button-activated left sidebar
+   =====================================================
+   Requires <nav class="left-nav nav-side-accessible">.
+   Items with children are rendered as a <button class="sidebar-toggle">
+   followed by a <ul hidden> that JS shows/hides on click/Enter.
+*/
+
+/* Plain sidebar links (no subpages) — suppress the arrow background image
+   inherited from nav.css; only buttons (items with subpages) should show an arrow */
+.left-nav.nav-side-accessible a.sidebar-link {
+    background-image: none;
+}
+
+/* Match existing sidebar-link appearance from department-_ate.css —
+   full-width toggle button with right-pointing arrow background image */
+.left-nav.nav-side-accessible button.sidebar-toggle {
+    background: url(https://www.utrgv.edu/_files/assets/images/subnav-arrow1.png) no-repeat scroll right center rgba(255, 255, 255, .98);
+    border: none;
+    border-bottom: 1px dotted #d5d5d5;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 15px;
+    font: inherit;
+    color: inherit;
+    box-sizing: border-box;
+}
+
+/* Expanded: switch to down-pointing arrow */
+.left-nav.nav-side-accessible button.sidebar-toggle[aria-expanded="true"] {
+    background: url(https://www.utrgv.edu/_files/assets/images/subnav-arrow-down.png) no-repeat scroll right 80% transparent !important;
+    background-position-x: 95% !important;
+}
+
+/* No ::after pseudo-element — arrow is the background image */
+.left-nav.nav-side-accessible button.sidebar-toggle::after {
+    content: none;
+}
+
+/* Focus ring matching existing sidebar-link focus style */
+.left-nav.nav-side-accessible button.sidebar-toggle:focus {
+    outline: 5px solid rgb(0 90 156 / 75%);
+    position: relative;
+}
+
+/* Hover style matching existing .has-nested a:hover from accessible-nav.css */
+@media screen and (min-width: 680px) {
+    .left-nav.nav-side-accessible button.sidebar-toggle:hover,
+    .left-nav.nav-side-accessible button.sidebar-toggle:focus {
+        background-color: rgba(238, 238, 238, .95) !important;
+        text-decoration: underline;
+    }
+}
+
+/* Keep hidden sublists hidden (belt-and-suspenders over site cascade) */
+.left-nav.nav-side-accessible ul[hidden] {
+    display: none !important;
+}
+
+/* Current page / active section indicators for sidebar toggle buttons.
+   Mirrors the .sidebar-link.active rule in accessible-helper.css so the
+   button gets the same orange left-border treatment when the current page
+   is somewhere inside its flyout. */
+
+/* Button whose flyout contains the current page link */
+.left-nav.nav-side-accessible button.sidebar-toggle:has(~ ul [aria-current="page"]) {
+    font-weight: bold;
+    border-left: 4px solid #e04e39;
+    padding-left: 11px; /* 15px normal - 4px border = 11px to keep text aligned */
+}
+
+/* Button whose flyout contains an .active sidebar-link (set by velocity) */
+.left-nav.nav-side-accessible button.sidebar-toggle:has(~ ul .sidebar-link.active) {
+    font-weight: bold;
+    border-left: 4px solid #e04e39;
+    padding-left: 11px;
+}
+
+/* Sidebar li items need relative positioning so the flyout ul can anchor to them */
+.left-nav.nav-side-accessible li {
+    position: relative;
+}
+
+/* Show sublist when its toggle button is expanded — fly out to the right of the sidebar */
+.left-nav.nav-side-accessible button.sidebar-toggle[aria-expanded="true"] + ul {
+    display: block !important;
+    position: absolute !important;
+    left: 100% !important;
+    top: 0 !important;
+    width: 80% !important;
+    background: rgba(255, 255, 255, .98) !important;
+    z-index: 9999 !important;
+    box-shadow: 6px 0 14px -5px rgba(0, 0, 0, 0.39) !important;
+    border-left: 1px solid #f3f3f3 !important;
+}

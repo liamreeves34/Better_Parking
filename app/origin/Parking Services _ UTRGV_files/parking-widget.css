@@ -1,0 +1,97 @@
+.parking_lot {
+	 margin-top: -6px;
+	 margin-bottom: 1.5em;
+	 background: #EDEDED;
+	 border-bottom-right-radius: 1em;
+	 border-bottom-left-radius: 1em;
+     padding: 0px;
+     margin: 9px;
+}
+ .parking_lot .small {
+	 font-size: .7em;
+	 font-weight: normal;
+	 display: block;
+}
+ .parking_lot .range {
+	 margin: 1em;
+}
+ .parking_lot .range meter {
+	 display: block;
+	 margin: 1em auto;
+	 width: 80%;
+	 height: 25px;
+	 border: 1px solid #ccc;
+	 border-radius: 3px;
+}
+ .parking_lot .range meter::-webkit-meter-bar {
+	 background: none;
+	 background-color: whiteSmoke;
+	 box-shadow: 0 5px 5px -5px #333 inset;
+}
+ .parking_lot .occupancy.row {
+	 border-bottom: 0;
+}
+ .parking_lot .column {
+	 margin: 0;
+}
+ .spaces_num {
+	 display: flex;
+}
+ .spaces_num .column-6-of-12 {
+	 flex: 1;
+}
+ .parking_lot .column-6-of-12 {
+	 width: 50%;
+	 line-height: 1.2;
+}
+ .parking_lot .location_address {
+	 font-size: 1.3em;
+	 font-weight: bold;
+	 text-align: center;
+	 line-height: 1.3;
+	 padding-bottom: .2em;
+}
+ .parking_lot .location_address .emphasis {
+	 font-size: 1em;
+	 display: block;
+	 padding: .1em 0;
+	 margin-bottom: .2em;
+	 color: #FFF;
+	 background: #504e4e;
+}
+ .parking_lot .location_name, .parking_lot .time, .parking_lot .label, .parking_lot .number, .parking_lot .range {
+	 font-size: 1em;
+	 text-align: center;
+	 margin: .4em;
+}
+ .parking_lot .location_name, .parking_lot .label {
+	 font-weight: bold;
+}
+ .parking_lot .label, .parking_lot .range {
+	 margin: 0;
+}
+ .parking_lot .label {
+}
+ .parking_lot .location_name {
+	 text-align: right;
+}
+ .parking_lot .time {
+	 text-align: left;
+}
+
+/* uncessary parking lots */
+.lotb1-wrapper,
+.lote32-0,
+.level10,
+.lote9-1,
+.lote9-7,
+.lote9-6,
+.lote9-0 {
+  display: none;
+}
+
+/* desktop fix */
+.parking_lot.lote32.column.column-4-of-12
+ {
+    min-height: 17em;
+}

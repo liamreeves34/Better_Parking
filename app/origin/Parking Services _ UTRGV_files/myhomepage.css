@@ -1,0 +1,100 @@
+/* fixes to apply (in styles.css)
+--------------------------------*/
+/*a h1:hover, a h2:hover, a h3:hover, a h4:hover, a h5:hover, a h6:hover {
+  text-decoration: none !important;
+}*/
+
+.ribbon-orange{
+     background: #CF4411; /*previously: #d4422f*/
+}
+.feature-ribbon {
+  position: relative;
+  overflow: visible;
+  padding: 22px 20px 50px 20px;
+}
+.feature-ribbon:before {
+  background: green;
+  content: "";
+  width: 500px;
+  height: 190px;
+  left: -500px;
+  position: absolute;
+  z-index: 9999;
+}
+.feature-ribbon a:hover {
+  text-decoration: none;
+}
+
+.feature-ribbon a:focus h2 {
+    color: #ffffff;
+}
+
+.feature-ribbon h2 {
+  font-weight: bold;
+  background: url(../assets/images/utrgv_arrow.png) center right no-repeat;
+}
+
+.feature-ribbon h2:hover {
+   /*   text-decoration: underline; */
+}
+
+.feature-ribbon h2:focus {
+      text-decoration: underline !important;
+}
+
+.feature-ribbon p {
+  color: #fff;
+  font-weight: 300;
+}
+
+
+/* Orange Ribbon */
+ .ribbon-orange h2 {
+	 color: #ffffff;
+}
+ .ribbon-orange a {
+	 color: #ffffff;
+	 text-decoration: none;
+}
+ .ribbon-orange a:hover {
+	 color: #ffffff;
+	 text-decoration: underline;
+	 -webkit-text-decoration-color: #ffffff;
+	/* Safari */
+	 text-decoration-color: #ffffff;
+}
+ .ribbon-orange a:focus {
+	 color: #ffffff;
+	 text-decoration: underline;
+	 -webkit-text-decoration-color: #ffffff;
+	/* Safari */
+	 text-decoration-color: #ffffff;
+}
+
+
+/* MEDIA QUERIES START */
+
+/* 780px
+---------*/
+@media screen and (min-width: 780px) {
+}
+
+/* 780px - 820px
+---------------*/
+@media screen and (min-width: 780px) and (max-width: 955px){
+}
+
+/* 820px
+---------*/
+@media screen and (min-width: 820px) {
+}
+
+/* 950px
+---------*/
+@media screen and (min-width: 950px) {
+}
+
+/* 980px
+---------*/
+@media screen and (min-width: 980px) {
+}

@@ -1,0 +1,2099 @@
+/*
+Site: UTRGV WWW Home Site
+Title: Mini-Site Template
+Description: Style sheet for UTRGV Mini-Site Template.
+Author: Internet Services.
+Version: 1
+
+*/
+
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+  font: 300 14px/18px "proxima-nova", san-serif;
+  margin: 0;
+  color:#222222;
+}
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+
+a{
+  color:#DB350F; /*varies from #CF4411 because of G!*# contrast ratio 3:1 needed for diffrerentiation between color text and surrounding text - WCAG 2.0 - EA: last color was #f05023, which didnt seem to work*/
+  text-decoration:none;
+  font-weight: 500;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+ 
+a:active,
+a:hover
+{
+  outline: 0;
+  text-decoration:underline;
+  /*border-bottom: 2px solid #f05023;
+  margin-bottom: -2px;*/
+ }
+ a:focus{
+      outline: 1px dotted #c3c3c3;
+      text-decoration:underline;
+     }
+
+/* button styles
+------------------------*/
+a.utrgvButton:link, a.utrgvButton:visited, a.utrgvButton:active {
+    background: #E24912 none repeat scroll 0% 0%;
+    color: #000;
+    border-radius: 0px;
+    border: 0px none;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 4px;
+    font-size: 12px;
+    box-shadow: 3px 3px 6px #999;
+    text-shadow: 0px 0px 0px #000;
+    text-decoration: none;
+    padding: 6px;
+    width: 150px;
+    vertical-align: baseline;
+    text-align: center;
+    min-width: 75px;
+    display: inline-block;
+    }
+a.utrgvButton{ 
+    margin-bottom: 10px;
+}
+
+.degreeRow.mini a.utrgvButton{ 
+    margin-left:70px; 
+    margin-top:15px;
+}
+
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Handle text cut-off.
+ */
+em {
+    padding: .09em;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+
+h1, h2, h3, h4, h5, h6 {
+  font: 300  14px/110% "proxima-nova", san-serif;
+  color: #222;
+  margin: 0.67em 0;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    font-weight: 300;
+}
+h1 {
+	/*font-size: 410%;	*/
+	 font-size: 274%;
+}
+h2 {
+    font-size: 250%;
+}
+h3 {
+	font-size: 170%;
+}
+h4 {
+	font-size: 130%;
+}
+h5 {
+	font-size: 110%;
+}
+h6 {
+	font-size: 100%;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+.hide {
+    display: none;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+
+img {
+  border: 0;
+  max-width: 100%;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Definition List styles
+ */
+dt {
+  font-weight: bold;
+}
+dd {
+  /*line-height: 145%;*/
+    line-height: 155%;
+  margin: 0;
+}
+dl.default {
+    margin: 0;
+}
+dl.default dt {
+	font-weight: normal;
+}
+dl.default dd {
+	margin-left: 2em;
+}
+
+/**
+ * Unordered list styles
+ */
+ 
+ul ul {
+  margin-left: 18px;
+  margin-bottom: 0;
+}
+
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+
+figure {
+  margin: 1em 0;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+  border: none;
+  border-top: 1px solid #d5d5d5;
+  margin: 1em 0;
+  width: 100% !important;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Clearfix 
+------------*/
+.clear:before,
+.clear:after {
+    content: " ";
+    display: table;
+}
+.clear:after {
+    clear: both;
+}
+
+
+.block {
+    display: block !important;
+}
+.inline {
+    display: inline !important;
+}
+.inline-block {
+    display: inline-block !important;
+}
+.hidden {
+    display: none !important;
+}
+.grey {
+    color: #525655 !important;
+}
+.orange-txt-required {
+    color: #A7280C !important;
+}
+.light-grey-bg {
+    Background: #ededed !important;
+}
+.white-bg, .event-prev.white-bg {
+    Background: #fff !important; 
+}
+
+.list-style-1 {
+    list-style-type: decimal;
+}
+.list-style-a {
+	list-style-type: lower-alpha;
+}
+.list-style-A {
+	list-style-type: upper-alpha;
+}
+.list-style-i {
+	list-style-type: lower-roman;
+}
+.list-style-I {
+	list-style-type: upper-roman;
+}
+
+
+
+/* All Paragraphs line-height */
+
+p {
+    line-height: 1.5;
+}
+
+
+
+
+/* Forms
+   ========================================================================== */ 
+.form-group {
+	padding-bottom:10px;
+	
+}  
+
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+
+input[type="button"]:disabled, 
+input[type="submit"]:disabled, 
+input[type="reset"]:disabled, 
+input[type="file"]:disabled::-webkit-file-upload-button, 
+button:disabled, select:disabled, optgroup:disabled, option:disabled, select[disabled] > option {
+    color: graytext;
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Hidding the search label
+ */
+label[for="search"] {
+    position: absolute;
+    left: -999em;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+/* table styles
+- .table
+- .table-bordered
+------------------*/
+table {
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+  max-width: 100%;
+  }
+
+/* .table styles
+-----------------*/
+.table {
+  margin-bottom: 18px;
+  width: 100%;
+  border-bottom: 1px solid #DDD;
+  }
+.table th,
+.table td {
+  text-align: left;
+  border-top: 1px solid #DDD;
+  padding: 8px;
+  line-height: 18px;
+  vertical-align: top;
+  }
+.table th {
+  font-weight: bold;
+  }
+.table thead th {
+  vertical-align: bottom;
+  }
+.table thead:first-child tr:first-child th,
+.table thead:first-child tr:first-child td {
+  border-top: 0;
+  }
+.table tbody + tbody {
+  border-top: 2px solid #DDD;
+  }
+.table tbody tr:hover td,
+.table tbody tr:hover th, 
+.table .highlight {
+  /* background-color: #f5f5f5; not accessible */
+  background-color: #FCFCFC;
+  }
+
+/* .thead/tbody-center styles
+------------------------------*/
+.table.thead-center th,
+.table.tbody-center td {
+	text-align: center;
+}
+  
+/* .table.no-border styles
+---------------------------*/
+.table.no-border {
+  border: 0;
+}
+.table.no-border th,
+.table.no-border td {
+  border-top: 0;
+}
+  
+/* .table-bordered styles
+--------------------------*/
+.table-bordered {
+  border: 1px solid #DDD;
+  border-collapse: separate;
+  *border-collapse: collapsed;
+  border-left: 0;
+  border-radius: 4px;
+  }
+.table-bordered th,
+.table-bordered td {
+  border-left: 1px solid #DDD;
+  }
+.table-bordered thead:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child td {
+  border-top: 0;
+  }
+
+.table-bordered thead:first-child tr:first-child th:first-child,
+.table-bordered tbody:first-child tr:first-child td:first-child {
+  border-top-left-radius: 4px;
+  }
+
+.table-bordered thead:first-child tr:first-child th:last-child,
+.table-bordered tbody:first-child tr:first-child td:last-child {
+  border-top-right-radius: 4px;
+  }
+
+.table-bordered thead:last-child tr:last-child th:first-child,
+.table-bordered tbody:last-child tr:last-child td:first-child {
+  border-radius: 0 0 0 4px;
+  border-bottom-left-radius: 4px;
+  }
+.table-bordered thead:last-child tr:last-child th:last-child,
+.table-bordered tbody:last-child tr:last-child td:last-child {
+  border-bottom-right-radius: 4px;
+  }
+
+/* .table-condensed styles
+---------------------------*/
+.table-condensed th,
+.table-condensed td {
+  padding: 4px 5px;
+  }
+
+/* .table-striped styles
+-------------------------*/
+.table-striped tbody tr:nth-child(odd) td,
+.table-striped tbody tr:nth-child(odd) th {
+  background-color: #fcfcfc;
+  }
+
+/* .tbody-spacer styles
+------------------------*/
+.table.tbody-spacer {
+	border: 0;
+}
+.table.tbody-spacer thead th {
+	border-left: 1px solid #DDD;
+	border-bottom: 1px solid #DDD;
+}
+.table.tbody-spacer thead th:last-of-type {
+	border-right: 1px solid #DDD;
+}
+.table.tbody-spacer tr:first-of-type td {
+	border-top: 1px solid #DDD;	
+}
+.table.tbody-spacer tbody tr:last-child td {
+	border-bottom: 1px solid #DDD;
+}
+.table.tbody-spacer tbody td:last-of-type {	
+	border-right: 1px solid #DDD;
+}
+.table.tbody-spacer tr td {
+	border-left: 1px solid #DDD;
+}
+.table.tbody-spacer tbody:before,
+.table tbody.tbody-spacer:before {
+  content: '';
+  display: block;
+  height: 25px;
+}
+
+/* .table.numeration styles
+----------------------------*/
+.table.numeration {
+  counter-reset: tr;
+}
+.table.numeration thead tr::before {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  content: "#";
+  border-top: 1px solid #DDD;
+}
+.table.numeration tbody tr::before {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  counter-increment: tr;
+  content: " " counter(tr);
+  border-top: 1px solid #DDD;
+}
+
+/* .table-responsive styles
+----------------------------*/
+@media (max-width: 575.98px) {
+    .table-responsive-sm {
+        display:block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar
+    }
+
+    .table-responsive-sm>.table-bordered {
+        border: 0
+    }
+}
+@media (max-width: 767.98px) {
+    .table-responsive-md {
+        display:block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar
+    }
+
+    .table-responsive-md>.table-bordered {
+        border: 0
+    }
+}
+@media (max-width: 991.98px) {
+    .table-responsive-lg {
+        display:block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar
+    }
+
+    .table-responsive-lg>.table-bordered {
+        border: 0
+    }
+}
+@media (max-width: 1199.98px) {
+    .table-responsive-xl {
+        display:block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar
+    }
+
+    .table-responsive-xl>.table-bordered {
+        border: 0
+    }
+}
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar
+}
+ 
+ /* Accordion <ul> styles.(same in department.css)
+--------------------------*/
+.simpleFAQ_list {
+    padding: 0;
+}
+.simpleFAQ_list h2 {
+    font-size: 150%;    
+}
+.simpleFAQ_list .question {
+    border-bottom: 1px solid #E2E2E2;
+}
+.simpleFAQ_list .question span{
+    font-weight: normal; 
+    color:#b3b3b3;
+}
+.simpleFAQ_list .question:hover span{
+    color:#666666;
+}
+.simpleFAQ_list ol  {
+           padding: 0 0 0 20px;
+}
+.simpleFAQ_list li {
+    list-style: none outside none;
+    margin-bottom: 13px;
+}
+.content .simpleFAQ_list li {
+  list-style-image: none;
+}
+.simpleFAQ_list li ol li {
+    list-style: decimal;
+}
+.simpleFAQ_list li:last-child {
+    border-bottom: none;
+}
+.simpleFAQ_list .question {
+	/* background: url("/_files/assets/images/arrow-right.png") no-repeat scroll left 3px transparent;
+	 */
+	 background: url("/_files/assets/images/plus.png") no-repeat scroll left 0px transparent;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-top: 13px;
+    padding-left: 22px;
+    padding-bottom: 13px;
+    /*font-size: 14px;*/
+}
+ .simpleFAQ_list .question:hover, .simpleFAQ_list .question:focus {
+	/* background: url("/_files/assets/images/arrow-right-hover.png") no-repeat scroll left 3px transparent;
+	 */
+	 background: url("/_files/assets/images/plus-hover.png") no-repeat scroll left 0px transparent;
+}
+ .simpleFAQShowing .question {
+	/* background: url("/_files/assets/images/arrow-down.png") no-repeat scroll left 3px transparent;
+	 */
+	 background: url("/_files/assets/images/minus.png") no-repeat scroll left 0px transparent;
+}
+ .simpleFAQShowing .question:hover {
+	/* background: url("/_files/assets/images/arrow-down-hover.png") no-repeat scroll left 3px transparent;
+	 */
+	 background: url("/_files/assets/images/minus-hover.png") no-repeat scroll left 0px transparent;
+}
+.simpleFAQ_list .simpleFAQHover {
+    color: #18507B;
+}
+.simpleFAQ_item .tags {
+    display: none;
+}
+.simpleFAQ_list .answer p {
+    margin-top: 0;
+}
+.simpleFAQ_list .answer table {
+        margin-top: 10px;       
+}
+/* .simpleFAQ_list .answer td {
+        padding:3px;
+        border: 1px solid #666; 
+} */
+.simpleFAQ_item .answer h2 {
+    border-bottom: none;
+    border-top: none;
+    padding-top: 13px;
+}
+.simpleFAQ_item .answer {
+    border-bottom: 1px solid #e2e2e2;
+    padding: .5em 0 .5em 1.5em;
+}
+/* .simpleFAQ_item .answer table th {
+    background-color: #1d324d !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+} */
+.simpleFAQ_item a {
+    display: inline-block !important;
+}
+.simpleFAQ_list ul {
+    margin: 0;
+        padding-left: 1.5em;
+}
+.simpleFAQ_list ul li {
+        list-style: disc;
+}
+.simpleFAQ_list ul ul {
+        margin-top: .5em;
+        margin-left: 2em;
+}
+ 
+/* Row and Column Highlighting styles
+--------------------------------------*/
+.cross-highlighting {
+  overflow: hidden;
+}
+
+.cross-highlighting td,
+.cross-highlighting th {
+  padding: 10px;
+  position: relative;
+  outline: 0;
+}
+
+body:not(.nohover) .cross-highlighting tbody tr:hover {
+  background-color: #ddd;
+}
+
+.cross-highlighting td:hover::after,
+.cross-highlighting thead th:not(:empty):hover::after,
+.cross-highlighting td:focus::after,
+.cross-highlighting thead th:not(:empty):focus::after { 
+  content: '';  
+  height: 10000px;
+  left: 0;
+  position: absolute;  
+  top: -5000px;
+  width: 100%;
+  z-index: -1;
+}
+
+.cross-highlighting td:hover::after,
+.cross-highlighting th:hover::after {
+  background-color: #ddd;
+}
+
+.cross-highlighting td:focus::after,
+.cross-highlighting th:focus::after {
+  background-color: lightblue;
+}
+
+/* Focus stuff for mobile */
+.cross-highlighting td:focus::before,
+.cross-highlighting tbody th:focus::before {
+  background-color: lightblue;
+  content: '';  
+  height: 100%;
+  top: 0;
+  left: -5000px;
+  position: absolute;  
+  width: 10000px;
+  z-index: -1;
+}
+
+/* Grid styles
+   ========================================================================== */
+
+/* .column styles
+-------------------------*/
+.column {
+  display: block;
+  float:left;
+  margin: 1% 0;
+}
+.column:first-child { margin-left: 0; }
+
+/* .row styles
+------------------*/
+.row { /*margin-bottom: 1em;*/ }
+.row:before,
+.row:after { content:""; display:table; }
+.row:after { clear:both;}
+
+/* Grid of 12 columns styles
+------------------------------*/
+.column-12-of-12 {
+  width: 100%;
+}
+
+.column-11-of-12 {
+    width: 91.25%;
+}
+.column-10-of-12 {
+    width: 82.5%;
+}
+
+.column-9-of-12 {
+    width: 73.75%;
+}
+
+.column-8-of-12 {
+    width: 65%;
+}
+
+.column-7-of-12 {
+    width: 56.25%;
+}
+
+.column-6-of-12 {
+    width: 46.7%;
+}
+
+.column-5-of-12 {
+    width: 38.75%;
+}
+
+.column-4-of-12 {
+    width: 30%;
+}
+
+.column-3-of-12 {
+    width: 21.25%;
+}
+
+.column-2-of-12 {
+    width: 12.5%;
+}
+
+.column-1-of-12 {
+    width: 3.75%;
+}
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+  .column {  margin: 1% 0 1% 0%; }
+    
+    .column-1-of-12, .column-2-of-12, .column-3-of-12, .column-4-of-12, .column-5-of-12, .column-6-of-12, .column-7-of-12, .column-8-of-12, .column-9-of-12, .column-10-of-12, .column-11-of-12, .column-12-of-12 {
+  width: 100%; 
+  }
+}
+
+
+/* Styles start here.
+______________________________*/
+
+/* .wrapper styles
+-------------------*/
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  }
+
+/* .header styles
+------------------*/
+.header {
+	border-bottom: 10px solid #CF4411; /*previously: #d4422f*/
+	margin-bottom: 20px;
+	/* Not sure why these were needed 
+	(created issue in mobile menu)- EA
+	padding: 0 1em 1em;
+	height: 125px;*/
+	position: relative;
+	background: #65646a;
+	}
+.header-wrapper {
+	position: relative;
+}
+.header-logo {
+	display: inline-block;
+	margin: 0 auto;
+	padding: 1.32em 0 .2em 15px;
+	position: relative;
+}
+.header-tagline {
+	display: inline-block;
+	width: 220px;
+	height: 47px;
+	/* Increasing color contrast */
+	background-color: #65646A;
+    color: #000000;
+	background: transparent url(../assets/images/tagline-collapse.png) no-repeat;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-indent: -99999px;
+    
+}
+/* News Page styles
+-------------------*/
+.horz-wrap{
+padding: 0px 1em !important;
+}
+
+/* .content styles
+-------------------*/
+.content-horz {
+    overflow: auto;
+	margin: 1em auto;
+	padding: 0 1em;
+}
+
+.content {
+  position: relative;
+	overflow: auto;
+	margin: 1em auto;
+	padding: 0 1em 480px;
+}
+.content-full {
+	margin-top: -264px;
+	margin-bottom: 250px;
+}
+
+
+/* .content list styles - unordered
+-----------------------*/
+.content ul.sitemap {
+    padding-left: 0;
+}
+.content ul.sitemap > li {
+    list-style: none;
+}
+.content ul.sitemap > li > a {
+    color: #333;
+    font-weight: 600;
+}
+.content ul.sitemap > li > ul {
+  padding-left: 15px;
+}
+.content ul li, .content ul li li, .content ul li li li {
+  margin: .75em 0;
+  list-style-image: url("//www.utrgv.edu/_files/assets/images/bullet.png");
+}
+
+
+/* .content list styles - ordered
+-----------------------*/
+.content ol.sitemap {
+    padding-left: 0;
+}
+.content ol.sitemap > li {
+    list-style: none;
+}
+.content ol.sitemap > li > a {
+    color: #333;
+    font-weight: 600;
+}
+.content ol.sitemap > li > ol {
+  padding-left: 15px;
+}
+.content ol li, .content ol li li, .content ol li li li {
+  margin: .75em 0;
+}
+
+
+
+/* blockquote and cite styles
+-----------------------------*/
+blockquote, pre {
+    /* background-color: #e7e7e2; */
+    /*  background-color: #f8f8f8; */
+    padding: 32px;
+    margin: -16px 0 30px 0;
+    margin-top: 1px;
+    border: 1px solid #797979;
+}
+blockquote, pre, cite {
+    font-size: 18px;
+    line-height: 24px;
+    /*color:#999;*/
+    color: #000000;
+    /*font-style: italic;*/
+}
+cite span {
+    font-size: 13px;
+}
+blockquote p, pre p {
+    margin-top: 0;
+}
+
+/* .mini box styles
+-------------------*/
+.degreeRow.mini {
+    padding: 20px;
+    box-sizing: border-box;
+}
+.degreeRow.mini .col-left{
+    width: 50%;
+}
+.degreeRow.mini .col-right{
+    width: 40%;
+}
+.degreeRow.mini p:first-child {
+    margin-top: 0;
+}
+.degreeRow.mini p:last-child {
+    margin-bottom: 0;
+}
+
+/* .degreeRow styles
+-----------------------------*/
+.degreeRow {
+    padding-top: 8px;
+    padding-bottom: 20px;
+}
+.degreeRow ul {
+    padding-left: 33px;
+}
+.degreeRow ul li {
+    list-style: none;
+}
+.shadeBg {
+    background-color: #f6f6f5;
+    width:100%;
+    height:auto;
+} 
+.shadeBg a{
+    color: #cc3d15;
+  /* font-weight: 500; */
+   font-weight: bold;
+}    
+
+.col-right{
+    width:45%;
+    float:left; 
+}
+.col-left{
+    width: 45%;
+    float: left;
+    padding-right: 15px;
+}
+
+/* .sidebar styles
+-------------------*/
+.sidebar {
+	border-top: 10px solid #CF4411; /*previously: #d4422f*/
+	font-size:114%;
+	line-height:200%;
+	overflow:hidden;
+	margin-top: 25px;
+	padding: 0 25px 15px;
+	background: #e7e7e5;
+	background: -moz-linear-gradient(top,  #e7e7e5 0%, #ffffff 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e7e7e5), color-stop(100%,#ffffff));
+	background: -webkit-linear-gradient(top,  #e7e7e5 0%,#ffffff 100%);
+	background: -o-linear-gradient(top,  #e7e7e5 0%,#ffffff 100%);
+	background: -ms-linear-gradient(top,  #e7e7e5 0%,#ffffff 100%);
+	background: linear-gradient(to bottom,  #e7e7e5 0%,#ffffff 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7e7e5', endColorstr='#ffffff',GradientType=0 );
+}
+.sidebar-list {
+	padding: 0;
+}
+.sidebar-list-item {
+	list-style: none !important;
+    margin: 0 !important;
+    line-height: 18px;
+    padding: 10px 0;
+}
+.sidebar-link {
+	font-weight: 200;
+	text-decoration: none;
+	color: black;
+}
+.sidebar-nested {
+	border-top: dotted 1px gray;
+	border-bottom: dotted 1px gray;
+	padding-bottom: .5em;
+}
+.sidebar-nested > .sidebar-list {
+	margin-left: 1.3em;
+}
+
+/* .graybox styles
+-----------------------------*/
+.graybox {
+    background-color: #f8f8f8;
+    height:auto;
+    padding: 10px;
+    border: 1px solid #999999;
+}
+
+.graybox a {
+    color: #CD310E;
+}
+
+
+
+/* social media styles
+-----------------------------*/
+
+.social-media-links {
+	display: none;
+	width: 29px;
+	position: fixed;
+	right: 0;
+	top: 40%; /*was: bottom: 20%;*/
+	z-index: 9999;
+}
+.social-media-list {
+	margin: 0;
+	padding: 0;
+}
+.social-media-list-item {
+	list-style: none;
+	background: transparent url(../assets/images/social-media-fixed-icons2.png) no-repeat;
+}
+.give-btn {
+    background: transparent url(../assets/images/give.jpg) no-repeat;
+}
+.give-btn .social-media-link {
+    height: 59px;
+}
+.social-media-link {
+	/* color: #FFF;
+	 updating to accesible color */
+	 color: #000000;
+	text-indent: -999em;
+	display: block;
+	margin: 0 0 .4em;
+	height: 29px;
+	width: 29px;
+}
+.social-media-twitter {
+	background-position: 0 0;
+}
+.social-media-facebook {
+	background-position: 0 -4.16em;
+}
+.social-media-linkedin {
+	background-position: 0 -8.28em;
+}
+.social-media-youtube {
+	background-position: 0 -12.4em;
+}
+.social-media-instagram {
+	background-position: 0 -16.5em;
+}
+.social-media-pinterest {
+	background-position: 0 -20.7em;
+}
+.social-media-snapchat {
+	background-position: 0 -24.8em;
+}
+
+/* Donate button first idea inside social media list links */
+ .donate-btn {
+	 background: transparent url() no-repeat;
+}
+ .donate-btn .social-media-link {
+	 color: #000;
+	 font-size: 1.2em;
+	 font-weight: bold;
+	 text-indent: inherit;
+	 text-align: center;
+	 letter-spacing: 1px;
+	 height: 155px;
+	 width: 155px;
+	 line-height: 20px;
+	 display: inline-block;
+	 margin: .3em 0;
+	 padding: 6px;
+	 white-space: nowrap;
+	 transform: rotate(270deg);
+	 background-color: #FDDF97;
+}
+ .donate-btn .social-media-link:hover {
+	 color: #FFF;
+	 background-color: #CF4411;
+}
+
+.donate-btn:focus {
+    color: #ffffff;
+    background-color: #cf4411;
+}
+
+.donate-btn a:focus {
+    color: #ffffff;
+    background-color: #cf4411;
+}
+
+/* .thumb-box styles
+----------------------*/
+.thumb-box {
+	background-color: #e7e7e5;
+	text-align: center;
+}
+.thumb-box:hover{
+	background-color: #cecece;
+	color: #222;
+	/*-webkit-box-shadow: 1.5px 1.5px 8px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 1.5px 1.5px 8px 0px rgba(0,0,0,0.2);
+	box-shadow: 1.5px 1.5px 8px 0px rgba(0,0,0,0.2);*/
+	 text-decoration: underline;
+}
+.thumb-box:focus{
+	background-color: #cecece;
+	color: #222;
+	text-decoration: underline;
+    outline: 2px solid blue;
+    border: 2px solid blue;	 
+}
+ .thumb-box a {
+	 color: #000000;
+}
+ .thumb-box a:hover {
+	 color: #000000;
+	 text-decoration: underline;
+}
+ .thumb-box a:focus {
+	 color: #000000;
+	 text-decoration: underline;
+}
+.thumb-box img {
+	width: 100%;
+}
+.thumb-box img:focus {
+    outline: 2px solid blue;
+}
+.thumb-box figcaption {
+	margin: 0;
+	padding: 10px 0 15px 0;
+	color: #333;
+	font-weight: 300;
+	font-size: 128%;
+}
+.thumb-box figcaption:focus {
+    text-decoration: underline;
+    outline: 2px solid blue;
+}
+
+/* map styles
+--------------*/
+#map-canvas {
+  display: none;
+  width: 100%;
+  height: 500px;
+/*   background-color: #CCC; */
+}
+.map-title {
+	font-size: 3.3em;
+}
+
+.mapMarkersContainer {
+	margin-top: -250px;
+	margin-bottom: 0;
+	padding-top: 1em;
+}
+.markerInfo {
+	overflow: auto;
+	margin-bottom: 1em;
+}
+.markerTitle {
+	font-size: 128%;
+	margin: 0 0 10px;
+}
+.markerImg {
+	padding-right: 5px;
+	float: left;
+}
+
+
+/* .footer -----------*/
+ .footer {
+	 margin-top: -450px;
+	 position: relative;
+	 clear: both;
+	/* background: #000 url(/renderfile/47f4cb850a1455290fb8a204bf3f1b95/_files/assets/images/footer-slice.jpg) repeat-x;
+	 */
+    background-color: #ffffff;
+}
+ .footer-content {
+	 position: relative;
+	/* background: url(/renderfile/47f4cb850a1455290fb8a204bf3f1b95/_files/assets/images/footer-bg.jpg) 0 0 no-repeat;
+	 */
+	/* background-color: #000000;
+	 */
+    background-color: #ffffff;	 
+}
+ .footer-logo {
+	 text-indent: -999em;
+	 display: block;
+	 height: 255px;
+	/* background: url(/renderfile/47f4cb850a1455290fb8a204bf3f1b95/_files/assets/images/footer-logo.png) 2.5em 5em no-repeat;
+	 */
+	 background: url(../assets/images/footer-logo-orange-gray.png) 2.5em 5em no-repeat;
+	 margin-top: 0px;
+}
+
+/* UTRGV Footer Logo using heading tag */
+ h2.footer-logo {
+	 font-size: 100%;
+	 background-position: 7% 30%;
+}
+/* 989px styles ----------------*/
+ @media screen and (max-width: 989px) {
+	 h2.footer-logo {
+		 font-size: 100%;
+		 background-position: 5% 30%;
+	}
+}
+/* 960px styles ----------------*/
+ @media screen and (max-width: 960px) {
+	 h2.footer-logo {
+		 font-size: 100%;
+		 background-position: 5% 30%;
+	}
+}
+/* 800px styles ----------------*/
+ @media screen and (max-width: 800px) {
+	 h2.footer-logo {
+		 font-size: 100%;
+		 background-position: 6% 30%;
+	}
+}
+/* 742px styles ----------------*/
+ @media screen and (max-width: 742px) {
+	 h2.footer-logo {
+		 font-size: 100%;
+		 background-position: 8% 30%;
+	}
+}
+/* 600px styles ----------------*/
+ @media screen and (max-width: 600px) {
+	 h2.footer-logo {
+		 font-size: 100%;
+		 background-position: 10% 30%;
+	}
+}
+/* 500px styles ----------------*/
+ @media screen and (max-width: 500px) {
+	 h2.footer-logo {
+		 font-size: 100%;
+		 background-position: 10% 30%;
+	}
+}
+/* 450px styles ----------------*/
+ @media screen and (max-width: 450px) {
+	 h2.footer-logo {
+		 font-size: 100%;
+		 background-position: 12% 30%;
+	}
+}
+
+
+
+/* UTRGV Footer Logo using span tag */
+ span.footer-logo {
+	 font-size: 100%;
+	 background-position: 7% 30%;
+}
+/* 989px styles ----------------*/
+ @media screen and (max-width: 989px) {
+	 span.footer-logo {
+		 font-size: 100%;
+		 background-position: 5% 30%;
+	}
+}
+/* 960px styles ----------------*/
+ @media screen and (max-width: 960px) {
+	 span.footer-logo {
+		 font-size: 100%;
+		 background-position: 5% 30%;
+	}
+}
+/* 800px styles ----------------*/
+ @media screen and (max-width: 800px) {
+	 span.footer-logo {
+		 font-size: 100%;
+		 background-position: 6% 30%;
+	}
+}
+/* 742px styles ----------------*/
+ @media screen and (max-width: 742px) {
+	 span.footer-logo {
+		 font-size: 100%;
+		 background-position: 8% 30%;
+	}
+}
+/* 600px styles ----------------*/
+ @media screen and (max-width: 600px) {
+	 span.footer-logo {
+		 font-size: 100%;
+		 background-position: 10% 30%;
+	}
+}
+/* 500px styles ----------------*/
+ @media screen and (max-width: 500px) {
+	 span.footer-logo {
+		 font-size: 100%;
+		 background-position: 10% 30%;
+	}
+}
+/* 450px styles ----------------*/
+ @media screen and (max-width: 450px) {
+	 span.footer-logo {
+		 font-size: 100%;
+		 background-position: 12% 30%;
+	}
+}
+
+
+
+ .footer a {
+	 font-size: 85.71%;
+	 /*line-height:175%;*/
+	  /*line-height:200%;*/
+	      line-height: 220%;
+	 font-weight: 300;
+	/* color: #FFF;
+	 */
+	 color: #000000;
+}
+ .footer-column-one a, .footer-column-two a {
+	 /*padding: 2px;*/
+	 /*margin: 2px;*/
+	padding: 6px;
+    margin: 6px;
+}
+/* Increasing manual accessibility */
+ .footer-column-one a:focus,
+ .footer-column-two a:focus {
+	 background-color: #000000;
+	 color: #ffffff;
+	 outline: 2px solid #ffffff;
+}
+ .footer-columns {
+	 margin: 1em;
+}
+ .footer-list {
+	 margin: 0 12%;
+	 padding: 0;
+	 padding-bottom: 5px;
+	 padding-top: 5px;
+}
+.footer-list-item{
+    	 list-style: none;
+}
+ .footer-social-media {
+	 position: absolute;
+	 top: 11em;
+}
+/* .footer-social-media .footer-list-item {
+	 text-indent: -999em;
+	 list-style: none;
+	 display: inline-block;
+	 margin: 0 24px 0 0;
+	 padding: 0;
+	 height: 28px;
+	 width: 28px;
+	 background: url(/renderfile/47f4cb850a1455290fb8a204bf3f1b95/_files/assets/images/social-media-icons.png) 0 no-repeat;
+}
+ */
+ .footer-social-media .footer-list-item {
+	 text-indent: -999em;
+	 list-style: none;
+	 display: inline-block;
+	 margin: 0 24px 0 0;
+	 padding: 0;
+	 height: 28px;
+	 width: 28px;
+	/* background: url(../assets/images/social-media-icons-footer.png) 0 no-repeat;
+	 */
+	 background: url(../assets/images/social-media-icons-footer-orange-grayhover-whiteinside.png) 0 no-repeat;
+}
+ .footer-social-media .footer-list-item a {
+	 display: block;
+	 height: 28px;
+}
+ .footer-social-media .footer-twitter {
+	 background-position: -1em 0;
+}
+ .footer-social-media .footer-facebook {
+	 background-position: -5em 0;
+}
+ .footer-social-media .footer-linkedin {
+	 background-position: -9em 0;
+}
+ .footer-social-media .footer-youtube {
+	 background-position: -13em 0;
+}
+
+/* misc styles
+---------------*/
+.hidden {
+	display: none;
+	}
+
+.link-to-top {
+	z-index: 999999;
+	color: #FFFFFF;
+	position: fixed;
+	bottom: 5%;
+	right: 0;
+	font-size: 24px;
+	}
+
+.jumptop {
+  text-decoration: none;
+color: rgb(0, 0, 0);
+position: absolute;
+bottom: 2.5em;
+right: 0px;
+background: transparent url(../assets/images/arrowUp.jpg) no-repeat scroll center center;
+height: 50px;
+width: 50px;
+text-indent: -9999px;
+padding: 0px;
+margin: 0px;
+}
+
+/* area styles
+----------------------*/
+.area {
+    padding-top: 20px;
+}
+.area img {
+	display: inline;
+	float: left;
+	margin-right: 10px;
+}
+.tallarea {
+	min-height: 200px;
+}
+.cleararea {
+	clear: both;
+}
+.firstimage {
+    float: left;
+	display:inline;
+	padding-right:10px;
+}
+.tight li {
+    margin: 0 !important;
+    
+}
+
+/* Edit-Mode
+---------------------------*/
+
+/* edit icon styles
+-------------------*/
+a.icon-edit {
+    background: url('../assets/images/icons/icon-edit-2.png') no-repeat center center transparent;
+	position:absolute; 
+	display:block; 
+	z-index:99999;
+	text-indent: -9999px; 
+	border: none; 
+	cursor:pointer; 
+	height: 23px; 
+	max-height: 23px; 
+	width: 23px; 
+	max-width: 23px;
+	color:green;
+	margin: -10px 0 0 10px;
+}
+
+/*Remove once icon popup functionality is working*/
+a.icon-edit {
+	text-indent: -9999px;
+	max-height: 23px !important;
+	max-width: 23px !important;
+	height: 23px !important;
+	width: 23px !important;
+	margin: -2px 0 0 10px;
+	background: url('../assets/images/icons/icon-edit-2.png') no-repeat center center transparent;
+	z-index: 99999;
+    
+}
+
+.state-nav .icon-edit{
+    right: 43px!important;
+    top: 2px!important;
+    }
+    
+.global-nav .icon-edit,
+.breadcrumbs .icon-edit,
+.footer .icon-edit,
+.footer + .icon-edit,
+.sidebar .icon-edit {
+    display: none !important;
+}
+
+/*-----Easy Tabs - Horizontal----- */
+.etabs { margin: 0; padding: 0; }
+.tab { display: inline-block; zoom:1; *display:inline; background: #eee; border: solid 1px #999; border-bottom: none; -moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; }
+.tab a { font-size: 14px; line-height: 2em; display: block; padding: 0 10px; outline: none; }
+.tab a:hover { text-decoration: underline; }
+.tab.active { background: #fff; padding-top: 6px; position: relative; top: 1px; border-color: #666; }
+.tab a.active { font-weight: bold; }
+.tab-container .panel-container { background: #fff; border: solid #666 1px; padding: 10px; -moz-border-radius: 0 4px 4px 4px; -webkit-border-radius: 0 4px 4px 4px; }
+
+
+/* TableSorter Table Heading Styles */
+
+.tablesorter.table thead tr th.header 
+{
+    background:none;
+    border-bottom:none;
+   /* margin-bottom:none; */  /* valid values:  auto, inherit, initial, unset */
+   /* position:none;*/        /* valid values: absolute, fixed, inherit, initial, relative, static, sticky, unset */
+}
+
+
+
+/* File type icons */
+
+.pdf
+{
+    background: transparent url('//www.utrgv.edu/_files/images/icons/pdf.png') no-repeat scroll right center;
+    padding-right: 22px;
+}
+.excel
+{
+    background: transparent url('//www.utrgv.edu/_files/images/icons/excel.png') no-repeat scroll right center;
+    padding-right: 22px;
+}
+.word
+{
+    background: transparent url('//www.utrgv.edu/_files/images/icons/word.png') no-repeat scroll right center;
+    padding-right: 22px;
+}
+.zip
+{
+    background: transparent url('//www.utrgv.edu/_files/images/icons/zip.png') no-repeat scroll right center;
+    padding-right: 22px;
+}
+.visio
+{
+    background: transparent url('//www.utrgv.edu/_files/images/icons/visio.png') no-repeat scroll right center;
+    padding-right: 22px;
+}
+.powerpoint
+{
+    background: transparent url('//www.utrgv.edu/_files/images/icons/powerpoint.png') no-repeat scroll right center;
+    padding-right: 22px;
+}
+.external
+{
+    background: transparent url('../images/icons/external.png') no-repeat scroll right center;
+    padding-right: 22px;
+}
+
+/* Skip to Main Content */
+
+#skiptocontent a {
+    padding:6px;
+	position: absolute;
+	top:-40px;
+	left:0px;
+	color:white;
+	border-right:1px solid white;
+	border-bottom:1px solid white;
+	border-bottom-right-radius:8px;
+	background:transparent;
+	-webkit-transition: top 1s ease-out, background 1s linear;
+    transition: top 1s ease-out, background 1s linear;
+    z-index: 100;
+}
+
+#skiptocontent a:focus {
+	position:absolute;
+	left:0px;
+	top:0px;
+	background:#A9141E;
+	outline:0;	
+	-webkit-transition: top .1s ease-in, background .5s linear;
+    transition: top .1s ease-in, background .5s linear;
+}
+
+.map-img-container {
+	height: 0;
+}
+.map-img {
+    display: none;
+}
+
+
+/* Media Queries start here.
+______________________________*/
+
+/* 370px styles
+----------------*/
+@media screen and (min-width: 370px) {
+    .footer {
+        height: 450px;
+    }
+	.footer-columns {
+		overflow: auto;
+		margin: 0 auto;
+		width: 88%;
+	}
+	.footer-list {
+	/*	margin: 2em 1em 0;
+		float: left; */
+		margin-left: 0;
+	}
+	.footer-list:first-child {
+		margin-left: 0;
+	}
+	.header-tagline {
+		padding-right: 50px;
+	}
+}
+
+/* 487px styles
+----------------*/
+@media screen and (min-width: 487px) {
+	/* Not sure why this was needed 
+	(created issue in mobile menu)- EA
+		.header {
+		height: 100px;
+	}*/
+	.header-logo {
+		padding: 1.6em 0 .2em 15px;
+	}
+	.header-wrapper {
+		height: 98px;
+	}
+	.header-tagline {
+		position: absolute;
+		top: 30px;
+		left: 214px;
+	}
+    /*.content {
+    	padding-bottom: 265px;
+		}*/
+		
+		
+		
+    /* Adding Map to this zoom level  */
+    .map-img-container {
+    	height: auto;
+    	padding-top:.7em;
+    }
+    .map-img {
+    	width:100%;
+    	height: auto;
+    	display:block;
+    }
+	
+			
+}
+
+/* 681px styles
+----------------*/
+@media screen and (min-width: 681px) {
+    .column {
+		margin-left: 5%;
+	}
+	
+    /* Adding Map to this zoom level  */
+    .map-img-container {
+    	height: auto;
+    	padding-top:.7em;
+    }
+    .map-img {
+    	width:100%;
+    	height: auto;
+    	display:block;
+    }
+	
+}
+
+/* 768px styles
+----------------*/
+@media screen and (min-width: 768px) {
+    .social-media-links {
+    	display: block;
+	}
+	.content {
+		padding-bottom: 280px;
+		}
+	#map-canvas {
+		display: block;
+		}
+	.link-to-top {
+		display: none;
+	}
+	.footer {
+		margin-top: -255px;
+		height: 255px;
+		}
+	.footer-columns {
+		position: absolute;
+		top: 20%;
+		right: 3%;
+		width: auto;
+		}
+	.footer-list {
+		list-style: none;
+		float: left;
+		margin: 0 2em 0 0;
+		}
+	.footer-column-one {
+		border-right: 1px dotted #FFF;
+		/*padding-right: 2em;*/
+		}
+		
+    /* Map image styles (replaces google maps)
+    ___________________________________________*/
+    .map-img-container {
+    	height: auto;
+    	padding-top:.7em;
+    }
+    .map-img {
+    	width:100%;
+    	height: auto;
+    	display:block;
+    }
+}
+	
+/* 960px styles
+----------------*/
+@media screen and (min-width: 960px) {
+	.header-logo {
+		padding-left: 0;
+	}
+	.header-wrapper,
+	.content, .content-horz,
+	.content-wrapper,
+	.footer-content, 
+	.state-nav {
+		margin: auto;
+		max-width: 960px;
+	}
+}
+
+/* 992px styles
+----------------*/
+@media screen and (min-width: 992px) {
+	.header-tagline {
+		width: 100%;
+		background: url(../assets/images/tagline.png) no-repeat;
+		top: 19px;
+	}
+}
