@@ -1,0 +1,377 @@
+/*
+ * Current Parking Lot Occupancy panel.
+ * Everything is scoped under .occ so the rest of the site styling is untouched.
+ */
+.occ {
+  --occ-ink: #2b2b2b;
+  --occ-muted: #5c5c5c;
+  --occ-line: #dddddd;
+  --occ-surface: #ffffff;
+  --occ-subtle: #f5f5f5;
+  --occ-band: #504e4e;        /* matches the site's dark section bands */
+  --occ-accent: #cf4411;      /* UTRGV orange */
+  --occ-gap: 14px;
+
+  clear: both;
+  margin: 0 0 2rem;
+  color: var(--occ-ink);
+  font-family: "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.4;
+}
+
+/* Status colours: --status for text/bars, --status-tint for badges,
+   --status-dot for the chips on the dark summary bar. */
+.occ .is-available { --status: #2e7d32; --status-tint: #e6f4e7; --status-dot: #6cc070; }
+.occ .is-busy      { --status: #a85a00; --status-tint: #fdf0dc; --status-dot: #f5b041; }
+.occ .is-full      { --status: #c0392b; --status-tint: #fbe7e5; --status-dot: #f1695b; }
+.occ .is-maintenance { --status: #6b6b6b; --status-tint: #ececec; --status-dot: #b5b5b5; }
+
+/* ---------- Collapsible shell ---------- */
+.occ-panel {
+  overflow: hidden;
+  background: var(--occ-surface);
+  border: 1px solid var(--occ-line);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
+}
+
+.occ-summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  color: #fff;
+  background: var(--occ-band);
+  border-left: 6px solid var(--occ-accent);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.occ-summary::-webkit-details-marker { display: none; }
+.occ-summary::marker { content: ""; }
+.occ-summary:hover { background: #5a5858; }
+
+/* The site's global :focus rule (accessible-helper.css) forces a white border and
+   blue outline with !important. Keep that outline for keyboard users, but don't
+   let it repaint the panel's borders, and hide it after mouse clicks. */
+.occ .occ-summary:focus {
+  border: 0 !important;
+  border-left: 6px solid var(--occ-accent) !important;
+  outline-offset: -3px;
+}
+.occ .occ-summary:focus:not(:focus-visible),
+.occ .occ-track:focus:not(:focus-visible),
+.occ .occ-nav-btn:focus:not(:focus-visible),
+.occ .occ-check input:focus:not(:focus-visible) {
+  outline: none !important;
+}
+.occ .occ-nav-btn:focus { border: 1px solid #bdbdbd !important; }
+.occ .occ-track:focus { border: 0 !important; }
+
+.occ-summary-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: var(--occ-band);
+  background: #fff;
+  border-radius: 8px;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.occ-summary-text {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+}
+.occ-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.occ-subtitle {
+  font-size: .9rem;
+  opacity: .9;
+}
+.occ-subtitle span { white-space: nowrap; }
+
+.occ-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  flex: none;
+  gap: 5px;
+}
+.occ-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  background: rgba(255, 255, 255, .12);
+  border-radius: 999px;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+.occ-chip .occ-dot { background: var(--status-dot); margin: 0; }
+
+.occ-toggle {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, .45);
+  border-radius: 999px;
+  font-size: .85rem;
+  font-weight: 600;
+}
+.occ-toggle svg { transition: transform .2s ease; }
+.occ-toggle-label::before { content: "Show lots"; }
+.occ-panel[open] .occ-toggle svg { transform: rotate(180deg); }
+.occ-panel[open] .occ-toggle-label::before { content: "Hide lots"; }
+
+/* ---------- Expanded body ---------- */
+.occ-body {
+  padding: 16px 18px 14px;
+  background: var(--occ-subtle);
+}
+
+.occ-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 24px;
+  margin-bottom: 14px;
+}
+.occ-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+}
+.occ .occ-field,
+.occ .occ-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.occ .occ-field select {
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 6px 10px;
+  color: var(--occ-ink);
+  background: #fff;
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
+  font: inherit;
+  font-weight: 400;
+}
+.occ .occ-check input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--occ-accent);
+}
+
+.occ-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin-left: auto;
+  color: var(--occ-muted);
+  font-size: .8rem;
+}
+.occ-legend .occ-dot { margin-right: 5px; }
+.occ-legend .is-available,
+.occ-legend .is-busy,
+.occ-legend .is-full { background: var(--status); }
+
+.occ-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.occ-nav { display: flex; gap: 6px; }
+.occ-nav[hidden] { display: none; }
+.occ .occ-nav-btn {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin: 0;
+  padding: 0;
+  color: var(--occ-ink);
+  background: #fff;
+  border: 1px solid #bdbdbd;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.occ .occ-nav-btn:hover:not(:disabled) { border-color: var(--occ-ink); }
+.occ .occ-nav-btn:disabled { opacity: .35; cursor: default; }
+
+/* ---------- Horizontal card row ---------- */
+.occ .occ-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 3 * var(--occ-gap)) / 4);
+  gap: var(--occ-gap);
+  margin: 0;
+  padding: 2px 2px 10px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 2px; /* match the padding so the first card snaps to 0 */
+  scrollbar-width: thin;
+  list-style: none;
+}
+
+.occ .occ-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 14px 16px 12px;
+  background: var(--occ-surface);
+  border: 1px solid var(--occ-line);
+  border-top: 4px solid var(--status);
+  border-radius: 10px;
+  list-style: none;
+  scroll-snap-align: start;
+}
+.occ .occ-card::before { content: none; } /* guard against site list bullets */
+
+.occ-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.occ-lot {
+  white-space: nowrap;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+.occ-lot-prefix {
+  color: var(--occ-muted);
+  font-size: .8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.occ-badge {
+  padding: 3px 8px;
+  color: var(--status);
+  background: var(--status-tint);
+  border-radius: 999px;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.occ .occ-card p { margin: 0; padding: 0; }
+.occ .occ-place {
+  min-height: 2.6em; /* keeps bars aligned when an address wraps */
+  font-size: .92rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.occ .occ-meta {
+  color: var(--occ-muted);
+  font-size: .8rem;
+}
+.occ .occ-count {
+  margin-top: 4px;
+  color: var(--occ-muted);
+  font-size: .88rem;
+}
+.occ-count strong {
+  margin-right: 3px;
+  color: var(--status);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.occ-bar {
+  height: 8px;
+  overflow: hidden;
+  background: #e5e5e5;
+  border-radius: 999px;
+}
+.occ-bar span {
+  display: block;
+  height: 100%;
+  background: var(--status);
+  border-radius: inherit;
+}
+
+.occ .occ-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--occ-muted);
+  font-size: .78rem;
+}
+
+.occ .occ-empty {
+  grid-column: 1 / -1;
+  padding: 24px;
+  color: var(--occ-muted);
+  text-align: center;
+  list-style: none;
+}
+
+.occ .occ-note {
+  margin: 4px 0 0;
+  color: var(--occ-muted);
+  font-size: .78rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1060px) {
+  .occ-chips { display: none; }
+}
+
+@media (max-width: 1000px) {
+  .occ { margin: 0 10px 2rem; }
+}
+
+@media (max-width: 900px) {
+  .occ .occ-track { grid-auto-columns: calc((100% - var(--occ-gap)) / 2.3); }
+}
+
+@media (max-width: 560px) {
+  .occ { margin: 0 10px 1.5rem; }
+  .occ-summary { gap: 12px; padding: 12px 14px; }
+  .occ-summary-icon { width: 34px; height: 34px; font-size: 20px; }
+  .occ-title { font-size: 1rem; }
+  .occ-subtitle { font-size: .82rem; }
+  .occ-toggle { padding: 6px 8px; }
+  .occ-toggle-label { display: none; }
+  .occ-body { padding: 14px 12px 12px; }
+  .occ-legend { margin-left: 0; }
+  .occ-nav { display: none; }
+  .occ .occ-track { grid-auto-columns: 82%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .occ-toggle svg { transition: none; }
+}
