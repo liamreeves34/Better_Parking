@@ -1,169 +1,304 @@
 /*
- * Current Parking Lot Occupancy panel.
- * Everything is scoped under .occ so the rest of the site styling is untouched.
+ * Parking lots panel: title-row trigger, live occupancy, other lots, campus map.
+ * Everything is scoped under .title-row / .occ so the rest of the site is untouched.
  */
+.title-row,
 .occ {
-  --occ-ink: #2b2b2b;
-  --occ-muted: #5c5c5c;
-  --occ-line: #dddddd;
+  --occ-ink: #222222;
+  --occ-muted: #575757;
+  --occ-line: #d9d9d9;
   --occ-surface: #ffffff;
-  --occ-subtle: #f5f5f5;
-  --occ-band: #504e4e;        /* matches the site's dark section bands */
-  --occ-accent: #cf4411;      /* UTRGV orange */
-  --occ-gap: 14px;
-
-  clear: both;
-  margin: 0 0 2rem;
-  color: var(--occ-ink);
-  font-family: "proxima-nova", "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.4;
+  --occ-brand: #cf4411;        /* UTRGV orange */
+  --occ-brand-dark: #a8360c;
+  --occ-live: #cf4411;         /* "Live occupancy" section colour */
+  --occ-live-tint: #fdf3ef;
+  --occ-other: #3d5a80;        /* "Other parking lots" section colour */
+  --occ-other-tint: #f1f5fa;
+  --occ-map: #4f4f4f;
+  --occ-map-tint: #f5f5f5;
+  --occ-gap: 12px;
+  --occ-font: "proxima-nova", "Helvetica Neue", Arial, sans-serif;
 }
 
-/* Status colours: --status for text/bars, --status-tint for badges,
-   --status-dot for the chips on the dark summary bar. */
-.occ .is-available { --status: #2e7d32; --status-tint: #e6f4e7; --status-dot: #6cc070; }
-.occ .is-busy      { --status: #a85a00; --status-tint: #fdf0dc; --status-dot: #f5b041; }
-.occ .is-full      { --status: #c0392b; --status-tint: #fbe7e5; --status-dot: #f1695b; }
-.occ .is-maintenance { --status: #6b6b6b; --status-tint: #ececec; --status-dot: #b5b5b5; }
+/* Status colours: --status for text/bars/borders, --status-tint for badges. */
+.occ .is-available   { --status: #2e7d32; --status-tint: #e6f4e7; }
+.occ .is-busy        { --status: #9a5b00; --status-tint: #fdf0dc; }
+.occ .is-full        { --status: #b3261e; --status-tint: #fbe7e5; }
+.occ .is-maintenance { --status: #616161; --status-tint: #ececec; }
 
-/* ---------- Collapsible shell ---------- */
-.occ-panel {
+.occ-sr {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
   overflow: hidden;
-  background: var(--occ-surface);
-  border: 1px solid var(--occ-line);
-  border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-.occ-summary {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 14px 18px;
-  color: #fff;
-  background: var(--occ-band);
-  border-left: 6px solid var(--occ-accent);
-  cursor: pointer;
-  list-style: none;
-  user-select: none;
-}
-.occ-summary::-webkit-details-marker { display: none; }
-.occ-summary::marker { content: ""; }
-.occ-summary:hover { background: #5a5858; }
+.occ-icon { flex: none; }
 
-/* The site's global :focus rule (accessible-helper.css) forces a white border and
-   blue outline with !important. Keep that outline for keyboard users, but don't
-   let it repaint the panel's borders, and hide it after mouse clicks. */
-.occ .occ-summary:focus {
-  border: 0 !important;
-  border-left: 6px solid var(--occ-accent) !important;
-  outline-offset: -3px;
-}
-.occ .occ-summary:focus:not(:focus-visible),
-.occ .occ-track:focus:not(:focus-visible),
-.occ .occ-nav-btn:focus:not(:focus-visible),
-.occ .occ-check input:focus:not(:focus-visible) {
+/* The site's global :focus rule (accessible-helper.css) forces a white border
+   and blue outline with !important. Keep its outline for keyboard users, but
+   hide it after mouse clicks; individual controls restore their own borders. */
+.title-row :focus:not(:focus-visible),
+.occ :focus:not(:focus-visible) {
   outline: none !important;
 }
-.occ .occ-nav-btn:focus { border: 1px solid #bdbdbd !important; }
-.occ .occ-track:focus { border: 0 !important; }
 
-.occ-summary-icon {
+/* The site underlines buttons on hover/focus; these controls already look like
+   buttons and have their own hover and focus states. */
+.title-row .occ-trigger:focus,
+.occ button:hover,
+.occ button:focus,
+.occ .occ-action:hover,
+.occ .occ-action:focus {
+  text-decoration: none;
+}
+
+/* ---------- Title row ---------- */
+.title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin: .67em 0;
+}
+.title-row .page-title { margin: 0; }
+
+.occ-trigger {
+  display: flex;
+  flex: 0 1 540px;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  margin: 0;
+  padding: 10px 12px 10px 12px;
+  color: var(--occ-ink);
+  background: var(--occ-surface);
+  border: 1px solid var(--occ-line);
+  border-left: 5px solid var(--occ-brand);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .08);
+  font-family: var(--occ-font);
+  text-align: left;
+  cursor: pointer;
+  transition: box-shadow .15s ease, border-color .15s ease, transform .15s ease;
+}
+.occ-trigger:hover {
+  text-decoration: none;
+  border-color: var(--occ-brand);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .14);
+  transform: translateY(-1px);
+}
+.title-row .occ-trigger:focus {
+  border: 1px solid var(--occ-brand) !important;
+  border-left: 5px solid var(--occ-brand) !important;
+  outline-offset: 2px;
+}
+
+.occ-trigger-icon {
   flex: none;
   display: grid;
   place-items: center;
-  width: 40px;
-  height: 40px;
-  color: var(--occ-band);
-  background: #fff;
-  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  color: #fff;
+  background: var(--occ-brand);
+  border-radius: 9px;
   font-size: 24px;
   font-weight: 800;
   line-height: 1;
 }
 
-.occ-summary-text {
+.occ-trigger-text {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
+  gap: 2px;
   min-width: 0;
 }
-.occ-title {
-  font-size: 1.15rem;
+.occ-trigger-title {
+  font-size: 1.05rem;
   font-weight: 700;
   line-height: 1.25;
 }
-.occ-subtitle {
-  font-size: .9rem;
-  opacity: .9;
+.occ-trigger-desc {
+  color: var(--occ-muted);
+  font-size: .85rem;
+  line-height: 1.35;
 }
-.occ-subtitle span { white-space: nowrap; }
+.occ-trigger-stats span { white-space: nowrap; }
+.occ-source-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  background: #8a8a8a;
+  border-radius: 50%;
+  vertical-align: 1px;
+}
+.occ-trigger.is-live .occ-source-dot { background: #2e7d32; }
 
-.occ-chips {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  flex: none;
-  gap: 5px;
-}
-.occ-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 3px 8px;
-  background: rgba(255, 255, 255, .12);
-  border-radius: 999px;
-  font-size: .75rem;
-  font-weight: 700;
-  letter-spacing: .02em;
-}
-.occ-chip .occ-dot { background: var(--status-dot); margin: 0; }
-
-.occ-toggle {
+.occ-trigger-cta {
   flex: none;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  border: 1px solid rgba(255, 255, 255, .45);
+  gap: 4px;
+  padding: 7px 12px;
+  color: #fff;
+  background: var(--occ-brand);
+  border: 1px solid var(--occ-brand);
   border-radius: 999px;
   font-size: .85rem;
-  font-weight: 600;
+  font-weight: 700;
+  white-space: nowrap;
 }
-.occ-toggle svg { transition: transform .2s ease; }
-.occ-toggle-label::before { content: "Show lots"; }
-.occ-panel[open] .occ-toggle svg { transform: rotate(180deg); }
-.occ-panel[open] .occ-toggle-label::before { content: "Hide lots"; }
+.occ-trigger:hover .occ-trigger-cta { background: var(--occ-brand-dark); border-color: var(--occ-brand-dark); }
+.occ-trigger-cta .occ-icon { transition: transform .2s ease; }
+.occ-trigger[aria-expanded="true"] .occ-trigger-cta {
+  color: var(--occ-brand-dark);
+  background: #fff;
+}
+.occ-trigger[aria-expanded="true"] .occ-trigger-cta .occ-icon { transform: rotate(180deg); }
 
-/* ---------- Expanded body ---------- */
-.occ-body {
-  padding: 16px 18px 14px;
-  background: var(--occ-subtle);
+/* ---------- Region shell ---------- */
+.occ {
+  clear: both;
+  margin: 0 0 2rem;
+  overflow: hidden;
+  color: var(--occ-ink);
+  background: var(--occ-surface);
+  border: 1px solid var(--occ-line);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
+  font-family: var(--occ-font);
+  line-height: 1.4;
+}
+.occ[hidden] { display: none; }
+.occ p { margin: 0; }
+.occ ul { margin: 0; padding: 0; list-style: none; }
+.occ li { margin: 0; list-style: none; }
+.occ li::before { content: none; } /* guard against site list bullets */
+
+.occ-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 14px 18px 8px;
+}
+.occ .occ-heading {
+  margin: 0;
+  color: var(--occ-ink);
+  font: 700 1.25rem/1.25 var(--occ-font);
+}
+.occ .occ-note {
+  color: var(--occ-muted);
+  font-size: .8rem;
 }
 
-.occ-toolbar {
+/* ---------- Tabs ---------- */
+.occ-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 4px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--occ-line);
+}
+.occ .occ-tab {
+  --tab-color: var(--occ-live);
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin: 0 0 -1px;
+  padding: 8px 12px;
+  color: var(--occ-muted);
+  background: transparent;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  border-radius: 6px 6px 0 0;
+  font: 600 .95rem/1.2 var(--occ-font);
+  cursor: pointer;
+}
+.occ .occ-tab--other { --tab-color: var(--occ-other); }
+.occ .occ-tab--map { --tab-color: var(--occ-map); }
+.occ .occ-tab:hover { color: var(--occ-ink); background: #f6f6f6; }
+.occ .occ-tab[aria-selected="true"] {
+  color: var(--occ-ink);
+  border-bottom-color: var(--tab-color);
+}
+.occ .occ-tab:focus {
+  border: 0 !important;
+  border-bottom: 3px solid transparent !important;
+  outline-offset: -3px;
+}
+.occ .occ-tab[aria-selected="true"]:focus { border-bottom-color: var(--tab-color) !important; }
+.occ-tab-swatch {
+  width: 10px;
+  height: 10px;
+  background: var(--tab-color);
+  border-radius: 3px;
+}
+.occ-tab-count { color: var(--occ-muted); font-weight: 400; }
+
+/* ---------- Panels ---------- */
+.occ-panel {
+  padding: 14px 18px 16px;
+  border-left: 5px solid transparent;
+}
+.occ-panel[hidden] { display: none; }
+.occ-panel--live  { background: var(--occ-live-tint);  border-left-color: var(--occ-live); }
+.occ-panel--other { background: var(--occ-other-tint); border-left-color: var(--occ-other); }
+.occ-panel--map   { background: var(--occ-map-tint);   border-left-color: var(--occ-map); }
+
+.occ .occ-panel-intro {
+  margin-bottom: 12px;
+  color: var(--occ-muted);
+  font-size: .9rem;
+}
+.occ-tag {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 2px 8px;
+  color: #fff;
+  border-radius: 999px;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  vertical-align: 1px;
+}
+.occ-tag--live  { background: var(--occ-live); }
+.occ-tag--other { background: var(--occ-other); }
+
+/* ---------- Toolbar (shared form controls) ---------- */
+.occ-toolbar,
+.occ-campus-filter {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px 24px;
-  margin-bottom: 14px;
-}
-.occ-controls {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px 18px;
+  gap: 10px 20px;
+  margin-bottom: 12px;
 }
 .occ .occ-field,
-.occ .occ-check {
+.occ .occ-check,
+.occ .occ-campus-option {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   width: auto;
+  min-height: 32px;
   margin: 0;
   padding: 0;
-  font-size: .9rem;
-  font-weight: 600;
+  color: var(--occ-ink);
+  font: 600 .9rem/1.2 var(--occ-font);
   cursor: pointer;
 }
 .occ .occ-field select {
@@ -173,122 +308,106 @@
   padding: 6px 10px;
   color: var(--occ-ink);
   background: #fff;
-  border: 1px solid #bdbdbd;
+  border: 1px solid #8f8f8f;
   border-radius: 6px;
-  font: inherit;
-  font-weight: 400;
+  font: 400 .9rem/1.2 var(--occ-font);
 }
-.occ .occ-check input {
-  width: 16px;
-  height: 16px;
+.occ .occ-field select:focus { border: 1px solid #8f8f8f !important; }
+.occ .occ-check input,
+.occ .occ-campus-option input {
+  width: 18px;
+  height: 18px;
   margin: 0;
-  accent-color: var(--occ-accent);
+  accent-color: var(--occ-brand);
 }
+.occ .occ-check input:focus,
+.occ .occ-campus-option input:focus { border: 0 !important; }
 
-.occ-legend {
+.occ .occ-legend {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px 14px;
+  gap: 4px 14px;
   margin-left: auto;
   color: var(--occ-muted);
   font-size: .8rem;
 }
-.occ-legend .occ-dot { margin-right: 5px; }
-.occ-legend .is-available,
-.occ-legend .is-busy,
-.occ-legend .is-full { background: var(--status); }
-
 .occ-dot {
   display: inline-block;
-  width: 9px;
-  height: 9px;
+  width: 10px;
+  height: 10px;
+  margin-right: 6px;
+  background: var(--status);
   border-radius: 50%;
-  vertical-align: middle;
+  vertical-align: -1px;
 }
 
-.occ-nav { display: flex; gap: 6px; }
-.occ-nav[hidden] { display: none; }
-.occ .occ-nav-btn {
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  margin: 0;
-  padding: 0;
-  color: var(--occ-ink);
-  background: #fff;
-  border: 1px solid #bdbdbd;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.occ .occ-nav-btn:hover:not(:disabled) { border-color: var(--occ-ink); }
-.occ .occ-nav-btn:disabled { opacity: .35; cursor: default; }
-
-/* ---------- Horizontal card row ---------- */
-.occ .occ-track {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: calc((100% - 3 * var(--occ-gap)) / 4);
-  gap: var(--occ-gap);
-  margin: 0;
-  padding: 2px 2px 10px;
+/* ---------- Live occupancy: 2x2 pages moving horizontally ---------- */
+.occ-pages {
+  display: flex;
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
-  scroll-padding-inline: 2px; /* match the padding so the first card snaps to 0 */
-  scrollbar-width: thin;
-  list-style: none;
+  scrollbar-width: none; /* the pager below replaces the scrollbar */
 }
+.occ-pages::-webkit-scrollbar { display: none; }
+
+.occ .occ-page {
+  display: grid;
+  flex: 0 0 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: var(--occ-gap);
+  box-sizing: border-box;
+  padding: 2px;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+.occ .occ-page--2 { grid-template-columns: minmax(0, 1fr); }
 
 .occ .occ-card {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin: 0;
-  padding: 14px 16px 12px;
+  gap: 4px;
+  min-width: 0;
+  padding: 12px 14px;
   background: var(--occ-surface);
   border: 1px solid var(--occ-line);
   border-top: 4px solid var(--status);
   border-radius: 10px;
-  list-style: none;
-  scroll-snap-align: start;
 }
-.occ .occ-card::before { content: none; } /* guard against site list bullets */
 
-.occ-card-head {
+.occ-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
 }
-.occ-lot {
+.occ .occ-card-title {
+  margin: 0;
+  color: var(--occ-ink);
+  font: 800 1.35rem/1.1 var(--occ-font);
   white-space: nowrap;
-  font-size: 1.5rem;
-  font-weight: 800;
-  line-height: 1;
 }
 .occ-lot-prefix {
   color: var(--occ-muted);
-  font-size: .8rem;
+  font-size: .62em;
   font-weight: 600;
-  text-transform: uppercase;
   letter-spacing: .05em;
+  text-transform: uppercase;
 }
 .occ-badge {
   padding: 3px 8px;
   color: var(--status);
   background: var(--status-tint);
   border-radius: 999px;
-  font-size: .7rem;
+  font-size: .72rem;
   font-weight: 700;
-  letter-spacing: .05em;
+  letter-spacing: .04em;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
-.occ .occ-card p { margin: 0; padding: 0; }
 .occ .occ-place {
-  min-height: 2.6em; /* keeps bars aligned when an address wraps */
   font-size: .92rem;
   font-weight: 600;
   line-height: 1.3;
@@ -297,23 +416,35 @@
   color: var(--occ-muted);
   font-size: .8rem;
 }
-.occ .occ-count {
+
+.occ-stats {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
   margin-top: 4px;
+}
+.occ .occ-count {
   color: var(--occ-muted);
   font-size: .88rem;
 }
 .occ-count strong {
   margin-right: 3px;
   color: var(--status);
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 800;
   line-height: 1;
+}
+.occ .occ-pct {
+  color: var(--occ-muted);
+  font-size: .85rem;
+  font-weight: 600;
 }
 
 .occ-bar {
   height: 8px;
   overflow: hidden;
-  background: #e5e5e5;
+  background: #e3e3e3;
   border-radius: 999px;
 }
 .occ-bar span {
@@ -323,55 +454,237 @@
   border-radius: inherit;
 }
 
-.occ .occ-foot {
+.occ-card-foot {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: 6px 10px;
+  margin-top: auto;
+  padding-top: 6px;
+}
+.occ-updated {
   color: var(--occ-muted);
   font-size: .78rem;
+}
+
+.occ .occ-actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.occ .occ-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 32px;
+  margin: 0;
+  padding: 4px 11px;
+  color: var(--occ-ink);
+  background: #fff;
+  border: 1px solid #8f8f8f;
+  border-radius: 999px;
+  font: 600 .8rem/1.2 var(--occ-font);
+  text-decoration: none;
+  cursor: pointer;
+}
+.occ .occ-action:hover {
+  color: #fff;
+  background: var(--occ-ink);
+  border-color: var(--occ-ink);
+}
+.occ .occ-action:focus { border: 1px solid #8f8f8f !important; }
+
+/* Pager */
+.occ-pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 12px;
+  margin-top: 12px;
+}
+.occ-pager[hidden] { display: none; }
+.occ .occ-pager-btn {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  color: var(--occ-ink);
+  background: #fff;
+  border: 1px solid #8f8f8f;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.occ .occ-pager-btn:hover:not(:disabled) { color: #fff; background: var(--occ-ink); border-color: var(--occ-ink); }
+.occ .occ-pager-btn:disabled { opacity: .4; cursor: default; }
+.occ .occ-pager-btn:focus { border: 1px solid #8f8f8f !important; }
+
+.occ-dots { display: flex; gap: 2px; }
+.occ .occ-dot-btn {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.occ .occ-dot-btn::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border: 2px solid #6d6d6d;
+  border-radius: 50%;
+}
+.occ .occ-dot-btn[aria-current="true"]::before {
+  background: var(--occ-live);
+  border-color: var(--occ-live);
+}
+.occ .occ-dot-btn:focus { border: 0 !important; }
+
+.occ .occ-page-status {
+  min-width: 8.5em;
+  color: var(--occ-muted);
+  font-size: .85rem;
+  text-align: center;
 }
 
 .occ .occ-empty {
-  grid-column: 1 / -1;
   padding: 24px;
   color: var(--occ-muted);
   text-align: center;
-  list-style: none;
 }
 
-.occ .occ-note {
-  margin: 4px 0 0;
-  color: var(--occ-muted);
-  font-size: .78rem;
+/* ---------- Other parking lots ---------- */
+.occ-campus-group + .occ-campus-group { margin-top: 18px; }
+.occ-campus-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 12px;
+  margin-bottom: 8px;
 }
+.occ .occ-campus-title {
+  margin: 0;
+  color: var(--occ-ink);
+  font: 700 1.1rem/1.25 var(--occ-font);
+}
+.occ .occ-other-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+.occ .occ-other-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px;
+  background: var(--occ-surface);
+  border: 1px solid var(--occ-line);
+  border-left: 4px solid var(--occ-other);
+  border-radius: 8px;
+}
+.occ .occ-other-card .occ-card-title { font-size: 1.2rem; }
+.occ .occ-other-card .occ-actions { margin-top: auto; padding-top: 4px; }
+.occ .occ-other-empty {
+  padding: 10px 12px;
+  color: var(--occ-muted);
+  background: var(--occ-surface);
+  border: 1px dashed #b9c3cf;
+  border-radius: 8px;
+  font-size: .88rem;
+}
+
+/* ---------- Campus map ---------- */
+.occ .occ-campus-picker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  margin: 0 0 10px;
+  padding: 0;
+  border: 0;
+}
+.occ .occ-campus-picker legend {
+  float: left;
+  margin: 0 6px 0 0;
+  padding: 0;
+  font: 600 .9rem/32px var(--occ-font);
+}
+.occ-campus-options { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.occ .occ-campus-option { font-weight: 400; }
+
+.occ .occ-map-focus {
+  margin-bottom: 8px;
+  font-size: .9rem;
+  font-weight: 600;
+}
+.occ .occ-map-focus:focus { border: 0 !important; outline-offset: 3px; }
+
+.occ-map-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-height: 480px;
+  overflow: hidden;
+  background: #e6e6e6;
+  border: 1px solid var(--occ-line);
+  border-radius: 8px;
+}
+.occ-map-frame::before {
+  content: "Loading map\2026";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--occ-muted);
+  font-size: .9rem;
+}
+.occ-map-frame iframe {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.occ .occ-map-alt {
+  margin-top: 8px;
+  color: var(--occ-muted);
+  font-size: .82rem;
+}
+.occ .occ-map-alt a { color: var(--occ-brand-dark); }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 1060px) {
-  .occ-chips { display: none; }
-}
-
 @media (max-width: 1000px) {
-  .occ { margin: 0 10px 2rem; }
+  .title-row,
+  .occ { margin-left: 10px; margin-right: 10px; }
 }
 
-@media (max-width: 900px) {
-  .occ .occ-track { grid-auto-columns: calc((100% - var(--occ-gap)) / 2.3); }
+@media (max-width: 760px) {
+  .occ-trigger { flex-basis: 100%; }
+  .occ .occ-legend { margin-left: 0; }
 }
 
 @media (max-width: 560px) {
-  .occ { margin: 0 10px 1.5rem; }
-  .occ-summary { gap: 12px; padding: 12px 14px; }
-  .occ-summary-icon { width: 34px; height: 34px; font-size: 20px; }
-  .occ-title { font-size: 1rem; }
-  .occ-subtitle { font-size: .82rem; }
-  .occ-toggle { padding: 6px 8px; }
-  .occ-toggle-label { display: none; }
-  .occ-body { padding: 14px 12px 12px; }
-  .occ-legend { margin-left: 0; }
-  .occ-nav { display: none; }
-  .occ .occ-track { grid-auto-columns: 82%; }
+  .occ-trigger { gap: 10px; padding: 10px; }
+  .occ-trigger-icon { width: 36px; height: 36px; font-size: 20px; }
+  .occ-trigger-cta { padding: 7px 9px; }
+  .occ-cta-label { display: none; }
+  .occ-head { padding: 12px 12px 6px; }
+  .occ-tabs { padding: 0 6px; }
+  .occ-panel { padding: 12px 10px 14px; border-left-width: 4px; }
+  .occ-map-frame { aspect-ratio: 4 / 5; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .occ-toggle svg { transition: none; }
+  .occ-trigger,
+  .occ-trigger-cta .occ-icon { transition: none; }
+  .occ-trigger:hover { transform: none; }
 }

@@ -998,63 +998,95 @@
                 <!-- Main Content Start - moved to right column -->
                 <!--	<div id="maincontent" role="main"></div> -->
                 <section aria-label="Page title">
-                         
-        <section aria-labelledby="page-title">
-
-  <h1 class="page-title" id="page-title">Parking Services</h1>
-</section>
- 
-   
-
-                    
+                    <!-- Page title with the parking occupancy control on the same line -->
+                    <div class="title-row">
+                        <h1 class="page-title" id="page-title">Parking Services</h1>
+                        <button type="button" class="occ-trigger" id="occ-trigger" aria-expanded="false" aria-controls="occ-region" aria-labelledby="occ-trigger-title" aria-describedby="occ-trigger-desc">
+                            <span class="occ-trigger-icon" aria-hidden="true">P</span>
+                            <span class="occ-trigger-text">
+                                <span class="occ-trigger-title" id="occ-trigger-title">Current Parking Lot Occupancy</span>
+                                <span class="occ-trigger-desc" id="occ-trigger-desc"><span class="occ-source-dot" aria-hidden="true"></span><span class="occ-trigger-stats">Loading lot data&hellip;</span></span>
+                            </span>
+                            <span class="occ-trigger-cta" aria-hidden="true"><span class="occ-cta-label">View lots</span><svg class="occ-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                        </button>
+                    </div>
                 </section>
                 <!-- Slideshow -->
-                
-                
-                
-                
-                <!-- Current Parking Lot Occupancy (full width, collapsible) -->
-                <section class="occ" aria-labelledby="occ-title">
-                    <details class="occ-panel" id="occ-panel">
-                        <summary class="occ-summary">
-                            <span class="occ-summary-icon" aria-hidden="true">P</span>
-                            <span class="occ-summary-text">
-                                <span class="occ-title" id="occ-title">Current Parking Lot Occupancy</span>
-                                <span class="occ-subtitle" id="occ-subtitle">Loading lot data&hellip;</span>
-                            </span>
-                            <span class="occ-chips" id="occ-chips" aria-hidden="true"></span>
-                            <span class="occ-toggle"><span class="occ-toggle-label"></span><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                        </summary>
-                        <div class="occ-body">
-                            <div class="occ-toolbar">
-                                <div class="occ-controls">
-                                    <label class="occ-field">
-                                        <span>Sort by</span>
-                                        <select id="occ-sort">
-                                            <option value="open">Most open spaces</option>
-                                            <option value="occupancy">Least full</option>
-                                            <option value="name">Lot name</option>
-                                        </select>
-                                    </label>
-                                    <label class="occ-check">
-                                        <input type="checkbox" id="occ-hide-full"> Hide full lots
-                                    </label>
-                                </div>
-                                <div class="occ-legend" aria-hidden="true">
-                                    <span><i class="occ-dot is-available"></i>Available</span>
-                                    <span><i class="occ-dot is-busy"></i>Filling up</span>
-                                    <span><i class="occ-dot is-full"></i>Full</span>
-                                </div>
-                                <div class="occ-nav">
-                                    <button type="button" class="occ-nav-btn" data-dir="-1" aria-label="Scroll lots left"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-                                    <button type="button" class="occ-nav-btn" data-dir="1" aria-label="Scroll lots right"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-                                </div>
-                            </div>
-                            <ul class="occ-track" id="occ-track" aria-label="Parking lots" tabindex="0"></ul>
-                            <p class="occ-note" id="occ-note" role="status"></p>
-                            <noscript><p class="occ-note">Live lot data requires JavaScript.</p></noscript>
+
+                <!-- Parking lots: live occupancy, other lots and campus map (opened by #occ-trigger) -->
+                <section class="occ" id="occ-region" aria-labelledby="occ-heading" hidden>
+                    <div class="occ-head">
+                        <h2 class="occ-heading" id="occ-heading">Parking lots</h2>
+                        <p class="occ-note" id="occ-note"></p>
+                    </div>
+
+                    <div class="occ-tabs" role="tablist" aria-labelledby="occ-heading">
+                        <button type="button" role="tab" class="occ-tab occ-tab--live" id="occ-tab-live" aria-controls="occ-panel-live" aria-selected="true">
+                            <span class="occ-tab-swatch" aria-hidden="true"></span>Live occupancy <span class="occ-tab-count" id="occ-count-live"></span>
+                        </button>
+                        <button type="button" role="tab" class="occ-tab occ-tab--other" id="occ-tab-other" aria-controls="occ-panel-other" aria-selected="false" tabindex="-1">
+                            <span class="occ-tab-swatch" aria-hidden="true"></span>Other parking lots <span class="occ-tab-count" id="occ-count-other"></span>
+                        </button>
+                        <button type="button" role="tab" class="occ-tab occ-tab--map" id="occ-tab-map" aria-controls="occ-panel-map" aria-selected="false" tabindex="-1">
+                            <span class="occ-tab-swatch" aria-hidden="true"></span>Campus map
+                        </button>
+                    </div>
+
+                    <!-- Live occupancy: 2x2 pages that move horizontally -->
+                    <div class="occ-panel occ-panel--live" role="tabpanel" id="occ-panel-live" aria-labelledby="occ-tab-live">
+                        <p class="occ-panel-intro"><span class="occ-tag occ-tag--live">Live</span> These lots report how many spaces are open right now.</p>
+                        <div class="occ-toolbar">
+                            <label class="occ-field">
+                                <span>Sort by</span>
+                                <select id="occ-sort">
+                                    <option value="open">Most open spaces</option>
+                                    <option value="occupancy">Least full</option>
+                                    <option value="name">Lot name</option>
+                                </select>
+                            </label>
+                            <label class="occ-check"><input type="checkbox" id="occ-hide-full"> Hide full lots</label>
+                            <ul class="occ-legend" aria-label="Status colors">
+                                <li><span class="occ-dot is-available" aria-hidden="true"></span>Available</li>
+                                <li><span class="occ-dot is-busy" aria-hidden="true"></span>Filling up (75%+)</li>
+                                <li><span class="occ-dot is-full" aria-hidden="true"></span>Full</li>
+                            </ul>
                         </div>
-                    </details>
+
+                        <div class="occ-carousel" role="group" aria-roledescription="carousel" aria-label="Live lot occupancy">
+                            <div class="occ-pages" id="occ-pages"></div>
+                            <div class="occ-pager" id="occ-pager">
+                                <button type="button" class="occ-pager-btn" id="occ-prev" aria-controls="occ-pages"><svg class="occ-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="occ-sr">Previous lots</span></button>
+                                <div class="occ-dots" id="occ-dots"></div>
+                                <p class="occ-page-status" id="occ-page-status"></p>
+                                <button type="button" class="occ-pager-btn" id="occ-next" aria-controls="occ-pages"><svg class="occ-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="occ-sr">Next lots</span></button>
+                            </div>
+                            <p class="occ-sr" id="occ-announcer" aria-live="polite"></p>
+                        </div>
+                    </div>
+
+                    <!-- Lots without live counts -->
+                    <div class="occ-panel occ-panel--other" role="tabpanel" id="occ-panel-other" aria-labelledby="occ-tab-other" hidden>
+                        <p class="occ-panel-intro"><span class="occ-tag occ-tag--other">No live count</span> These lots don&rsquo;t report occupancy. Use the links to find them.</p>
+                        <div class="occ-campus-filter">
+                            <label class="occ-field">
+                                <span>Campus</span>
+                                <select id="occ-other-campus"></select>
+                            </label>
+                        </div>
+                        <div id="occ-other-list"></div>
+                    </div>
+
+                    <!-- Visual map -->
+                    <div class="occ-panel occ-panel--map" role="tabpanel" id="occ-panel-map" aria-labelledby="occ-tab-map" hidden>
+                        <fieldset class="occ-campus-picker">
+                            <legend>Campus</legend>
+                            <div class="occ-campus-options" id="occ-map-campuses"></div>
+                        </fieldset>
+                        <p class="occ-map-focus" id="occ-map-focus" aria-live="polite"></p>
+                        <div class="occ-map-frame" id="occ-map-frame"></div>
+                        <p class="occ-map-alt" id="occ-map-alt"></p>
+                    </div>
+                    <noscript><p class="occ-note">Parking lot data requires JavaScript.</p></noscript>
                 </section>
 
                 <!-- Main Content -->
@@ -1653,8 +1685,9 @@ Email for UTRGV Football Parking and Transportation Questions:</dt>
     <script src="../origin/Parking Services _ UTRGV_files/accessible-helper.js"></script>
 
         
-	<!-- Parking occupancy panel (replaces parking-widget.css + fetchapi.js) -->
+	<!-- Parking lots panel (replaces parking-widget.css + fetchapi.js) -->
 	<link href="occupancy.css" rel="stylesheet">
+	<script src="lots-data.js" type="text/javascript"></script>
 	<script src="occupancy.js" type="text/javascript"></script>
 
         
