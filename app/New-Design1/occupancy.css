@@ -25,6 +25,7 @@
 .occ .is-busy        { --status: #9a5b00; --status-tint: #fdf0dc; }
 .occ .is-full        { --status: #b3261e; --status-tint: #fbe7e5; }
 .occ .is-maintenance { --status: #616161; --status-tint: #ececec; }
+.occ .is-unknown     { --status: #616161; --status-tint: #ececec; }
 
 .occ-sr {
   position: absolute !important;
@@ -68,10 +69,12 @@
   margin: .67em 0;
 }
 .title-row .page-title { margin: 0; }
+.occ-noscript { margin: 0; font-size: .9rem; }
 
 .occ-trigger {
   display: flex;
-  flex: 0 1 540px;
+  flex: 1 1 380px;
+  max-width: 540px;
   align-items: center;
   gap: 12px;
   min-width: 0;
@@ -88,6 +91,7 @@
   cursor: pointer;
   transition: box-shadow .15s ease, border-color .15s ease, transform .15s ease;
 }
+.occ-trigger[hidden] { display: none; }
 .occ-trigger:hover {
   text-decoration: none;
   border-color: var(--occ-brand);
@@ -247,6 +251,7 @@
   border-radius: 3px;
 }
 .occ-tab-count { color: var(--occ-muted); font-weight: 400; }
+.occ-tab-short { display: none; }
 
 /* ---------- Panels ---------- */
 .occ-panel {
@@ -308,11 +313,11 @@
   padding: 6px 10px;
   color: var(--occ-ink);
   background: #fff;
-  border: 1px solid #8f8f8f;
+  border: 1px solid #767676;
   border-radius: 6px;
   font: 400 .9rem/1.2 var(--occ-font);
 }
-.occ .occ-field select:focus { border: 1px solid #8f8f8f !important; }
+.occ .occ-field select:focus { border: 1px solid #767676 !important; }
 .occ .occ-check input,
 .occ .occ-campus-option input {
   width: 18px;
@@ -355,7 +360,7 @@
   display: grid;
   flex: 0 0 100%;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-auto-rows: 1fr;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: var(--occ-gap);
   box-sizing: border-box;
   padding: 2px;
@@ -378,6 +383,7 @@
 
 .occ-card-top {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
@@ -487,7 +493,7 @@
   padding: 4px 11px;
   color: var(--occ-ink);
   background: #fff;
-  border: 1px solid #8f8f8f;
+  border: 1px solid #767676;
   border-radius: 999px;
   font: 600 .8rem/1.2 var(--occ-font);
   text-decoration: none;
@@ -498,7 +504,7 @@
   background: var(--occ-ink);
   border-color: var(--occ-ink);
 }
-.occ .occ-action:focus { border: 1px solid #8f8f8f !important; }
+.occ .occ-action:focus { border: 1px solid #767676 !important; }
 
 /* Pager */
 .occ-pager {
@@ -519,13 +525,13 @@
   padding: 0;
   color: var(--occ-ink);
   background: #fff;
-  border: 1px solid #8f8f8f;
+  border: 1px solid #767676;
   border-radius: 50%;
   cursor: pointer;
 }
-.occ .occ-pager-btn:hover:not(:disabled) { color: #fff; background: var(--occ-ink); border-color: var(--occ-ink); }
-.occ .occ-pager-btn:disabled { opacity: .4; cursor: default; }
-.occ .occ-pager-btn:focus { border: 1px solid #8f8f8f !important; }
+.occ .occ-pager-btn:hover:not([aria-disabled="true"]) { color: #fff; background: var(--occ-ink); border-color: var(--occ-ink); }
+.occ .occ-pager-btn[aria-disabled="true"] { opacity: .4; cursor: default; }
+.occ .occ-pager-btn:focus { border: 1px solid #767676 !important; }
 
 .occ-dots { display: flex; gap: 2px; }
 .occ .occ-dot-btn {
@@ -566,6 +572,7 @@
   color: var(--occ-muted);
   text-align: center;
 }
+.occ .occ-empty p + p { margin-top: 10px; }
 
 /* ---------- Other parking lots ---------- */
 .occ-campus-group + .occ-campus-group { margin-top: 18px; }
@@ -598,6 +605,11 @@
   border-radius: 8px;
 }
 .occ .occ-other-card .occ-card-title { font-size: 1.2rem; }
+.occ .occ-card-title--name {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
 .occ .occ-other-card .occ-card-title--name { font-size: 1.05rem; line-height: 1.25; white-space: normal; }
 .occ .occ-other-card .occ-actions { margin-top: auto; padding-top: 4px; }
 .occ .occ-other-empty {
@@ -630,6 +642,7 @@
 
 .occ .occ-map-focus {
   margin-bottom: 8px;
+  scroll-margin-top: 60px; /* keep the campus picker in view above it */
   font-size: .9rem;
   font-weight: 600;
 }
@@ -637,6 +650,8 @@
 
 .occ-map-frame {
   position: relative;
+  width: 100%;
+  height: min(56.25vw, 480px); /* fallback where aspect-ratio isn't supported */
   aspect-ratio: 16 / 9;
   max-height: 480px;
   overflow: hidden;
@@ -644,8 +659,9 @@
   border: 1px solid var(--occ-line);
   border-radius: 8px;
 }
-.occ-map-frame::before {
+.occ-map-frame.has-frame::before {
   content: "Loading map\2026";
+  content: "Loading map\2026" / "";
   position: absolute;
   inset: 0;
   display: grid;
@@ -658,6 +674,7 @@
   display: block;
   width: 100%;
   height: 100%;
+  background: transparent;
   border: 0;
 }
 .occ .occ-map-alt {
@@ -666,15 +683,18 @@
   font-size: .82rem;
 }
 .occ .occ-map-alt a { color: var(--occ-brand-dark); }
+.occ .occ-map-alt a:focus { border: 0 !important; }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 1000px) {
+/* The site's content column has no side gutter from 601px to 980px and a 7px
+   gutter at 600px and below; the title row and panel follow it. */
+@media (max-width: 600px) {
   .title-row,
-  .occ { margin-left: 10px; margin-right: 10px; }
+  .occ { margin-left: 7px; margin-right: 7px; }
 }
 
-@media (max-width: 760px) {
-  .occ-trigger { flex-basis: 100%; }
+@media (max-width: 860px) {
+  .occ-trigger { flex-basis: 100%; max-width: none; }
   .occ .occ-legend { margin-left: 0; }
 }
 
@@ -684,9 +704,40 @@
   .occ-trigger-cta { padding: 7px 9px; }
   .occ-cta-label { display: none; }
   .occ-head { padding: 12px 12px 6px; }
-  .occ-tabs { padding: 0 6px; }
   .occ-panel { padding: 12px 10px 14px; border-left-width: 4px; }
-  .occ-map-frame { aspect-ratio: 4 / 5; }
+  .occ-map-frame { height: 125vw; aspect-ratio: 4 / 5; }
+}
+
+@media (max-width: 480px) {
+  /* Three equal tabs on one row with short labels. */
+  .occ-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; padding: 0 4px; }
+  .occ .occ-tab { justify-content: center; gap: 5px; padding: 8px 4px; font-size: .9rem; }
+  .occ-tab-long { display: none; }
+  .occ-tab-short { display: inline; }
+  .occ-tab-count { font-size: .85em; }
+
+  /* Range text above the controls so Prev, the dots and Next stay together. */
+  .occ .occ-page-status { flex-basis: 100%; order: -1; }
+}
+
+@media (max-width: 400px) {
+  .occ-trigger-stats span { white-space: normal; }
+}
+
+/* Windows High Contrast / forced colours: keep selection, current page and bars visible. */
+@media (forced-colors: active) {
+  .occ .occ-tab { border-bottom-color: Canvas; }
+  .occ .occ-tab[aria-selected="true"],
+  .occ .occ-tab[aria-selected="true"]:focus { border-bottom-color: Highlight !important; text-decoration: underline; }
+  .occ .occ-dot-btn::before { forced-color-adjust: none; background: Canvas; border-color: CanvasText; }
+  .occ .occ-dot-btn[aria-current="true"]::before { background: Highlight; border-color: Highlight; }
+  .occ-bar { forced-color-adjust: none; background: Canvas; border: 1px solid CanvasText; }
+  .occ-bar span { background: CanvasText; }
+  .occ-badge,
+  .occ-tag { border: 1px solid CanvasText; }
+  .occ-dot,
+  .occ-tab-swatch { forced-color-adjust: none; }
+  .occ-trigger-cta { border-color: ButtonText; }
 }
 
 @media (prefers-reduced-motion: reduce) {

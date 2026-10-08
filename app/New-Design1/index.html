@@ -63,6 +63,8 @@
 	<link href="../origin/Parking Services _ UTRGV_files/cisco-web-chat.css" rel="stylesheet">
 	<!-- Custom CSS -->
 	<link href="../origin/Parking Services _ UTRGV_files/custom.css" rel="stylesheet">
+	<!-- Parking lots panel (replaces parking-widget.css) -->
+	<link href="occupancy.css" rel="stylesheet">
 
         <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -1001,14 +1003,15 @@
                     <!-- Page title with the parking occupancy control on the same line -->
                     <div class="title-row">
                         <h1 class="page-title" id="page-title">Parking Services</h1>
-                        <button type="button" class="occ-trigger" id="occ-trigger" aria-expanded="false" aria-controls="occ-region" aria-labelledby="occ-trigger-title" aria-describedby="occ-trigger-desc">
+                        <button type="button" class="occ-trigger" id="occ-trigger" aria-expanded="false" aria-controls="occ-region" aria-labelledby="occ-trigger-title occ-cta-label" aria-describedby="occ-trigger-desc" hidden>
                             <span class="occ-trigger-icon" aria-hidden="true">P</span>
                             <span class="occ-trigger-text">
                                 <span class="occ-trigger-title" id="occ-trigger-title">Current Parking Lot Occupancy</span>
-                                <span class="occ-trigger-desc" id="occ-trigger-desc"><span class="occ-source-dot" aria-hidden="true"></span><span class="occ-trigger-stats">Loading lot data&hellip;</span></span>
+                                <span class="occ-trigger-desc" id="occ-trigger-desc"><span class="occ-trigger-stats">Checking live counts&hellip;</span></span>
                             </span>
-                            <span class="occ-trigger-cta" aria-hidden="true"><span class="occ-cta-label">View lots</span><svg class="occ-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            <span class="occ-trigger-cta"><span class="occ-cta-label" id="occ-cta-label">View lots</span><svg class="occ-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
                         </button>
+                        <noscript><p class="occ-noscript">Live lot counts need JavaScript. The campus parking-zone maps are linked under Overview below.</p></noscript>
                     </div>
                 </section>
                 <!-- Slideshow -->
@@ -1022,13 +1025,13 @@
 
                     <div class="occ-tabs" role="tablist" aria-labelledby="occ-heading">
                         <button type="button" role="tab" class="occ-tab occ-tab--live" id="occ-tab-live" aria-controls="occ-panel-live" aria-selected="true">
-                            <span class="occ-tab-swatch" aria-hidden="true"></span>Live occupancy <span class="occ-tab-count" id="occ-count-live"></span>
+                            <span class="occ-tab-swatch" aria-hidden="true"></span><span class="occ-tab-long">Live occupancy</span><span class="occ-tab-short">Live</span> <span class="occ-tab-count" id="occ-count-live"></span>
                         </button>
                         <button type="button" role="tab" class="occ-tab occ-tab--other" id="occ-tab-other" aria-controls="occ-panel-other" aria-selected="false" tabindex="-1">
-                            <span class="occ-tab-swatch" aria-hidden="true"></span>Other parking lots <span class="occ-tab-count" id="occ-count-other"></span>
+                            <span class="occ-tab-swatch" aria-hidden="true"></span><span class="occ-tab-long">Other parking lots</span><span class="occ-tab-short">Other lots</span> <span class="occ-tab-count" id="occ-count-other"></span>
                         </button>
                         <button type="button" role="tab" class="occ-tab occ-tab--map" id="occ-tab-map" aria-controls="occ-panel-map" aria-selected="false" tabindex="-1">
-                            <span class="occ-tab-swatch" aria-hidden="true"></span>Campus map
+                            <span class="occ-tab-swatch" aria-hidden="true"></span><span class="occ-tab-long">Campus map</span><span class="occ-tab-short">Map</span>
                         </button>
                     </div>
 
@@ -1049,6 +1052,7 @@
                                 <li><span class="occ-dot is-available" aria-hidden="true"></span>Available</li>
                                 <li><span class="occ-dot is-busy" aria-hidden="true"></span>Filling up (75%+)</li>
                                 <li><span class="occ-dot is-full" aria-hidden="true"></span>Full</li>
+                                <li><span class="occ-dot is-maintenance" aria-hidden="true"></span>Closed</li>
                             </ul>
                         </div>
 
@@ -1086,7 +1090,6 @@
                         <div class="occ-map-frame" id="occ-map-frame"></div>
                         <p class="occ-map-alt" id="occ-map-alt"></p>
                     </div>
-                    <noscript><p class="occ-note">Parking lot data requires JavaScript.</p></noscript>
                 </section>
 
                 <!-- Main Content -->
@@ -1685,8 +1688,7 @@ Email for UTRGV Football Parking and Transportation Questions:</dt>
     <script src="../origin/Parking Services _ UTRGV_files/accessible-helper.js"></script>
 
         
-	<!-- Parking lots panel (replaces parking-widget.css + fetchapi.js) -->
-	<link href="occupancy.css" rel="stylesheet">
+	<!-- Parking lots panel (replaces fetchapi.js; styles are linked in <head>) -->
 	<script src="lots-data.js" type="text/javascript"></script>
 	<script src="occupancy.js" type="text/javascript"></script>
 
